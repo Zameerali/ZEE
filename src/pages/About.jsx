@@ -571,7 +571,7 @@ const About = () => {
                       Why Businesses Choose Us
                     </Typography>
                     
-                    <Grid container spacing={{ xs: 2, md: 3 }}>
+                    <Box sx={{ maxWidth: 800, mx: 'auto' }}>
                       {[
                         'Leading virtual retail solutions provider',
                         'Award-winning technology platform',
@@ -580,60 +580,53 @@ const About = () => {
                         'Proven track record of success',
                         'Customized solutions for every business'
                       ].map((feature, index) => (
-                        <Grid item xs={12} sm={6} md={4} key={index}>
-                          <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4, delay: index * 0.1 }}
-                            viewport={{ once: true }}
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.4, delay: index * 0.1 }}
+                          viewport={{ once: true }}
+                        >
+                          <Box 
+                            sx={{ 
+                              display: 'flex', 
+                              alignItems: 'center',
+                              p: { xs: 2.5, md: 3 },
+                              mb: { xs: 1.5, md: 2 },
+                              borderRadius: 2,
+                              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                              border: '1px solid rgba(255, 255, 255, 0.1)',
+                              transition: 'all 0.3s ease',
+                              '&:hover': {
+                                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                borderColor: 'rgba(255, 255, 255, 0.2)',
+                                transform: 'translateX(8px)',
+                              },
+                            }}
                           >
-                            <Box 
+                            <CheckCircle 
                               sx={{ 
-                                display: 'flex', 
-                                alignItems: 'center',
-                                justifyContent: 'flex-start',
-                                p: { xs: 2, md: 2.5 },
-                                borderRadius: 2,
-                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                                border: '1px solid rgba(255, 255, 255, 0.1)',
-                                transition: 'all 0.3s ease',
-                                height: { xs: 'auto', sm: 'auto', md: 'auto' },
-                                minHeight: { xs: 85, sm: 90, md: 95 },
-                                '&:hover': {
-                                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                                  borderColor: 'rgba(255, 255, 255, 0.2)',
-                                  transform: 'translateY(-2px)',
-                                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-                                },
+                                color: '#00F0FF', 
+                                fontSize: { xs: '1.5rem', md: '1.8rem' },
+                                mr: { xs: 2, md: 3 },
+                                flexShrink: 0,
+                              }} 
+                            />
+                            <Typography
+                              variant="body1"
+                              sx={{
+                                color: 'white',
+                                fontWeight: 500,
+                                fontSize: { xs: '1rem', md: '1.1rem' },
+                                lineHeight: 1.5,
                               }}
                             >
-                              <CheckCircle 
-                                sx={{ 
-                                  color: '#00F0FF', 
-                                  fontSize: { xs: '1.4rem', md: '1.6rem' },
-                                  mr: { xs: 2, md: 2.5 },
-                                  flexShrink: 0,
-                                }} 
-                              />
-                              <Typography
-                                variant="body1"
-                                sx={{
-                                  color: 'white',
-                                  fontWeight: 500,
-                                  fontSize: { xs: '0.95rem', md: '1.05rem' },
-                                  lineHeight: 1.5,
-                                  flex: 1,
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                }}
-                              >
-                                {feature}
-                              </Typography>
-                            </Box>
-                          </motion.div>
-                        </Grid>
+                              {feature}
+                            </Typography>
+                          </Box>
+                        </motion.div>
                       ))}
-                    </Grid>
+                    </Box>
                   </CardContent>
                 </Card>
               </motion.div>
