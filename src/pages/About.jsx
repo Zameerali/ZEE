@@ -69,15 +69,6 @@ const About = () => {
     },
   ];
 
-  const achievements = [
-    'Leading virtual retail solutions provider',
-    '300+ successful retail transformations',
-    '95% client satisfaction rate',
-    'Award-winning technology platform',
-    '24/7 dedicated support team',
-    'Industry-recognized expertise',
-  ];
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -476,7 +467,7 @@ const About = () => {
           </Box>
         </motion.div>
 
-        {/* Achievements */}
+        {/* Ready to Transform Your Business */}
         <Box
           sx={{
             background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
@@ -505,146 +496,198 @@ const About = () => {
           }}
         >
           <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 1 }}>
-            <Grid container spacing={{ xs: 3, md: 4 }} alignItems="center">
-              <Grid item xs={12} md={6}>
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
+            {/* Title Section */}
+            <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 } }}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <Typography 
+                  variant="h2" 
+                  sx={{ 
+                    fontWeight: 700, 
+                    mb: { xs: 2, md: 3 },
+                    fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+                  }}
                 >
-                  <Typography 
-                    variant="h2" 
-                    sx={{ 
-                      fontWeight: 700, 
-                      mb: { xs: 2, md: 3 },
-                      fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-                    }}
-                  >
-                    Ready to Transform Your Business?
-                  </Typography>
-                  <Typography 
-                    variant="h6" 
-                    sx={{ 
-                      opacity: 0.9, 
-                      mb: { xs: 3, md: 4 }, 
-                      lineHeight: 1.6,
-                      fontSize: { xs: '1rem', md: '1.25rem' },
-                    }}
-                  >
-                    Join hundreds of successful businesses that have already transformed their operations 
-                    with our innovative virtual solutions. Experience the difference that expert guidance 
-                    and cutting-edge technology can make for your retail success.
-                  </Typography>
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Button
-                      variant="contained"
-                      size="large"
-                      endIcon={<ArrowForward />}
-                      onClick={() => {
-                        const footer = document.getElementById('footer-contact');
-                        if (footer) {
-                          footer.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }}
-                      sx={{
-                        backgroundColor: theme.palette.mode === 'dark' 
-                          ? 'rgba(169, 255, 79, 0.9)' 
-                          : theme.palette.primary.main,
-                        color: theme.palette.mode === 'dark' 
-                          ? '#0D0F1C' 
-                          : 'white',
-                        px: { xs: 3, md: 4 },
-                        py: { xs: 1.5, md: 2 },
-                        fontSize: { xs: '1rem', md: '1.1rem' },
-                        borderRadius: 3,
-                        fontWeight: 600,
-                        boxShadow: theme.palette.mode === 'dark'
-                          ? '0 8px 32px rgba(169, 255, 79, 0.2)'
-                          : '0 8px 32px rgba(0, 0, 0, 0.1)',
-                        '&:hover': {
-                          transform: 'translateY(-2px)',
-                          backgroundColor: theme.palette.mode === 'dark' 
-                            ? 'rgba(169, 255, 79, 1)' 
-                            : theme.palette.primary.dark,
-                          boxShadow: theme.palette.mode === 'dark'
-                            ? '0 12px 40px rgba(169, 255, 79, 0.3)'
-                            : `0 12px 40px ${theme.palette.primary.main}40`,
-                        },
+                  Ready to Transform Your Business?
+                </Typography>
+                <Typography 
+                  variant="h6" 
+                  sx={{ 
+                    opacity: 0.9, 
+                    lineHeight: 1.6,
+                    fontSize: { xs: '1rem', md: '1.25rem', lg: '1.35rem' },
+                    maxWidth: { xs: '100%', md: 800, lg: 900 },
+                    mx: 'auto',
+                    px: { xs: 2, md: 0 },
+                  }}
+                >
+                  Join hundreds of successful businesses that have already transformed their operations 
+                  with our innovative virtual solutions. Experience the difference that expert guidance 
+                  and cutting-edge technology can make for your retail success.
+                </Typography>
+              </motion.div>
+            </Box>
+
+            {/* Card Section */}
+            <Box sx={{ mb: { xs: 4, md: 6 } }}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <Card
+                  sx={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    borderRadius: 4,
+                    transition: 'all 0.3s ease',
+                    maxWidth: { xs: '100%', sm: 800, md: 900, lg: 1000 },
+                    mx: 'auto',
+                    '&:hover': {
+                      backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2)',
+                    },
+                  }}
+                >
+                  <CardContent sx={{ p: { xs: 3, sm: 4, md: 5, lg: 6 } }}>
+                    <Typography 
+                      variant="h5" 
+                      sx={{ 
+                        fontWeight: 600, 
+                        mb: { xs: 3, md: 4 },
+                        fontSize: { xs: '1.25rem', md: '1.5rem', lg: '1.75rem' },
+                        textAlign: 'center',
+                        color: 'white',
                       }}
                     >
-                      Start Your Journey Today
-                    </Button>
-                  </motion.div>
-                </motion.div>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <Card
-                    sx={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                      backdropFilter: 'blur(20px)',
-                      border: '1px solid rgba(255, 255, 255, 0.2)',
-                      borderRadius: 4,
-                      transition: 'all 0.3s ease',
-                      '&:hover': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                        border: '1px solid rgba(255, 255, 255, 0.3)',
-                        boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2)',
-                      },
-                    }}
-                  >
-                    <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-                      <Typography 
-                        variant="h5" 
-                        sx={{ 
-                          fontWeight: 600, 
-                          mb: 3,
-                          fontSize: { xs: '1.25rem', md: '1.5rem' },
-                          textAlign: 'center',
-                        }}
-                      >
-                        Why Businesses Choose Us
-                      </Typography>
-                      <List sx={{ p: 0 }}>
-                        {achievements.map((achievement, index) => (
+                      Why Businesses Choose Us
+                    </Typography>
+                    
+                    <Grid container spacing={{ xs: 2, md: 3 }}>
+                      {[
+                        'Leading virtual retail solutions provider',
+                        'Award-winning technology platform',
+                        '24/7 dedicated support team',
+                        'Industry-recognized expertise',
+                        'Proven track record of success',
+                        'Customized solutions for every business'
+                      ].map((feature, index) => (
+                        <Grid item xs={12} sm={6} md={4} key={index}>
                           <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.4, delay: index * 0.1 }}
                             viewport={{ once: true }}
                           >
-                            <ListItem sx={{ px: 0, py: { xs: 1, md: 1.5 } }}>
-                              <ListItemIcon sx={{ minWidth: { xs: 32, md: 36 } }}>
-                                <CheckCircle sx={{ color: '#00F0FF', fontSize: { xs: '1.25rem', md: '1.5rem' } }} />
-                              </ListItemIcon>
-                              <ListItemText
-                                primary={achievement}
-                                primaryTypographyProps={{
+                            <Box 
+                              sx={{ 
+                                display: 'flex', 
+                                alignItems: 'center',
+                                p: { xs: 2, md: 2.5 },
+                                borderRadius: 2,
+                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                                transition: 'all 0.3s ease',
+                                height: { xs: 'auto', sm: 80, md: 85 },
+                                minHeight: { xs: 70, sm: 80, md: 85 },
+                                '&:hover': {
+                                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                  borderColor: 'rgba(255, 255, 255, 0.2)',
+                                  transform: 'translateY(-2px)',
+                                },
+                              }}
+                            >
+                              <CheckCircle 
+                                sx={{ 
+                                  color: '#00F0FF', 
+                                  fontSize: { xs: '1.25rem', md: '1.5rem' },
+                                  mr: { xs: 1.5, md: 2 },
+                                  flexShrink: 0,
+                                }} 
+                              />
+                              <Typography
+                                variant="body1"
+                                sx={{
                                   color: 'white',
                                   fontWeight: 500,
                                   fontSize: { xs: '0.9rem', md: '1rem' },
+                                  lineHeight: 1.4,
                                 }}
-                              />
-                            </ListItem>
+                              >
+                                {feature}
+                              </Typography>
+                            </Box>
                           </motion.div>
-                        ))}
-                      </List>
-                    </CardContent>
-                  </Card>
+                        </Grid>
+                      ))}
+                    </Grid>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </Box>
+
+            {/* Button Section */}
+            <Box sx={{ textAlign: 'center' }}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <motion.div
+                  whileHover={{ y: -3 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Button
+                    variant="contained"
+                    size="large"
+                    endIcon={<ArrowForward />}
+                    onClick={() => {
+                      const footer = document.getElementById('footer-contact');
+                      if (footer) {
+                        footer.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    sx={{
+                      backgroundColor: theme.palette.mode === 'dark' 
+                        ? 'rgba(169, 255, 79, 0.9)' 
+                        : theme.palette.primary.main,
+                      color: theme.palette.mode === 'dark' 
+                        ? '#0D0F1C' 
+                        : 'white',
+                      px: { xs: 4, md: 6, lg: 8 },
+                      py: { xs: 2, md: 2.5, lg: 3 },
+                      fontSize: { xs: '1rem', md: '1.2rem', lg: '1.3rem' },
+                      borderRadius: 3,
+                      fontWeight: 600,
+                      boxShadow: theme.palette.mode === 'dark'
+                        ? '0 8px 32px rgba(169, 255, 79, 0.2)'
+                        : '0 8px 32px rgba(0, 0, 0, 0.1)',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        backgroundColor: theme.palette.mode === 'dark' 
+                          ? 'rgba(169, 255, 79, 1)' 
+                          : theme.palette.primary.dark,
+                        boxShadow: theme.palette.mode === 'dark'
+                          ? '0 12px 40px rgba(169, 255, 79, 0.3)'
+                          : `0 12px 40px ${theme.palette.primary.main}40`,
+                      },
+                    }}
+                  >
+                    Start Your Journey Today
+                  </Button>
                 </motion.div>
-              </Grid>
-            </Grid>
+              </motion.div>
+            </Box>
           </Container>
         </Box>
       </Box>
