@@ -591,25 +591,27 @@ const About = () => {
                               sx={{ 
                                 display: 'flex', 
                                 alignItems: 'center',
+                                justifyContent: 'flex-start',
                                 p: { xs: 2, md: 2.5 },
                                 borderRadius: 2,
                                 backgroundColor: 'rgba(255, 255, 255, 0.05)',
                                 border: '1px solid rgba(255, 255, 255, 0.1)',
                                 transition: 'all 0.3s ease',
-                                height: { xs: 'auto', sm: 80, md: 85 },
-                                minHeight: { xs: 70, sm: 80, md: 85 },
+                                height: { xs: 'auto', sm: 'auto', md: 'auto' },
+                                minHeight: { xs: 85, sm: 90, md: 95 },
                                 '&:hover': {
                                   backgroundColor: 'rgba(255, 255, 255, 0.1)',
                                   borderColor: 'rgba(255, 255, 255, 0.2)',
                                   transform: 'translateY(-2px)',
+                                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
                                 },
                               }}
                             >
                               <CheckCircle 
                                 sx={{ 
                                   color: '#00F0FF', 
-                                  fontSize: { xs: '1.25rem', md: '1.5rem' },
-                                  mr: { xs: 1.5, md: 2 },
+                                  fontSize: { xs: '1.4rem', md: '1.6rem' },
+                                  mr: { xs: 2, md: 2.5 },
                                   flexShrink: 0,
                                 }} 
                               />
@@ -618,8 +620,11 @@ const About = () => {
                                 sx={{
                                   color: 'white',
                                   fontWeight: 500,
-                                  fontSize: { xs: '0.9rem', md: '1rem' },
-                                  lineHeight: 1.4,
+                                  fontSize: { xs: '0.95rem', md: '1.05rem' },
+                                  lineHeight: 1.5,
+                                  flex: 1,
+                                  display: 'flex',
+                                  alignItems: 'center',
                                 }}
                               >
                                 {feature}
