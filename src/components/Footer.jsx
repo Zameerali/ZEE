@@ -404,16 +404,16 @@ const Footer = () => {
                 gap: { xs: 1.5, md: 3 },
               }}>
                <Box
-  component="img"
-  src={logo}
-  alt="ZEE-KRAZE Consultants Logo"
-  sx={{
-    height: { xs: 50, md: 96 },
-    width: 'auto',
-    objectFit: 'contain',
-    filter: 'drop-shadow(0 0 0.1px rgba(0, 0, 0, 0.7))',
-  }}
-/>
+                component="img"
+                src={logo}
+                alt="ZEE-KRAZE Consultants Logo"
+                sx={{
+                  height: { xs: 50, md: 96 },
+                  width: 'auto',
+                  objectFit: 'contain',
+                  filter: 'drop-shadow(0 0 0.1px rgba(0, 0, 0, 0.7))',
+                }}
+              />
 
                 <Typography variant="h5" sx={{ 
                   fontWeight: 700, 
