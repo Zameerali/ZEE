@@ -23,7 +23,7 @@ import {
 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import logo from '../assets/logo.png';
+import logo from '../assets/ZEELogo.png';
 
 const Footer = () => {
   const theme = useTheme();
@@ -75,10 +75,10 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: <LinkedIn />, url: 'https://linkedin.com/company/retail-front-consultants', label: 'LinkedIn' },
-    { icon: <Twitter />, url: 'https://twitter.com/retailfrontcons', label: 'Twitter' },
-    { icon: <Facebook />, url: 'https://facebook.com/retailfrontconsultants', label: 'Facebook' },
-    { icon: <YouTube />, url: 'https://youtube.com/retailfrontconsultants', label: 'YouTube' },
+    { icon: <LinkedIn />, url: 'https://linkedin.com/company/zee-kraze-consultants', label: 'LinkedIn' },
+    { icon: <Twitter />, url: 'https://twitter.com/zeekrazeconsultants', label: 'Twitter' },
+    { icon: <Facebook />, url: 'https://facebook.com/zeekrazeconsultants', label: 'Facebook' },
+    { icon: <YouTube />, url: 'https://youtube.com/zeekrazeconsultants', label: 'YouTube' },
   ];
 
   return (
@@ -168,7 +168,7 @@ const Footer = () => {
                       transform: 'translateY(-2px)',
                     },
                   }}
-                  onClick={() => window.open('mailto:info@retailfrontconsultants.com', '_blank')}
+                  onClick={() => window.open('mailto:info@zeekrazeconsultants.com', '_blank')}
                   >
                     <Email sx={{ 
                       fontSize: 20,
@@ -197,7 +197,7 @@ const Footer = () => {
                         color: 'white',
                         wordBreak: 'break-all',
                       }}>
-                        info@retailfrontconsultants.com
+                        info@zeekrazeconsultants.com
                       </Typography>
                     </Box>
                   </Box>
@@ -403,19 +403,18 @@ const Footer = () => {
                 textAlign: { xs: 'center', md: 'left' },
                 gap: { xs: 1.5, md: 3 },
               }}>
-                <Box
-                  component="img"
-                  src={logo}
-                  alt="Retail Front Consultants Logo"
-                  sx={{
-                    height: { xs: 50, md: 96 },
-                    width: 'auto',
-                    maxWidth: { xs: 50, md: 96 },
-                    objectFit: 'contain',
-                    filter: 'brightness(0) invert(1)', // White logo for dark footer
-                    flexShrink: 0,
-                  }}
-                />
+               <Box
+  component="img"
+  src={logo}
+  alt="ZEE-KRAZE Consultants Logo"
+  sx={{
+    height: { xs: 50, md: 96 },
+    width: 'auto',
+    objectFit: 'contain',
+    filter: 'drop-shadow(0 0 0.1px rgba(0, 0, 0, 0.7))',
+  }}
+/>
+
                 <Typography variant="h5" sx={{ 
                   fontWeight: 700, 
                   color: 'white',
@@ -423,7 +422,7 @@ const Footer = () => {
                   fontSize: { xs: '1.1rem', md: '1.5rem' },
                   lineHeight: 1.2,
                 }}>
-                  Retail Front Consultants
+                  ZEE-KRAZE Consultants
                 </Typography>
               </Box>
               
@@ -548,7 +547,7 @@ const Footer = () => {
               color: 'rgba(255, 255, 255, 0.8)',
               textAlign: 'center',
             }}>
-              © {new Date().getFullYear()} Retail Front Consultants. All rights reserved.
+              © {new Date().getFullYear()} ZEE-KRAZE Consultants. All rights reserved.
             </Typography>
           </Grid>
         </Grid>

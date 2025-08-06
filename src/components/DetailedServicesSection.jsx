@@ -92,7 +92,7 @@ const DetailedServicesSection = () => {
   ];
 
   const contactInfo = {
-    email: 'info@retailfrontconsultants.com',
+    email: 'info@zeekrazeconsultants.com',
     phone: '+1 (555) 123-4567',
     address: '123 Business District, Tech City, TC 12345'
   };

@@ -400,7 +400,7 @@ const JoinOurTeam = () => {
                           <Grid item xs={12}>
                             <TextField
                               fullWidth
-                              label="Why do you want to join Retail Front Consultants?"
+                              label="Why do you want to join ZEE-KRAZE Consultants?"
                               name="message"
                               value={formData.message}
                               onChange={handleInputChange}
@@ -626,7 +626,7 @@ const JoinOurTeam = () => {
                           variant="body1"
                           sx={{ fontSize: { xs: '0.9rem', md: '1rem' } }}
                         >
-                          careers@retailfrontconsultants.com
+                          careers@zeekrazeconsultants.com
                         </Typography>
                       </Box>
                     </motion.div>

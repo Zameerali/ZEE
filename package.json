@@ -1,9 +1,9 @@
 {
-  "name": "retail-front-consultants-website",
+  "name": "ZEE-KRAZE-consultants-website",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Professional website for Retail Front Consultants - Transforming retail operations through advanced technology solutions",
+  "description": "Professional website for ZEE-KRAZE Consultants - Transforming retail operations through advanced technology solutions",
   "keywords": [
     "retail",
     "technology",
@@ -11,8 +11,8 @@
     "sales training",
     "business solutions"
   ],
-  "author": "Retail Front Consultants",
-  "homepage": "https://retailfrontconsultants.com",
+  "author": "ZEE-KRAZE Consultants",
+  "homepage": "https://zeekrazeconsultants.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

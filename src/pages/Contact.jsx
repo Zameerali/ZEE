@@ -59,7 +59,7 @@ const Contact = () => {
     {
       icon: <Email />,
       title: 'Email Us',
-      details: 'info@retailfrontconsultants.com',
+      details: 'info@zeekrazeconsultants.com',
       description: 'Send us an email anytime'
     },
     {

@@ -25,7 +25,7 @@ import {
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTheme as useARKTheme } from '../theme/ThemeProvider';
-import logo from '../assets/logo.png';
+import logo from '../assets/ZEELogo.png';
 
 const Navigation = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -80,7 +80,7 @@ const Navigation = () => {
     <Box sx={{ width: 280, height: '100%', pt: 2 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: 2, mb: 2 }}>
         <Typography variant="h6" sx={{ fontWeight: 700, color: 'primary.main' }}>
-          Retail Front Consultants
+          ZEE-KRAZE Consultants
         </Typography>
         <IconButton onClick={handleDrawerToggle}>
           <CloseIcon />
@@ -195,17 +195,14 @@ const Navigation = () => {
                   <Box
                     component="img"
                     src={logo}
-                    alt="Retail Front Consultants Logo"
+                    alt="ZEE-KRAZE Consultants Logo"
                     sx={{
                       height: { xs: 32, sm: 40, md: 50 },
                       width: 'auto',
                       mr: { xs: 1, sm: 2 },
                       objectFit: 'contain',
-                      filter: location.pathname === '/' && !isScrolled 
-                        ? 'brightness(0) invert(1)' // White logo on homepage when not scrolled
-                        : mode === 'light' 
-                          ? 'none' // Original colors in light mode
-                          : 'brightness(0) invert(1)', // White logo in dark mode
+                          filter: 'drop-shadow(0 0 0.1px rgba(0, 0, 0, 0.7))',
+
                     }}
                   />
                   <Typography
@@ -220,7 +217,7 @@ const Navigation = () => {
                       display: 'block',
                     }}
                   >
-                    Retail Front Consultants
+                    ZEE-KRAZE Consultants
                   </Typography>
                 </Box>
               </motion.div>

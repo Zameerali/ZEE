@@ -1,8 +1,8 @@
 <!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
 
-# Retail Front Consultants Website
+# ZEE-KRAZE Consultants Website
 
-This is a professional React website for Retail Front Consultants built with:
+This is a professional React website for ZEE-KRAZE Consultants built with:
 - React + Vite for optimal performance
 - Material-UI (MUI) for components and theming
 - React Router for navigation

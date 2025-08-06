@@ -7,7 +7,7 @@ import {
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme as useARKTheme } from '../theme/ThemeProvider';
-import logo from '../assets/logo.png';
+import logo from '../assets/ZEELogo.png';
 
 const LoadingScreen = () => {
   const theme = useTheme();
@@ -52,13 +52,13 @@ const LoadingScreen = () => {
           <Box
             component="img"
             src={logo}
-            alt="Retail Front Consultants Logo"
+            alt="ZEE-KRAZE Consultants Logo"
             sx={{
               height: 120,
               width: 'auto',
               maxWidth: 120,
               objectFit: 'contain',
-              filter: 'brightness(0) invert(1)', // Always white on the dark loading screen
+              filter: 'drop-shadow(0 0 0.1px rgba(0, 0, 0, 0.7))',
             }}
           />
         </Box>
@@ -70,7 +70,7 @@ const LoadingScreen = () => {
         transition={{ delay: 0.3, duration: 0.5 }}
       >
         <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, textAlign: 'center' }}>
-          Retail Front Consultants
+          ZEE-KRAZE Consultants
         </Typography>
         <Typography variant="body1" sx={{ opacity: 0.8, mb: 4, textAlign: 'center' }}>
           Loading your retail transformation experience...

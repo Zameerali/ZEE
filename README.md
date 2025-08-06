@@ -1,8 +1,8 @@
-# Retail Front Consultants Website
+# ZEE-KRAZE Consultants Website
 
-A professional, production-ready website for Retail Front Consultants built with modern web technologies and industry best practices.
+A professional, production-ready website for ZEE-KRAZE Consultants built with modern web technologies and industry best practices.
 
-![Retail Front Consultants](https://img.shields.io/badge/React-18+-blue.svg)
+![ZEE-KRAZE Consultants](https://img.shields.io/badge/React-18+-blue.svg)
 ![MUI](https://img.shields.io/badge/MUI-5+-blue.svg)
 ![Vite](https://img.shields.io/badge/Vite-5+-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
@@ -92,8 +92,8 @@ src/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/retail-front-consultants-website.git
-   cd retail-front-consultants-website
+   git clone https://github.com/your-username/zee-kraze--consultants-website.git
+   cd zee-kraze-consultants-website
    ```
 
 2. **Install dependencies**
@@ -253,13 +253,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 For support and questions:
-- Email: info@retailfrontconsultants.com
+- Email: info@zeekrazeconsultants.com
 - Phone: +1 (555) 123-4567
-- Website: [retailfrontconsultants.com](https://retailfrontconsultants.com)
+- Website: [zeekrazeconsultants.com](https://zeekrazeconsultants.com)
 
 ---
 
-**Built with ❤️ by Retail Front Consultants Development Team**
+**Built with ❤️ by ZEE-KRAZE Consultants Development Team**
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
