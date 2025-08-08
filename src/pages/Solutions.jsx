@@ -643,20 +643,23 @@ const Solutions = () => {
               <Chip
                 label="Our Solutions"
                 sx={{
-                  mb: { xs: 2, md: 3 },
-                  backgroundColor: theme.palette.mode === 'dark' ? '#A9FF4F' : '#007BFF',
-                  color: theme.palette.mode === 'dark' ? '#0D0F1C' : '#FFFFFF',
-                  fontWeight: 600,
-                  fontSize: { xs: '1rem', md: '1.125rem' },
-                  px: 2,
-                  py: 0.5,
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  '&:hover': {
-                    backgroundColor: theme.palette.mode === 'dark' ? '#B9FF6F' : '#005BFF',
-                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
-                  },
-                  transition: 'all 0.3s ease',
-                }}
+                mb: 4,
+                backgroundColor: '#007BFF',
+                color: '#FFFFFF',
+                fontWeight: 600,
+                fontSize: { xs: '1rem', md: '1.125rem' },
+                height: { xs: 40, md: 48 },
+                px: { xs: 2, md: 3 },
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
+                '& .MuiChip-label': { px: { xs: 2, md: 3 }, fontWeight: 600 },
+                '&:hover': {
+                  transform: 'translateY(-1px)',
+                  backgroundColor: '#005BFF',
+                  boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)',
+                },
+                transition: 'all 0.3s ease',
+              }}
               />
               <Typography
                 variant="h1"
