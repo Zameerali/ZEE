@@ -56,12 +56,12 @@ const SolutionContent = React.memo(({ solution }) => {
             <Card
               sx={{
                 borderRadius: 3,
-                backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'background.paper',
+                backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : '#F9F9F9',
                 border: theme.palette.mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(0, 0, 0, 0.1)',
                 mb: { xs: 3, md: 4 },
                 transition: 'all 0.3s ease',
                 '&:hover': {
-                  backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(127, 0, 255, 0.05)',
+                  backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.05)',
                   borderColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.25)' : 'rgba(0, 0, 0, 0.15)',
                   boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)',
                 },
@@ -80,23 +80,23 @@ const SolutionContent = React.memo(({ solution }) => {
                   <Avatar
                     sx={{
                       backgroundColor: solution.color,
-                      color: 'white',
+                      color: '#FFFFFF',
                       mr: { xs: 0, sm: 3 },
-                      width: { xs: 60, md: 80 },
-                      height: { xs: 60, md: 80 },
+                      width: { xs: 48, md: 56 },
+                      height: { xs: 48, md: 56 },
                       alignSelf: { xs: 'center', sm: 'flex-start' },
                     }}
                   >
-                    <Box sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>{solution.icon}</Box>
+                    <Box sx={{ fontSize: { xs: '1.5rem', md: '1.75rem' } }}>{solution.icon}</Box>
                   </Avatar>
                   <Box sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
                     <Typography
-                      variant="h3"
+                      variant="h4"
                       sx={{
-                        fontWeight: 700,
+                        fontWeight: 600,
                         mb: 1,
-                        fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.75rem' },
-                        color: theme.palette.mode === 'dark' ? '#F5F5F5' : '#0D0F1C',
+                        fontSize: { xs: '1.5rem', md: '1.75rem' },
+                        color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
                       }}
                     >
                       {solution.title}
@@ -104,9 +104,9 @@ const SolutionContent = React.memo(({ solution }) => {
                     <Typography
                       variant="h6"
                       sx={{
-                        color: theme.palette.mode === 'dark' ? '#00F0FF' : solution.color,
+                        color: solution.color,
                         fontWeight: 600,
-                        fontSize: { xs: '1rem', md: '1.25rem' },
+                        fontSize: { xs: '1.25rem', md: '1.375rem' },
                       }}
                     >
                       {solution.subtitle}
@@ -117,9 +117,10 @@ const SolutionContent = React.memo(({ solution }) => {
                   variant="body1"
                   sx={{
                     mb: { xs: 3, md: 4 },
-                    fontSize: { xs: '1rem', md: '1.1rem' },
-                    lineHeight: { xs: 1.6, md: 1.8 },
-                    color: theme.palette.mode === 'dark' ? '#F5F5F5' : 'text.primary',
+                    fontSize: { xs: '1rem', md: '1.125rem' },
+                    fontWeight: 500,
+                    lineHeight: 1.6,
+                    color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
                   }}
                 >
                   {solution.description}
@@ -141,11 +142,11 @@ const SolutionContent = React.memo(({ solution }) => {
                             }}
                           />
                           <Typography
-                            variant="body2"
+                            variant="body1"
                             sx={{
                               fontWeight: 500,
-                              fontSize: { xs: '0.85rem', md: '0.9rem' },
-                              color: theme.palette.mode === 'dark' ? '#F5F5F5' : 'text.primary',
+                              fontSize: { xs: '1rem', md: '1.125rem' },
+                              color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
                             }}
                           >
                             {feature}
@@ -164,10 +165,10 @@ const SolutionContent = React.memo(({ solution }) => {
               <Typography
                 variant="h4"
                 sx={{
-                  fontWeight: 700,
+                  fontWeight: 600,
                   mb: 3,
-                  fontSize: { xs: '1.5rem', md: '2rem' },
-                  color: theme.palette.mode === 'dark' ? '#F5F5F5' : '#0D0F1C',
+                  fontSize: { xs: '1.5rem', md: '1.75rem' },
+                  color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
                 }}
               >
                 Solution Modules
@@ -182,13 +183,13 @@ const SolutionContent = React.memo(({ solution }) => {
                     borderRadius: 2,
                     '&:before': { display: 'none' },
                     boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                    backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'background.paper',
+                    backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : '#F9F9F9',
                   }}
                 >
                   <AccordionSummary
                     expandIcon={<ExpandMore />}
                     sx={{
-                      backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(127, 0, 255, 0.05)',
+                      backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : '#F9F9F9',
                       borderRadius: 2,
                     }}
                   >
@@ -196,8 +197,8 @@ const SolutionContent = React.memo(({ solution }) => {
                       variant="h6"
                       sx={{
                         fontWeight: 600,
-                        fontSize: { xs: '1rem', md: '1.1rem' },
-                        color: theme.palette.mode === 'dark' ? '#F5F5F5' : '#0D0F1C',
+                        fontSize: { xs: '1.25rem', md: '1.375rem' },
+                        color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
                       }}
                     >
                       {module.title}
@@ -208,9 +209,10 @@ const SolutionContent = React.memo(({ solution }) => {
                       variant="body1"
                       sx={{
                         mb: 2,
-                        lineHeight: 1.7,
-                        fontSize: { xs: '0.9rem', md: '1rem' },
-                        color: theme.palette.mode === 'dark' ? '#F5F5F5' : 'text.primary',
+                        fontSize: { xs: '1rem', md: '1.125rem' },
+                        fontWeight: 500,
+                        lineHeight: 1.6,
+                        color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
                       }}
                     >
                       {module.description}
@@ -230,9 +232,10 @@ const SolutionContent = React.memo(({ solution }) => {
                           <ListItemText
                             primary={feature}
                             primaryTypographyProps={{
-                              variant: 'body2',
-                              fontSize: '0.85rem',
-                              color: theme.palette.mode === 'dark' ? '#F5F5F5' : 'text.primary',
+                              variant: 'body1',
+                              fontSize: { xs: '1rem', md: '1.125rem' },
+                              fontWeight: 500,
+                              color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
                             }}
                           />
                         </ListItem>
@@ -246,101 +249,93 @@ const SolutionContent = React.memo(({ solution }) => {
         </Grid>
 
         <Grid
-  item
-  xs={12}
-  md={6}
-  sx={{
-    display: 'flex',
-    justifyContent: 'center !important', // Force horizontal centering
-    alignItems: 'center !important', // Force vertical centering
-    minHeight: { xs: 'auto', md: 'auto' }, // Avoid full viewport height
-    height: { xs: 'auto', md: 'fit-content' }, // Fit content height to reduce excess space
-    py: { xs: 2, md: 2 }, // Reduce vertical padding for balance
-    px: { xs: 2, md: 0 }, // Horizontal padding on mobile, none on desktop
-    width: '100%', // Ensure full width
-    maxWidth: '100%', // Prevent overflow
-  }}
->
-  <motion.div whileHover={{ scale: 1.02, y: -4 }} transition={{ duration: 0.3 }}>
-    <Box
-      sx={{
-        backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(127, 0, 255, 0.1)',
-        backdropFilter: 'blur(10px)',
-        border: theme.palette.mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(0, 0, 0, 0.1)',
-        borderRadius: 3,
-        maxWidth: { xs: '100%', sm: 400, md: 450 }, // Limit width for balance
-        width: '100%',
-        mx: 'auto', // Horizontal centering
-        my: 'auto', // Vertical centering fallback
-        position: 'relative', // Isolate from parent positioning
-        transition: 'all 0.3s ease',
-        '&:hover': {
-          backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(127, 0, 255, 0.15)',
-          borderColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.25)' : 'rgba(0, 0, 0, 0.15)',
-          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)',
-        },
-      }}
-    >
-      <Box sx={{ p: { xs: 3, md: 4 }, textAlign: 'center' }}>
-        <Typography
-          variant="h5"
+          item
+          xs={12}
+          md={6}
           sx={{
-            fontWeight: 700,
-            mb: 2,
-            fontSize: { xs: '1.25rem', md: '1.5rem' },
-            color: theme.palette.mode === 'dark' ? '#F5F5F5' : '#0D0F1C',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: { xs: 'auto', md: 'auto' },
+            height: { xs: 'auto', md: 'fit-content' },
+            py: { xs: 2, md: 2 },
+            px: { xs: 2, md: 0 },
+            width: '100%',
+            maxWidth: '100%',
           }}
         >
-          Ready to Get Started?
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{
-            mb: { xs: 3, md: 4 },
-            fontSize: { xs: '0.9rem', md: '1rem' },
-            color: theme.palette.mode === 'dark' ? '#F5F5F5' : 'text.primary',
-          }}
-        >
-          Experience the power of our solutions with a personalized trial.
-        </Typography>
-        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <Button
-            variant="contained"
-            size="large"
-            endIcon={<ArrowForward />}
-            onClick={scrollToFooter}
-            sx={{
-              backgroundColor: theme.palette.mode === 'dark'
-                ? 'rgba(169, 255, 79, 0.9)'
-                : theme.palette.primary.main,
-              color: theme.palette.mode === 'dark' ? '#0D0F1C' : 'white',
-              px: { xs: 4, md: 6, lg: 8 },
-              py: { xs: 2, md: 2.5, lg: 3 },
-              fontSize: { xs: '1rem', md: '1.2rem', lg: '1.3rem' },
-              borderRadius: 3,
-              fontWeight: 600,
-              boxShadow: theme.palette.mode === 'dark'
-                ? '0 8px 32px rgba(169, 255, 79, 0.2)'
-                : '0 8px 32px rgba(0, 0, 0, 0.1)',
-              transition: 'all 0.3s ease',
-              '&:hover': {
-                backgroundColor: theme.palette.mode === 'dark'
-                  ? 'rgba(169, 255, 79, 1)'
-                  : theme.palette.primary.dark,
-                boxShadow: theme.palette.mode === 'dark'
-                  ? '0 12px 40px rgba(169, 255, 79, 0.3)'
-                  : `0 12px 40px ${theme.palette.primary.main}40`,
-              },
-            }}
-            fullWidth
-          >
-            Request a Trial
-          </Button>
-        </motion.div>
-      </Box>
-    </Box>
-  </motion.div>
-</Grid>
+          <motion.div whileHover={{ scale: 1.02, y: -4 }} transition={{ duration: 0.3 }}>
+            <Box
+              sx={{
+                backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : '#F9F9F9',
+                backdropFilter: 'blur(10px)',
+                border: theme.palette.mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(0, 0, 0, 0.1)',
+                borderRadius: 3,
+                maxWidth: { xs: '100%', sm: 400, md: 450 },
+                width: '100%',
+                mx: 'auto',
+                my: 'auto',
+                position: 'relative',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.05)',
+                  borderColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.25)' : 'rgba(0, 0, 0, 0.15)',
+                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)',
+                },
+              }}
+            >
+              <Box sx={{ p: { xs: 3, md: 4 }, textAlign: 'center' }}>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontWeight: 600,
+                    mb: 2,
+                    fontSize: { xs: '1.25rem', md: '1.5rem' },
+                    color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
+                  }}
+                >
+                  Ready to Get Started?
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    mb: { xs: 3, md: 4 },
+                    fontSize: { xs: '1rem', md: '1.125rem' },
+                    fontWeight: 500,
+                    lineHeight: 1.6,
+                    color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
+                  }}
+                >
+                  Experience the power of our solutions with a personalized trial.
+                </Typography>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button
+                    variant="contained"
+                    size="large"
+                    endIcon={<ArrowForward />}
+                    onClick={scrollToFooter}
+                    sx={{
+                      backgroundColor: '#007BFF',
+                      color: '#FFFFFF',
+                      px: { xs: 3, md: 4 },
+                      py: 1.5,
+                      fontSize: { xs: '1rem', md: '1.125rem' },
+                      fontWeight: 600,
+                      borderRadius: 3,
+                      '&:hover': {
+                        backgroundColor: '#005BFF',
+                        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)',
+                      },
+                    }}
+                    fullWidth
+                  >
+                    Request a Trial
+                  </Button>
+                </motion.div>
+              </Box>
+            </Box>
+          </motion.div>
+        </Grid>
       </Grid>
     </motion.div>
   );
@@ -637,7 +632,7 @@ const Solutions = () => {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-      <Box sx={{ pt: { xs: 12, md: 16 }, position: 'relative', zIndex: 1 }}>
+      <Box sx={{ pt: { xs: 10, md: 12 }, position: 'relative', zIndex: 1 }}>
         <Container maxWidth="xl" sx={{ mb: { xs: 4, md: 6 } }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -649,54 +644,42 @@ const Solutions = () => {
                 label="Our Solutions"
                 sx={{
                   mb: { xs: 2, md: 3 },
-                  backgroundColor: theme.palette.mode === 'dark'
-                    ? 'rgba(169, 255, 79, 0.9)'
-                    : theme.palette.primary.main,
-                  color: theme.palette.mode === 'dark' ? '#0D0F1C' : 'white',
+                  backgroundColor: theme.palette.mode === 'dark' ? '#A9FF4F' : '#007BFF',
+                  color: theme.palette.mode === 'dark' ? '#0D0F1C' : '#FFFFFF',
                   fontWeight: 600,
-                  fontSize: { xs: '0.875rem', md: '1rem' },
-                  px: { xs: 2, md: 3 },
-                  py: { xs: 0.5, md: 1 },
-                  border: theme.palette.mode === 'dark'
-                    ? '1px solid rgba(169, 255, 79, 0.3)'
-                    : '1px solid rgba(255, 255, 255, 0.2)',
-                  boxShadow: theme.palette.mode === 'dark'
-                    ? '0 4px 16px rgba(169, 255, 79, 0.2)'
-                    : '0 4px 16px rgba(0, 0, 0, 0.1)',
+                  fontSize: { xs: '1rem', md: '1.125rem' },
+                  px: 2,
+                  py: 0.5,
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
                   '&:hover': {
-                    backgroundColor: theme.palette.mode === 'dark'
-                      ? 'rgba(169, 255, 79, 1)'
-                      : theme.palette.primary.dark,
-                    boxShadow: theme.palette.mode === 'dark'
-                      ? '0 6px 20px rgba(169, 255, 79, 0.3)'
-                      : '0 6px 20px rgba(0, 0, 0, 0.15)',
+                    backgroundColor: theme.palette.mode === 'dark' ? '#B9FF6F' : '#005BFF',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
                   },
+                  transition: 'all 0.3s ease',
                 }}
               />
               <Typography
-                variant="h2"
+                variant="h1"
                 sx={{
-                  mb: { xs: 3, md: 4 },
-                  fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4rem', lg: '4.5rem' },
-                  fontWeight: 800,
-                  lineHeight: { xs: 1.2, md: 1.1 },
-                  color: theme.palette.mode === 'dark'
-                    ? '#ffffff'
-                    : theme.palette.primary.main,
+                  mb: { xs: 2, md: 2 },
+                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+                  fontWeight: 600,
+                  lineHeight: 1.2,
+                  color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
                 }}
               >
                 Retail Productivity & Performance Consultancy
               </Typography>
               <Typography
-                variant="h5"
+                variant="body1"
                 sx={{
-                  color: 'text.secondary',
-                  maxWidth: { xs: '100%', md: 800 },
+                  fontSize: { xs: '1rem', md: '1.125rem' },
+                  fontWeight: 500,
+                  lineHeight: 1.6,
+                  color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
+                  maxWidth: 800,
                   mx: 'auto',
-                  lineHeight: { xs: 1.5, md: 1.6 },
-                  fontSize: { xs: '1.1rem', sm: '1.25rem', md: '1.5rem' },
-                  fontWeight: 600,
-                  textShadow: '0 2px 8px rgba(0,0,0,0.2)',
+                  px: { xs: 2, md: 0 },
                 }}
               >
                 At ARK Retail Consultants, we offer a comprehensive suite of services designed specifically
@@ -718,27 +701,25 @@ const Solutions = () => {
               aria-label="solution tabs"
               sx={{
                 '& .MuiTabs-indicator': {
-                  backgroundColor: theme.palette.mode === 'dark' ? '#00F0FF' : theme.palette.primary.main,
+                  backgroundColor: '#007BFF',
                   height: 3,
                 },
                 '& .MuiTab-root': {
                   textTransform: 'none',
                   fontWeight: 600,
-                  fontSize: { xs: '0.875rem', md: '1rem' },
+                  fontSize: { xs: '1rem', md: '1.125rem' },
                   minHeight: { xs: 48, md: 60 },
                   px: { xs: 2, md: 3 },
                   opacity: 1,
                   pointerEvents: 'auto',
                   transition: 'all 0.3s ease',
                   '&:hover': {
-                    backgroundColor: theme.palette.mode === 'dark'
-                      ? 'rgba(0, 240, 255, 0.1)'
-                      : 'rgba(127, 0, 255, 0.1)',
+                    backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)',
                     transform: 'translateY(-2px)',
                   },
                   '&.Mui-selected': {
-                    color: theme.palette.mode === 'dark' ? '#00F0FF' : theme.palette.primary.main,
-                    fontWeight: 700,
+                    color: '#007BFF',
+                    fontWeight: 600,
                   },
                   '&.Mui-disabled': {
                     opacity: 0.5,
@@ -757,7 +738,7 @@ const Solutions = () => {
                       <Avatar
                         sx={{
                           backgroundColor: selectedTab === index ? solution.color : 'transparent',
-                          color: selectedTab === index ? 'white' : solution.color,
+                          color: selectedTab === index ? '#FFFFFF' : solution.color,
                           width: { xs: 32, md: 40 },
                           height: { xs: 32, md: 40 },
                           border: `2px solid ${solution.color}`,
@@ -773,17 +754,18 @@ const Solutions = () => {
                           variant="body1"
                           sx={{
                             fontWeight: 600,
-                            fontSize: { xs: '0.875rem', md: '1rem' },
-                            color: theme.palette.mode === 'dark' ? '#F5F5F5' : '#0D0F1C',
+                            fontSize: { xs: '1rem', md: '1.125rem' },
+                            color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
                           }}
                         >
                           {solution.title.split(' ').slice(0, 2).join(' ')}
                         </Typography>
                         <Typography
-                          variant="caption"
+                          variant="body1"
                           sx={{
-                            color: theme.palette.mode === 'dark' ? '#F5F5F5' : 'text.secondary',
-                            fontSize: { xs: '0.75rem', md: '0.875rem' },
+                            fontSize: { xs: '1rem', md: '1.125rem' },
+                            fontWeight: 500,
+                            color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
                             display: { xs: 'none', sm: 'block' },
                           }}
                         >

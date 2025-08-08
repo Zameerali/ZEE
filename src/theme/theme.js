@@ -7,106 +7,116 @@ const createARKTheme = (mode) => {
     palette: {
       mode,
       primary: {
-        main: '#0D0F1C', // Deep Charcoal
-        light: '#141C3A', // Midnight Blue
-        dark: '#000000',
-        contrastText: '#F5F5F5', // Soft White
+        main: '#0F2556', // 30% darker blue
+        light: '#193A7A', // 30% darker than previous light
+        dark: '#07132A', // 30% darker than previous dark
+        contrastText: '#FFFFFF',
       },
       secondary: {
-        main: '#7F00FF', // Electric Purple
-        light: '#9F20FF',
-        dark: '#5F00DF',
-        contrastText: '#F5F5F5',
+        main: '#193A7A', // 30% darker than previous secondary main
+        light: '#4062A1', // 30% darker than previous light
+        dark: '#0F2556', // 30% darker than previous dark
+        contrastText: '#FFFFFF',
       },
       accent: {
-        main: '#00F0FF', // Teal Cyan
-        light: '#20F0FF',
-        dark: '#00D0DF',
-        contrastText: '#0D0F1C',
+        main: '#07132A', // 30% darker accent
+        light: '#193A7A',
+        dark: '#030A14',
+        contrastText: '#FFFFFF',
       },
       success: {
-        main: '#A9FF4F', // Cyber Lime (CTA/Highlight)
+        main: '#A9FF4F', // Keep for CTA/Highlight
         light: '#B9FF6F',
         dark: '#99DF3F',
         contrastText: '#0D0F1C',
       },
       background: {
-        default: isLight ? '#F5F5F5' : '#0D0F1C', // Deep Charcoal for dark, Soft White for light
-        paper: isLight ? '#ffffff' : '#141C3A', // Midnight Blue for dark mode cards
-        gradient: isLight 
-          ? 'linear-gradient(135deg, #7F00FF 0%, #00F0FF 100%)'
-          : 'linear-gradient(135deg, #0D0F1C 0%, #7F00FF 100%)',
+        default: isLight ? '#DDE3F0' : '#0B2244',
+        paper: isLight ? '#F0F3FA' : '#162040',
+        gradient: isLight
+          ? 'linear-gradient(180deg, #0B2244 0%, #15357A 40%, #2250B2 80%, #5A8DEE 100%)'
+          : 'linear-gradient(180deg, #07132A 0%, #0B2244 40%, #15357A 80%, #2250B2 100%)',
       },
       text: {
-        primary: isLight ? '#0D0F1C' : '#F5F5F5', // Soft White for dark, Deep Charcoal for light
-        secondary: isLight ? '#141C3A' : '#A1A7BB', // Cool Gray for dark, Midnight Blue for light
-        accent: '#00F0FF', // Teal Cyan
+        primary: isLight ? '#0B2244' : '#F5F5F5', // Slightly darker for light, white for dark
+        secondary: isLight ? '#2A3550' : '#B0B8C1', // Muted blue-gray
+        accent: '#15357A', // Slightly darker blue accent
       },
-      divider: isLight ? '#A1A7BB' : '#141C3A',
+      divider: isLight ? '#8A99B3' : '#223046',
     },
     typography: {
       fontFamily: '"Montserrat", "Roboto", "Helvetica", "Arial", sans-serif',
       h1: {
-        fontSize: '3.5rem',
-        fontWeight: 700,
-        lineHeight: 1.2,
-        background: 'linear-gradient(135deg, #7F00FF 0%, #00F0FF 100%)',
-        backgroundClip: 'text',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        '@media (max-width:600px)': {
-          fontSize: '2.5rem',
-        },
-      },
-      h2: {
         fontSize: '2.75rem',
-        fontWeight: 600,
-        lineHeight: 1.3,
+        fontWeight: 700,
+        lineHeight: 1.15,
+        color: isLight ? '#0B2244' : '#FFFFFF',
+        marginTop: '40px',
+        marginBottom: '20px',
         '@media (max-width:600px)': {
           fontSize: '2rem',
         },
       },
-      h3: {
-        fontSize: '2.25rem',
-        fontWeight: 600,
-        lineHeight: 1.4,
-        '@media (max-width:600px)': {
-          fontSize: '1.75rem',
-        },
-      },
-      h4: {
-        fontSize: '1.75rem',
-        fontWeight: 500,
-        lineHeight: 1.4,
+      h2: {
+        fontSize: '2rem',
+        fontWeight: 700,
+        lineHeight: 1.2,
+        color: isLight ? '#0B2244' : '#FFFFFF',
+        marginTop: '36px',
+        marginBottom: '18px',
         '@media (max-width:600px)': {
           fontSize: '1.5rem',
         },
       },
-      h5: {
+      h3: {
         fontSize: '1.5rem',
+        fontWeight: 600,
+        lineHeight: 1.25,
+        color: isLight ? '#0B2244' : '#FFFFFF',
+        marginTop: '28px',
+        marginBottom: '14px',
+        '@media (max-width:600px)': {
+          fontSize: '1.15rem',
+        },
+      },
+      h4: {
+        fontSize: '1.25rem',
+        fontWeight: 600,
+        lineHeight: 1.2,
+        color: isLight ? '#0B2244' : '#FFFFFF',
+        marginTop: '20px',
+        marginBottom: '10px',
+        '@media (max-width:600px)': {
+          fontSize: '1rem',
+        },
+      },
+      h5: {
+        fontSize: '1.05rem',
         fontWeight: 500,
         lineHeight: 1.5,
+        color: isLight ? '#0B2244' : '#FFFFFF',
         '@media (max-width:600px)': {
-          fontSize: '1.25rem',
+          fontSize: '0.95rem',
         },
       },
       h6: {
-        fontSize: '1.25rem',
+        fontSize: '0.95rem',
         fontWeight: 500,
         lineHeight: 1.5,
+        color: isLight ? '#0B2244' : '#FFFFFF',
         '@media (max-width:600px)': {
-          fontSize: '1.1rem',
+          fontSize: '0.85rem',
         },
       },
       body1: {
         fontSize: '1rem',
         lineHeight: 1.7,
-        color: isLight ? '#141C3A' : '#A1A7BB',
+        color: isLight ? '#223046' : '#B0B8C1',
       },
       body2: {
         fontSize: '0.875rem',
         lineHeight: 1.6,
-        color: isLight ? '#141C3A' : '#A1A7BB',
+        color: isLight ? '#223046' : '#B0B8C1',
       },
       button: {
         textTransform: 'none',
@@ -154,27 +164,46 @@ const createARKTheme = (mode) => {
             fontWeight: 600,
             textTransform: 'none',
             boxShadow: 'none',
+            color: '#F5F5F5',
+            background: 'none',
             transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
             '&:hover': {
               transform: 'translateY(-2px)',
-              boxShadow: '0px 8px 24px rgba(127, 0, 255, 0.3)',
+              boxShadow: '0px 8px 24px rgba(21, 53, 122, 0.18)',
             },
           },
           contained: {
-            background: 'linear-gradient(135deg, #7F00FF 0%, #00F0FF 100%)',
-            color: '#F5F5F5',
+            background: mode === 'dark'
+              ? 'linear-gradient(135deg, #2250B2 0%, #5A8DEE 100%)'
+              : 'linear-gradient(135deg, #15357A 0%, #2250B2 100%)',
+            color: '#FFFFFF',
+            boxShadow: mode === 'dark'
+              ? '0 2px 12px 2px rgba(90, 141, 238, 0.35)'
+              : 'none',
+            border: mode === 'dark'
+              ? '1.5px solid #5A8DEE'
+              : 'none',
             '&:hover': {
-              background: 'linear-gradient(135deg, #9F20FF 0%, #20F0FF 100%)',
+              background: mode === 'dark'
+                ? 'linear-gradient(135deg, #3572B7 0%, #5A8DEE 100%)'
+                : 'linear-gradient(135deg, #0B2244 0%, #2250B2 100%)',
+              boxShadow: mode === 'dark'
+                ? '0 4px 18px 4px rgba(90, 141, 238, 0.45)'
+                : 'none',
+              border: mode === 'dark'
+                ? '1.5px solid #3572B7'
+                : 'none',
             },
           },
           outlined: {
-            borderColor: '#7F00FF',
-            color: '#7F00FF',
+            borderColor: '#2250B2',
+            color: '#2250B2',
             borderWidth: 2,
+            background: 'none',
             '&:hover': {
-              borderColor: '#00F0FF',
-              color: '#00F0FF',
-              backgroundColor: 'rgba(0, 240, 255, 0.05)',
+              borderColor: '#15357A',
+              color: '#15357A',
+              backgroundColor: 'rgba(21, 53, 122, 0.05)',
             },
           },
         },
@@ -213,9 +242,10 @@ const createARKTheme = (mode) => {
           root: {
             borderRadius: 20,
             fontWeight: 500,
+            color: '#F5F5F5',
           },
           colorPrimary: {
-            background: 'linear-gradient(135deg, #7F00FF 0%, #00F0FF 100%)',
+            background: 'linear-gradient(135deg, #15357A 0%, #2250B2 100%)',
             color: '#F5F5F5',
           },
         },

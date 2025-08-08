@@ -3,33 +3,24 @@ import {
   Box,
   Container,
   Typography,
-  Grid,
-  Card,
-  CardContent,
   Button,
+  Grid,
   Chip,
   useTheme,
   Avatar,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
 } from '@mui/material';
 import {
-  Store,
-  TrendingUp,
-  Phone,
-  SupportAgent,
-  CheckCircle,
-  ArrowForward,
-  Business,
-  Analytics,
-  Speed,
-  Security,
-  Warning,
   TrendingDown,
   Person,
-  ContactSupport,
+  Warning,
+  Analytics,
+  ArrowForward,
+  SupportAgent,
+  Phone,
+  Store,
+  TrendingUp,
+  
+
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -38,22 +29,23 @@ const ServicesSection = () => {
   const theme = useTheme();
   const navigate = useNavigate();
 
+  // Defined but not rendered as per user intent
   const services = [
     {
       title: 'Smart Retail Management',
       subtitle: 'VRO Technology',
       description: 'Transform your retail operations with our Virtual Retail Operations (VRO) platform. Manage inventory, sales, and customer interactions from anywhere.',
       icon: <Store />,
-      color: '#0D0F1C',
+      color: '#007BFF',
       features: ['Real-time Inventory Management', 'Multi-store Operations', 'Cloud-based Dashboard', 'Mobile Accessibility'],
       badge: 'Most Popular',
     },
     {
       title: 'Retail Excellence Training',
       subtitle: 'Professional Development',
-      description: 'Comprehensive training programs designed to elevate your team\'s performance and customer service excellence.',
+      description: 'Comprehensive training programs designed to elevate your team’s performance and customer service excellence.',
       icon: <TrendingUp />,
-      color: '#7F00FF',
+      color: '#007BFF',
       features: ['Consultative Selling Techniques', 'Product Knowledge Mastery', 'Customer Experience Enhancement', 'Performance Analytics'],
       badge: 'New',
     },
@@ -62,7 +54,7 @@ const ServicesSection = () => {
       subtitle: 'VSC Platform',
       description: 'AI-powered sales assistance that guides your team through complex sales processes and customer interactions.',
       icon: <SupportAgent />,
-      color: '#00F0FF',
+      color: '#007BFF',
       features: ['AI-Powered Recommendations', 'Real-time Sales Coaching', 'Customer Behavior Analysis', 'Performance Optimization'],
       badge: 'AI-Powered',
     },
@@ -71,7 +63,7 @@ const ServicesSection = () => {
       subtitle: 'SRP Integration',
       description: 'Comprehensive Sales Resource Planning (SRP) system that optimizes your sales processes and maximizes revenue potential.',
       icon: <Phone />,
-      color: '#2E7D32',
+      color: '#007BFF',
       features: ['Sales Process Automation', 'Revenue Optimization', 'Team Performance Tracking', 'Custom Reporting'],
       badge: 'Enterprise',
     },
@@ -86,15 +78,8 @@ const ServicesSection = () => {
 
   return (
     <Box sx={{ 
-      py: { 
-        xs: 6, 
-        sm: 8, 
-        md: 10,
-        lg: 12 
-      },
-      '@media (min-height: 1200px)': {
-        py: { xs: 4, sm: 6, md: 8 }
-      },
+      py: { xs: 6, sm: 8, md: 10, lg: 12 },
+      '@media (min-height: 1200px)': { py: { xs: 4, sm: 6, md: 8 } },
       backgroundColor: 'background.default' 
     }}>
       <Container maxWidth="xl">
@@ -108,129 +93,96 @@ const ServicesSection = () => {
           <Box sx={{ 
             textAlign: 'center', 
             mb: { xs: 6, md: 8 },
-            '@media (min-height: 1200px)': {
-              mb: { xs: 4, md: 6 }
-            }
+            '@media (min-height: 1200px)': { mb: { xs: 4, md: 6 } }
           }}>
             <Chip
               label="Our Solutions"
               sx={{
                 mb: 4,
-                backgroundColor: theme.palette.mode === 'dark' 
-                  ? 'rgba(169, 255, 79, 0.9)' 
-                  : theme.palette.primary.main,
-                color: theme.palette.mode === 'dark' 
-                  ? '#0D0F1C' 
-                  : 'white',
+                backgroundColor: '#007BFF',
+                color: '#FFFFFF',
                 fontWeight: 600,
-                fontSize: { xs: '1rem', md: '1.1rem' },
+                fontSize: { xs: '1rem', md: '1.125rem' },
                 height: { xs: 40, md: 48 },
                 px: { xs: 2, md: 3 },
-                border: theme.palette.mode === 'dark' 
-                  ? '1px solid rgba(169, 255, 79, 0.3)' 
-                  : '1px solid rgba(255, 255, 255, 0.2)',
-                boxShadow: theme.palette.mode === 'dark'
-                  ? '0 4px 16px rgba(169, 255, 79, 0.2)'
-                  : '0 4px 16px rgba(0, 0, 0, 0.1)',
-                '& .MuiChip-label': {
-                  px: { xs: 2, md: 3 },
-                  fontWeight: 600,
-                },
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
+                '& .MuiChip-label': { px: { xs: 2, md: 3 }, fontWeight: 600 },
                 '&:hover': {
                   transform: 'translateY(-1px)',
-                  backgroundColor: theme.palette.mode === 'dark' 
-                    ? 'rgba(169, 255, 79, 1)' 
-                    : theme.palette.primary.dark,
-                  boxShadow: theme.palette.mode === 'dark'
-                    ? '0 6px 20px rgba(169, 255, 79, 0.3)'
-                    : '0 6px 20px rgba(0, 0, 0, 0.15)',
+                  backgroundColor: '#005BFF',
+                  boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)',
                 },
                 transition: 'all 0.3s ease',
               }}
             />
             
-            {/* Call to Action Section */}
-            <Box sx={{ mb: 4 }}>
-              <Typography
-                variant="h3"
+            <Typography
+              variant="h1"
+              sx={{
+                maxWidth: 800,
+                mx: 'auto',
+                lineHeight: 1.2,
+                mb: 3,
+                fontWeight: 600,
+                fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+                color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
+              }}
+            >
+              Find Out How This Model Can Create Value for Your Business
+            </Typography>
+            
+            <Typography
+              variant="body1"
+              sx={{
+                color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
+                maxWidth: 700,
+                mx: 'auto',
+                lineHeight: 1.6,
+                mb: 4,
+                fontSize: { xs: '1rem', md: '1.125rem' },
+                fontWeight: 500,
+              }}
+            >
+              Ready to revolutionize your retail operations? Our team of experts is here to guide you through 
+              a personalized consultation and show you exactly how our solutions can boost your revenue, 
+              streamline operations, and enhance customer satisfaction.
+            </Typography>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Button
+                variant="contained"
+                size="large"
+                onClick={() => {
+                  const footer = document.getElementById('footer-contact');
+                  if (footer) {
+                    footer.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 sx={{
-                  maxWidth: 800,
-                  mx: 'auto',
-                  lineHeight: 1.4,
-                  mb: 3,
-                  fontWeight: 700,
-                  fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.5rem' },
-                  color: theme.palette.mode === 'dark' 
-                    ? '#ffffff' 
-                    : theme.palette.primary.main,
+                  backgroundColor: '#007BFF',
+                  color: '#FFFFFF',
+                  px: { xs: 3, md: 4 },
+                  py: { xs: 1.5, md: 2 },
+                  fontSize: { xs: '1rem', md: '1.125rem' },
+                  borderRadius: 3,
+                  fontWeight: 600,
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+                  '&:hover': {
+                    transform: 'translateY(-2px)',
+                    backgroundColor: '#005BFF',
+                    boxShadow: '0 12px 40px rgba(0, 0, 0, 0.2)',
+                  },
                 }}
               >
-                Find Out How This Model Can Create Value for Your Business
-              </Typography>
-              
-              <Typography
-                variant="h6"
-                sx={{
-                  color: 'text.secondary',
-                  maxWidth: 700,
-                  mx: 'auto',
-                  lineHeight: 1.6,
-                  mb: 4,
-                  fontSize: { xs: '1rem', md: '1.2rem' },
-                  fontWeight: 400,
-                }}
-              >
-                Ready to revolutionize your retail operations? Our team of experts is here to guide you through 
-                a personalized consultation and show you exactly how our solutions can boost your revenue, 
-                streamline operations, and enhance customer satisfaction.
-              </Typography>
-              
-              {/* Contact Us Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Button
-                  variant="contained"
-                  size="large"
-                  onClick={() => {
-                    const footer = document.getElementById('footer-contact');
-                    if (footer) {
-                      footer.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
-                  sx={{
-                    backgroundColor: theme.palette.mode === 'dark' 
-                      ? 'rgba(169, 255, 79, 0.9)' 
-                      : theme.palette.primary.main,
-                    color: theme.palette.mode === 'dark' 
-                      ? '#0D0F1C' 
-                      : 'white',
-                    px: { xs: 3, md: 4 },
-                    py: { xs: 1.5, md: 2 },
-                    fontSize: { xs: '1rem', md: '1.1rem' },
-                    borderRadius: 3,
-                    fontWeight: 600,
-                    boxShadow: theme.palette.mode === 'dark'
-                      ? '0 8px 32px rgba(169, 255, 79, 0.2)'
-                      : '0 8px 32px rgba(0, 0, 0, 0.1)',
-                    '&:hover': {
-                      transform: 'translateY(-2px)',
-                      backgroundColor: theme.palette.mode === 'dark' 
-                        ? 'rgba(169, 255, 79, 1)' 
-                        : theme.palette.primary.dark,
-                      boxShadow: theme.palette.mode === 'dark'
-                        ? '0 12px 40px rgba(169, 255, 79, 0.3)'
-                        : `0 12px 40px ${theme.palette.primary.main}40`,
-                    },
-                  }}
-                >
-                  Contact Us
-                </Button>
-              </motion.div>
-            </Box>
+                Contact Us
+              </Button>
+            </motion.div>
           </Box>
         </motion.div>
 
@@ -245,15 +197,9 @@ const ServicesSection = () => {
             sx={{
               background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
               borderRadius: 4,
-              p: { 
-                xs: 3, 
-                sm: 4, 
-                md: 6 
-              },
-              '@media (min-height: 1200px)': {
-                p: { xs: 3, sm: 4, md: 5 }
-              },
-              color: 'white',
+              p: { xs: 3, sm: 4, md: 6 },
+              '@media (min-height: 1200px)': { p: { xs: 3, sm: 4, md: 5 } },
+              color: '#FFFFFF',
               textAlign: 'center',
               position: 'relative',
               overflow: 'hidden',
@@ -271,25 +217,28 @@ const ServicesSection = () => {
           >
             <Box sx={{ position: 'relative', zIndex: 1 }}>
               <Typography 
-                variant="h3" 
+                variant="h1" 
                 sx={{ 
-                  fontWeight: 700, 
+                  fontWeight: 600, 
                   mb: { xs: 2, md: 3 },
-                  fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.75rem' },
+                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+                  lineHeight: 1.2,
+                  color: '#FFFFFF',
                 }}
               >
                 Are You Facing Challenges at Your Cellphone Retail Locations?
               </Typography>
               
               <Typography 
-                variant="h6" 
+                variant="body1" 
                 sx={{ 
                   mb: { xs: 3, md: 4 },
-                  opacity: 0.95,
-                  fontSize: { xs: '1rem', md: '1.2rem' },
+                  fontSize: { xs: '1rem', md: '1.125rem' },
                   lineHeight: 1.6,
                   maxWidth: 800,
                   mx: 'auto',
+                  fontWeight: 500,
+                  color: '#E0E0E0',
                 }}
               >
                 Many retail businesses struggle with the same recurring issues that impact growth and profitability.
@@ -307,13 +256,8 @@ const ServicesSection = () => {
                   gap: { xs: 3, md: 4 },
                   maxWidth: { lg: 1200 },
                   mx: 'auto',
-                  mb: { 
-                    xs: 3, 
-                    md: 4 
-                  },
-                  '@media (min-height: 1200px)': {
-                    mb: { xs: 3, md: 4 }
-                  },
+                  mb: { xs: 3, md: 4 },
+                  '@media (min-height: 1200px)': { mb: { xs: 3, md: 4 } },
                 }}
               >
                 {challenges.map((challenge, index) => (
@@ -347,7 +291,7 @@ const ServicesSection = () => {
                       <Avatar
                         sx={{
                           backgroundColor: 'rgba(255, 255, 255, 0.25)',
-                          color: 'white',
+                          color: '#007BFF',
                           width: { xs: 72, md: 88 },
                           height: { xs: 72, md: 88 },
                           mb: 3,
@@ -360,12 +304,13 @@ const ServicesSection = () => {
                         })}
                       </Avatar>
                       <Typography 
-                        variant="h6" 
+                        variant="h3" 
                         sx={{ 
-                          fontWeight: 700, 
+                          fontWeight: 600, 
                           mb: 2,
-                          fontSize: { xs: '1.2rem', md: '1.35rem' },
-                          color: 'white',
+                          fontSize: { xs: '1.25rem', md: '1.375rem' },
+                          lineHeight: 1.2,
+                          color: '#FFFFFF',
                           minHeight: { xs: '2.4rem', md: '2.7rem' },
                           display: 'flex',
                           alignItems: 'center',
@@ -378,10 +323,10 @@ const ServicesSection = () => {
                       <Typography 
                         variant="body1" 
                         sx={{ 
-                          color: 'rgba(255, 255, 255, 0.9)',
+                          color: '#E0E0E0',
                           lineHeight: 1.6,
-                          fontSize: { xs: '0.95rem', md: '1.05rem' },
-                          fontWeight: 400,
+                          fontSize: { xs: '1rem', md: '1.125rem' },
+                          fontWeight: 500,
                           textAlign: 'center',
                         }}
                       >
@@ -407,28 +352,18 @@ const ServicesSection = () => {
                     }, 100);
                   }}
                   sx={{
-                    backgroundColor: theme.palette.mode === 'dark' 
-                      ? 'rgba(169, 255, 79, 0.9)' 
-                      : theme.palette.primary.main,
-                    color: theme.palette.mode === 'dark' 
-                      ? '#0D0F1C' 
-                      : 'white',
+                    backgroundColor: '#007BFF',
+                    color: '#FFFFFF',
                     px: { xs: 3, md: 4 },
                     py: { xs: 1.5, md: 2 },
-                    fontSize: { xs: '1rem', md: '1.1rem' },
+                    fontSize: { xs: '1rem', md: '1.125rem' },
                     borderRadius: 3,
                     fontWeight: 600,
-                    boxShadow: theme.palette.mode === 'dark'
-                      ? '0 8px 32px rgba(169, 255, 79, 0.2)'
-                      : '0 8px 32px rgba(0, 0, 0, 0.1)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
                     '&:hover': {
                       transform: 'translateY(-2px)',
-                      backgroundColor: theme.palette.mode === 'dark' 
-                        ? 'rgba(169, 255, 79, 1)' 
-                        : theme.palette.primary.dark,
-                      boxShadow: theme.palette.mode === 'dark'
-                        ? '0 12px 40px rgba(169, 255, 79, 0.3)'
-                        : `0 12px 40px ${theme.palette.primary.main}40`,
+                      backgroundColor: '#005BFF',
+                      boxShadow: '0 12px 40px rgba(0, 0, 0, 0.2)',
                     },
                   }}
                 >

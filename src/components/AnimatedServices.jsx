@@ -7,23 +7,23 @@ const AnimatedServices = () => {
     {
       abbreviation: 'VRO',
       full: 'Virtual Retail Operations',
-      description: 'Manage any store, from anywhere with complete operational control'
+      description: 'Manage any store, from anywhere with complete operational control',
     },
     {
       abbreviation: 'VSC',
       full: 'Virtual Sales Consultants',
-      description: 'AI-powered sales support and customer engagement solutions'
+      description: 'AI-powered sales support and customer engagement solutions',
     },
     {
       abbreviation: 'RRM',
       full: 'Remote Retail Management',
-      description: 'Comprehensive remote management tools for retail excellence'
+      description: 'Comprehensive remote management tools for retail excellence',
     },
     {
       abbreviation: 'SRP',
       full: 'Smart Retail Performance',
-      description: 'Data-driven insights and real-time performance tracking'
-    }
+      description: 'Data-driven insights and real-time performance tracking',
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,32 +33,28 @@ const AnimatedServices = () => {
 
   useEffect(() => {
     const currentService = services[currentIndex];
-    const targetText = currentService.full; // Changed to animate full name instead of abbreviation
+    const targetText = currentService.full;
 
     let timeout;
 
     if (isTyping) {
-      // Typing animation
       if (charIndex < targetText.length) {
         timeout = setTimeout(() => {
           setDisplayText(targetText.substring(0, charIndex + 1));
           setCharIndex(charIndex + 1);
-        }, 100); // Slightly faster typing for longer text
+        }, 80);
       } else {
-        // Finished typing, wait then start backspacing
         timeout = setTimeout(() => {
           setIsTyping(false);
-        }, 2000); // Wait 2 seconds before backspacing
+        }, 2000);
       }
     } else {
-      // Backspacing animation
       if (charIndex > 0) {
         timeout = setTimeout(() => {
           setDisplayText(targetText.substring(0, charIndex - 1));
           setCharIndex(charIndex - 1);
-        }, 50); // Faster backspace speed
+        }, 40);
       } else {
-        // Finished backspacing, move to next service
         setCurrentIndex((prev) => (prev + 1) % services.length);
         setIsTyping(true);
         setCharIndex(0);
@@ -74,24 +70,26 @@ const AnimatedServices = () => {
     <Box sx={{ minHeight: 140, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, justifyContent: 'center' }}>
         <Typography
-          variant="h4"
+          variant="h3"
           sx={{
-            color: '#00F0FF',
-            fontWeight: 700,
-            fontSize: { xs: '1.3rem', md: '1.8rem', lg: '2.2rem' },
-            fontFamily: 'monospace',
+            color: '#007BFF',
+            fontWeight: 600,
+            fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.75rem' },
+            lineHeight: 1.2,
             minHeight: '2.5em',
             display: 'flex',
             alignItems: 'center',
+            textAlign: 'center',
+            textShadow: '0 2px 8px rgba(0,0,0,0.3)',
           }}
         >
           {displayText}
           <motion.span
             animate={{ opacity: [1, 0, 1] }}
             transition={{ duration: 0.8, repeat: Infinity }}
-            style={{ 
+            style={{
               marginLeft: '2px',
-              color: '#00F0FF',
+              color: '#007BFF',
               fontSize: 'inherit',
             }}
           >
@@ -99,7 +97,7 @@ const AnimatedServices = () => {
           </motion.span>
         </Typography>
       </Box>
-      
+
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -109,24 +107,25 @@ const AnimatedServices = () => {
           transition={{ duration: 0.3 }}
         >
           <Typography
-            variant="h6"
+            variant="body1"
             sx={{
-              color: '#00F0FF',
+              color: '#007BFF',
               fontWeight: 600,
               mb: 1,
-              fontSize: { xs: '1rem', md: '1.2rem', lg: '1.4rem' },
+              fontSize: { xs: '1rem', md: '1.125rem' },
+              lineHeight: 1.6,
               textAlign: 'center',
-              opacity: 0.8,
             }}
           >
             ({currentService.abbreviation})
           </Typography>
-          
+
           <Typography
             variant="body1"
             sx={{
-              color: 'rgba(255, 255, 255, 0.85)',
-              fontSize: { xs: '1rem', md: '1.1rem', lg: '1.2rem' },
+              color: '#E0E0E0',
+              fontWeight: 500,
+              fontSize: { xs: '1rem', md: '1.125rem' },
               lineHeight: 1.6,
               textAlign: 'center',
             }}

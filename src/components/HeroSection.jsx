@@ -5,8 +5,6 @@ import {
   Typography,
   Button,
   Grid,
-  Card,
-  CardContent,
   Chip,
   useTheme,
   useMediaQuery,
@@ -14,15 +12,9 @@ import {
 import {
   TrendingUp,
   Store,
-  Analytics,
-  Speed,
-  Security,
   Support,
+  Security,
   ArrowForward,
-  PlayArrow,
-  Business,
-  Assessment,
-  CloudSync,
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -33,34 +25,6 @@ const HeroSection = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const navigate = useNavigate();
 
-  const features = [
-    {
-      icon: <Store />,
-      title: 'Virtual Retail Operations',
-      subtitle: 'VRO - Manage Any Store, From Anywhere',
-      description: 'Complete remote management system that combines data-driven insights with real-time operational control for telecom and retail businesses.',
-    },
-    {
-      icon: <Business />,
-      title: 'Virtual Sales Consultants',
-      subtitle: 'VSC - AI-Powered Sales Excellence',
-      description: 'Advanced sales support system with remote team management and performance optimization to maximize sales across all locations.',
-    },
-    {
-      icon: <Assessment />,
-      title: 'Smart Performance Tracking',
-      subtitle: 'SRP - Real-time Analytics Dashboard',
-      description: 'Comprehensive performance tracking with data-driven insights, predictive analytics, and streamlined operations management.',
-    },
-  ];
-
-  const stats = [
-    { number: '300+', label: 'Retail Partners', icon: <Store /> },
-    { number: '95%', label: 'Success Rate', icon: <TrendingUp /> },
-    { number: '24/7', label: 'Support', icon: <Support /> },
-    { number: '99.9%', label: 'Uptime', icon: <Security /> },
-  ];
-
   return (
     <Box
       sx={{
@@ -68,7 +32,7 @@ const HeroSection = () => {
           ${theme.palette.primary.main} 0%, 
           ${theme.palette.secondary.main} 50%, 
           ${theme.palette.primary.dark} 100%)`,
-        color: 'white',
+        color: '#FFFFFF',
         pt: { xs: 12, md: 16 },
         pb: { xs: 8, md: 12 },
         position: 'relative',
@@ -99,11 +63,11 @@ const HeroSection = () => {
                   label="Transforming Retail Excellence"
                   sx={{
                     backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                    color: 'white',
+                    color: '#FFFFFF',
                     fontWeight: 600,
                     mb: { xs: 3, md: 4 },
                     backdropFilter: 'blur(10px)',
-                    fontSize: { xs: '0.875rem', md: '1rem' },
+                    fontSize: { xs: '1rem', md: '1.125rem' },
                     height: { xs: 32, md: 36 },
                   }}
                 />
@@ -113,13 +77,11 @@ const HeroSection = () => {
                 variant="h1"
                 sx={{
                   mb: { xs: 2, md: 3 },
-                  background: 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)',
-                  backgroundClip: 'text',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  fontWeight: 800,
-                  fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem', lg: '4rem' },
-                  lineHeight: { xs: 1.1, md: 1.05 },
+                  fontWeight: 600,
+                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+                  lineHeight: 1.2,
+                  color: '#FFFFFF',
+                  textAlign: 'center',
                   textShadow: '0 2px 10px rgba(0,0,0,0.3)',
                 }}
               >
@@ -127,29 +89,32 @@ const HeroSection = () => {
               </Typography>
 
               <Typography
-                variant="h4"
+                variant="h3"
                 sx={{
                   mb: { xs: 2, md: 3 },
-                  color: '#00F0FF',
                   fontWeight: 600,
-                  fontSize: { xs: '1.3rem', sm: '1.5rem', md: '1.8rem', lg: '2rem' },
-                  lineHeight: 1.3,
-                  textShadow: '0 2px 8px rgba(255, 98, 0, 0.3)',
+                  fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.75rem' },
+                  lineHeight: 1.2,
+                  color: '#007BFF',
+                  textAlign: 'center',
+                  textShadow: '0 2px 8px rgba(0,0,0,0.3)',
                 }}
               >
                 Manage Any Store, From Anywhere
               </Typography>
 
               <Typography
-                variant="h6"
+                variant="body1"
                 sx={{
-                  mb: { xs: 4, md: 5 },
-                  color: 'rgba(255, 255, 255, 0.95)',
-                  fontWeight: 400,
+                  maxWidth: { xs: '100%', md: 900 },
+                  mx: 'auto',
+                  fontSize: { xs: '1rem', md: '1.125rem' },
+                  fontWeight: 500,
                   lineHeight: 1.6,
-                  fontSize: { xs: '1.1rem', sm: '1.2rem', md: '1.3rem', lg: '1.4rem' },
-                  maxWidth: { lg: '95%' },
-                  textShadow: '0 1px 4px rgba(0,0,0,0.2)',
+                  color: '#E0E0E0',
+                  mb: 6,
+                  px: { xs: 2, md: 0 },
+                  textAlign: 'center',
                 }}
               >
                 We combine data-driven insights, remote team management, and real-time performance 
@@ -181,28 +146,18 @@ const HeroSection = () => {
                       }, 100);
                     }}
                     sx={{
-                      backgroundColor: theme.palette.mode === 'dark' 
-                        ? 'rgba(169, 255, 79, 0.9)' 
-                        : theme.palette.primary.main,
-                      color: theme.palette.mode === 'dark' 
-                        ? '#0D0F1C' 
-                        : 'white',
+                      backgroundColor: '#007BFF',
+                      color: '#FFFFFF',
                       px: { xs: 3, md: 4 },
                       py: { xs: 1.5, md: 2 },
-                      fontSize: { xs: '1rem', md: '1.1rem' },
-                      borderRadius: 3,
+                      fontSize: { xs: '1rem', md: '1.125rem' },
                       fontWeight: 600,
-                      boxShadow: theme.palette.mode === 'dark'
-                        ? '0 8px 32px rgba(169, 255, 79, 0.2)'
-                        : '0 8px 32px rgba(0, 0, 0, 0.1)',
+                      borderRadius: 3,
+                      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
                       minWidth: { xs: 'auto', sm: 180 },
                       '&:hover': {
-                        backgroundColor: theme.palette.mode === 'dark' 
-                          ? 'rgba(169, 255, 79, 1)' 
-                          : theme.palette.primary.dark,
-                        boxShadow: theme.palette.mode === 'dark'
-                          ? '0 12px 40px rgba(169, 255, 79, 0.3)'
-                          : `0 12px 40px ${theme.palette.primary.main}40`,
+                        backgroundColor: '#005BFF',
+                        boxShadow: '0 12px 40px rgba(0, 0, 0, 0.2)',
                         transform: 'translateY(-2px)',
                       },
                     }}

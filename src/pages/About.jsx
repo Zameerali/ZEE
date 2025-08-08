@@ -10,26 +10,17 @@ import {
   Chip,
   Button,
   useTheme,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
 } from '@mui/material';
 import {
   Visibility,
-  Psychology,
-  TrendingUp,
-  Groups,
-  CheckCircle,
-  ArrowForward,
   BusinessCenter,
-  EmojiObjects,
-  Handshake,
   Engineering,
   Build,
   Assessment,
+  TrendingUp,
   Support,
-  Star,
+  ArrowForward,
+  CheckCircle,
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 
@@ -41,19 +32,19 @@ const About = () => {
       icon: <Engineering />,
       title: 'Industry Expertise',
       description: 'Our team comprises seasoned professionals with deep knowledge of the wireless telecom retail sector.',
-      color: '#0D0F1C',
+      color: '#15357A',
     },
     {
       icon: <Build />,
       title: 'Tailored Solutions',
-      description: 'We don\'t believe in one-size-fits-all. Our programs are customized to your specific business needs and goals.',
-      color: '#7F00FF',
+      description: 'We don’t believe in one-size-fits-all. Our programs are customized to your specific business needs and goals.',
+      color: '#007BFF',
     },
     {
       icon: <Assessment />,
       title: 'Practical & Engaging Training',
       description: 'Our methods are interactive, hands-on, and designed for immediate application in a retail setting.',
-      color: '#00F0FF',
+      color: '#1A1A1A',
     },
     {
       icon: <TrendingUp />,
@@ -64,8 +55,8 @@ const About = () => {
     {
       icon: <Support />,
       title: 'Long-Term Partnership',
-      description: 'We\'re committed to your ongoing success, offering continued support and strategic advice.',
-      color: '#FF6F00',
+      description: 'We’re committed to your ongoing success, offering continued support and strategic advice.',
+      color: '#D81B60',
     },
   ];
 
@@ -75,148 +66,122 @@ const About = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <Box sx={{ pt: { xs: 12, md: 16 } }}>
+      <Box sx={{ pt: { xs: 10, md: 12 } }}>
         {/* Hero Section */}
-        <Container maxWidth="xl" sx={{ mb: 8 }}>
+        <Container maxWidth="xl" sx={{ mb: 6 }}>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 8 } }}>
+            <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 } }}>
               <Chip
                 label="Our Virtual Space"
                 sx={{
-                  mb: 4,
-                  backgroundColor: theme.palette.mode === 'dark' 
-                    ? 'rgba(169, 255, 79, 0.9)' 
-                    : theme.palette.primary.main,
-                  color: theme.palette.mode === 'dark' 
-                    ? '#0D0F1C' 
-                    : 'white',
+                  mb: 3,
+                  backgroundColor: theme.palette.mode === 'dark' ? '#A9FF4F' : '#007BFF',
+                  color: theme.palette.mode === 'dark' ? '#0D0F1C' : '#FFFFFF',
                   fontWeight: 600,
-                  fontSize: { xs: '1rem', md: '1.1rem' },
-                  height: { xs: 40, md: 48 },
-                  px: { xs: 2, md: 3 },
-                  border: theme.palette.mode === 'dark' 
-                    ? '1px solid rgba(169, 255, 79, 0.3)' 
-                    : '1px solid rgba(255, 255, 255, 0.2)',
-                  boxShadow: theme.palette.mode === 'dark'
-                    ? '0 4px 16px rgba(169, 255, 79, 0.2)'
-                    : '0 4px 16px rgba(0, 0, 0, 0.1)',
-                  '& .MuiChip-label': {
-                    px: { xs: 2, md: 3 },
-                    fontWeight: 600,
-                  },
+                  fontSize: { xs: '1rem', md: '1.125rem' },
+                  height: { xs: 36, md: 40 },
+                  px: 2,
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
                   '&:hover': {
-                    transform: 'translateY(-1px)',
-                    backgroundColor: theme.palette.mode === 'dark' 
-                      ? 'rgba(169, 255, 79, 1)' 
-                      : theme.palette.primary.dark,
-                    boxShadow: theme.palette.mode === 'dark'
-                      ? '0 6px 20px rgba(169, 255, 79, 0.3)'
-                      : '0 6px 20px rgba(0, 0, 0, 0.15)',
+                    backgroundColor: theme.palette.mode === 'dark' ? '#B9FF6F' : '#005BFF',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
                   },
                   transition: 'all 0.3s ease',
                 }}
               />
-              
-              {/* Introduction */}
               <Typography
-                variant="h2"
+                variant="h1"
                 sx={{
-                  mb: 3,
-                  color: theme.palette.mode === 'dark' 
-                    ? '#ffffff' 
-                    : theme.palette.primary.main,
+                  mb: 2,
+                  color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
                   fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
-                  fontWeight: 700,
-                  lineHeight: { xs: 1.2, md: 1.1 },
+                  fontWeight: 600,
+                  lineHeight: 1.2,
                 }}
               >
                 Virtual Business Solutions Partner
               </Typography>
-              
               <Typography
-                variant="h5"
+                variant="body1"
                 sx={{
-                  color: 'text.secondary',
-                  maxWidth: { xs: '100%', md: 900 },
+                  color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
+                  maxWidth: 800,
                   mx: 'auto',
-                  lineHeight: { xs: 1.5, md: 1.6 },
-                  mb: 6,
-                  fontSize: { xs: '1.1rem', sm: '1.25rem', md: '1.5rem' },
+                  lineHeight: 1.6,
+                  fontSize: { xs: '1rem', md: '1.125rem' },
+                  fontWeight: 500,
                   px: { xs: 2, md: 0 },
                 }}
               >
-                We are a virtual business solutions partner committed to transforming how companies 
-                manage performance and sales. From retail operations to enterprise training, we deliver 
-                smarter strategies that empower teams, improve efficiency, and drive sustainable growth.
+                We are a virtual business solutions partner committed to transforming how companies manage performance and sales. From retail operations to enterprise training, we deliver smarter strategies that empower teams, improve efficiency, and drive sustainable growth.
               </Typography>
             </Box>
           </motion.div>
+        </Container>
 
-          {/* Vision & What We Do */}
-          <Grid container spacing={{ xs: 3, md: 4 }} sx={{ mb: { xs: 6, md: 8 } }}>
+        {/* Vision & What We Do */}
+        <Container maxWidth="xl">
+          <Grid container spacing={{ xs: 2, md: 3 }} sx={{ mb: { xs: 4, md: 6 } }}>
             <Grid item xs={12} md={6}>
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.02, y: -5 }}
+                whileHover={{ scale: 1.02 }}
               >
                 <Card
                   sx={{
-                    height: '100%',
-                    minHeight: { xs: 320, md: 400 },
-                    background: `linear-gradient(135deg, ${theme.palette.primary.main}10 0%, ${theme.palette.primary.main}05 100%)`,
-                    border: `1px solid ${theme.palette.primary.main}20`,
-                    borderRadius: 4,
+                    height: 'auto',
+                    background: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : '#F9F9F9',
+                    border: '1px solid rgba(0, 0, 0, 0.1)',
+                    borderRadius: 3,
                     transition: 'all 0.3s ease',
                     '&:hover': {
-                      boxShadow: `0 20px 40px ${theme.palette.primary.main}20`,
-                      border: `1px solid ${theme.palette.primary.main}30`,
+                      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)',
                     },
                   }}
                 >
-                  <CardContent sx={{ p: { xs: 3, md: 4 }, height: '100%', display: 'flex', flexDirection: 'column' }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', mb: { xs: 3, md: 4 }, flexShrink: 0 }}>
+                  <CardContent sx={{ p: { xs: 2, md: 3 }, height: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                       <Avatar
                         sx={{
-                          backgroundColor: theme.palette.primary.main,
-                          color: 'white',
+                          backgroundColor: '#007BFF',
+                          color: '#FFFFFF',
                           mr: 2,
-                          width: { xs: 50, md: 60 },
-                          height: { xs: 50, md: 60 },
+                          width: { xs: 48, md: 56 },
+                          height: { xs: 48, md: 56 },
                         }}
                       >
-                        <Visibility sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }} />
+                        <Visibility sx={{ fontSize: { xs: '1.5rem', md: '1.75rem' } }} />
                       </Avatar>
-                      <Typography 
-                        variant="h4" 
-                        sx={{ 
+                      <Typography
+                        variant="h4"
+                        sx={{
                           fontWeight: 600,
-                          fontSize: { xs: '1.5rem', md: '2rem' },
+                          fontSize: { xs: '1.5rem', md: '1.75rem' },
+                          color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
                         }}
                       >
                         Our Vision
                       </Typography>
                     </Box>
-                    <Typography 
-                      variant="body1" 
-                      sx={{ 
-                        lineHeight: { xs: 1.6, md: 1.8 }, 
-                        fontSize: { xs: '1rem', md: '1.1rem' },
-                        color: 'text.primary',
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        lineHeight: 1.6,
+                        fontSize: { xs: '1rem', md: '1.125rem' },
+                        fontWeight: 500,
+                        color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
                         flex: 1,
                       }}
                     >
-                      Our vision is to transform the way businesses manage performance and sales by leveraging 
-                      innovative virtual solutions. We aim to create a future where every retail store and enterprise team 
-                      operates at its full potential—driving growth, improving customer experiences, and building long-term success. 
-                      By combining technology, data-driven insights, and human expertise, we aspire to redefine business 
-                      management and set a new standard of operational excellence.
+                      Our vision is to transform the way businesses manage performance and sales by leveraging innovative virtual solutions. We aim to create a future where every retail store and enterprise team operates at its full potential—driving growth, improving customer experiences, and building long-term success.
                     </Typography>
                   </CardContent>
                 </Card>
@@ -225,62 +190,59 @@ const About = () => {
 
             <Grid item xs={12} md={6}>
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.02, y: -5 }}
+                whileHover={{ scale: 1.02 }}
               >
                 <Card
                   sx={{
-                    height: '100%',
-                    minHeight: { xs: 320, md: 400 },
-                    background: `linear-gradient(135deg, ${theme.palette.secondary.main}10 0%, ${theme.palette.secondary.main}05 100%)`,
-                    border: `1px solid ${theme.palette.secondary.main}20`,
-                    borderRadius: 4,
+                    height: 'auto',
+                    background: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : '#F9F9F9',
+                    border: '1px solid rgba(0, 0, 0, 0.1)',
+                    borderRadius: 3,
                     transition: 'all 0.3s ease',
                     '&:hover': {
-                      boxShadow: `0 20px 40px ${theme.palette.secondary.main}20`,
-                      border: `1px solid ${theme.palette.secondary.main}30`,
+                      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)',
                     },
                   }}
                 >
-                  <CardContent sx={{ p: { xs: 3, md: 4 }, height: '100%', display: 'flex', flexDirection: 'column' }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', mb: { xs: 3, md: 4 }, flexShrink: 0 }}>
+                  <CardContent sx={{ p: { xs: 2, md: 3 }, height: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                       <Avatar
                         sx={{
-                          backgroundColor: theme.palette.secondary.main,
-                          color: 'white',
+                          backgroundColor: '#007BFF',
+                          color: '#FFFFFF',
                           mr: 2,
-                          width: { xs: 50, md: 60 },
-                          height: { xs: 50, md: 60 },
+                          width: { xs: 48, md: 56 },
+                          height: { xs: 48, md: 56 },
                         }}
                       >
-                        <BusinessCenter sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }} />
+                        <BusinessCenter sx={{ fontSize: { xs: '1.5rem', md: '1.75rem' } }} />
                       </Avatar>
-                      <Typography 
-                        variant="h4" 
-                        sx={{ 
+                      <Typography
+                        variant="h4"
+                        sx={{
                           fontWeight: 600,
-                          fontSize: { xs: '1.5rem', md: '2rem' },
+                          fontSize: { xs: '1.5rem', md: '1.75rem' },
+                          color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
                         }}
                       >
                         What We Do
                       </Typography>
                     </Box>
-                    <Typography 
-                      variant="body1" 
-                      sx={{ 
-                        lineHeight: { xs: 1.6, md: 1.8 }, 
-                        fontSize: { xs: '1rem', md: '1.1rem' },
-                        color: 'text.primary',
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        lineHeight: 1.6,
+                        fontSize: { xs: '1rem', md: '1.125rem' },
+                        fontWeight: 500,
+                        color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
                         flex: 1,
                       }}
                     >
-                      We offer a comprehensive suite of services designed specifically to address the unique needs 
-                      of cellphone retail businesses. We believe in empowering your team and optimizing your processes 
-                      for sustainable growth. Our solutions combine cutting-edge technology with practical training 
-                      methodologies to deliver measurable results that transform your retail operations.
+                      We offer a comprehensive suite of services designed specifically to address the unique needs of cellphone retail businesses. Our solutions combine cutting-edge technology with practical training methodologies to deliver measurable results.
                     </Typography>
                   </CardContent>
                 </Card>
@@ -291,7 +253,7 @@ const About = () => {
 
         {/* Why Choose Us */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
@@ -299,93 +261,46 @@ const About = () => {
           <Box
             sx={{
               background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
-              borderRadius: 4,
-              p: { 
-                xs: 3, 
-                sm: 4, 
-                md: 6 
-              },
-              '@media (min-height: 1200px)': {
-                p: { xs: 3, sm: 4, md: 5 }
-              },
-              color: 'white',
+              borderRadius: 3,
+              p: { xs: 3, sm: 4, md: 5 },
+              color: '#FFFFFF',
               textAlign: 'center',
-              position: 'relative',
-              overflow: 'hidden',
               mx: { xs: 2, sm: 3 },
-              my: { 
-                xs: 6, 
-                sm: 8, 
-                md: 10,
-                lg: 12 
-              },
-              '@media (min-height: 1200px)': {
-                my: { xs: 4, sm: 6, md: 8 }
-              },
-              '&::before': {
-                content: '""',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='20' cy='20' r='2'/%3E%3C/g%3E%3C/svg%3E")`,
-                opacity: 0.3,
-              },
+              my: { xs: 4, md: 6 },
             }}
           >
-            <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 1 }}>
-              <Typography 
-                variant="h3" 
-                sx={{ 
-                  fontWeight: 700, 
-                  mb: { xs: 2, md: 3 },
+            <Container maxWidth="xl">
+              <Typography
+                variant="h3"
+                sx={{
+                  fontWeight: 600,
+                  mb: 2,
                   fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.75rem' },
+                  color: '#FFFFFF',
                 }}
               >
                 Why Choose Us?
               </Typography>
-              
-              <Typography 
-                variant="h6" 
-                sx={{ 
-                  mb: { xs: 3, md: 4 },
-                  opacity: 0.95,
-                  fontSize: { xs: '1rem', md: '1.2rem' },
+              <Typography
+                variant="body1"
+                sx={{
+                  mb: 3,
+                  fontSize: { xs: '1rem', md: '1.125rem' },
                   lineHeight: 1.6,
-                  maxWidth: 800,
+                  fontWeight: 500,
+                  maxWidth: 700,
                   mx: 'auto',
+                  color: '#E0E0E0',
                 }}
               >
-                We deliver comprehensive solutions that are specifically designed for your success
+                We deliver comprehensive solutions designed for your success.
               </Typography>
-              
-              <Box 
-                sx={{ 
+              <Box
+                sx={{
                   display: 'flex',
                   flexWrap: 'wrap',
                   justifyContent: 'center',
-                  alignItems: 'stretch',
-                  gap: { xs: 3, md: 4 },
-                  maxWidth: { lg: 1400 },
-                  mx: 'auto',
-                  mb: { 
-                    xs: 3, 
-                    md: 4 
-                  },
-                  '@media (min-height: 1200px)': {
-                    mb: { xs: 3, md: 4 }
-                  },
-                  '& > div': {
-                    flex: {
-                      xs: '1 1 100%',
-                      sm: '1 1 calc(50% - 12px)',
-                      md: '1 1 calc(33.333% - 16px)',
-                      lg: '1 1 calc(33.333% - 16px)',
-                    },
-                    minWidth: { xs: '280px', sm: '300px', md: '320px' },
-                    maxWidth: { xs: '100%', sm: '400px', md: '420px' },
-                  },
+                  gap: { xs: 2, md: 3 },
                 }}
               >
                 {whyChooseUs.map((reason, index) => (
@@ -395,66 +310,55 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    whileHover={{ scale: 1.05, y: -5 }}
+                    whileHover={{ scale: 1.03 }}
                   >
-                    <Box 
-                      sx={{ 
+                    <Box
+                      sx={{
                         textAlign: 'center',
-                        p: { xs: 3, md: 4 },
+                        p: 3,
                         borderRadius: 3,
-                        transition: 'all 0.3s ease',
-                        backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                        border: '1px solid rgba(255, 255, 255, 0.15)',
-                        height: { xs: 320, md: 360 },
+                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                        minWidth: { xs: 260, sm: 300 },
+                        maxWidth: 340,
+                        height: 300,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
-                        justifyContent: 'flex-start',
                         '&:hover': {
                           backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                          borderColor: 'rgba(255, 255, 255, 0.25)',
                         },
                       }}
                     >
                       <Avatar
                         sx={{
                           backgroundColor: reason.color,
-                          color: 'white',
-                          width: { xs: 72, md: 88 },
-                          height: { xs: 72, md: 88 },
-                          mb: 3,
-                          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-                          border: '2px solid rgba(255, 255, 255, 0.2)',
+                          color: '#FFFFFF',
+                          width: 64,
+                          height: 64,
+                          mb: 2,
                         }}
                       >
-                        {React.cloneElement(reason.icon, { 
-                          sx: { fontSize: { xs: 32, md: 36 } } 
-                        })}
+                        {React.cloneElement(reason.icon, { sx: { fontSize: 32 } })}
                       </Avatar>
-                      <Typography 
-                        variant="h6" 
-                        sx={{ 
-                          fontWeight: 700, 
-                          mb: 2,
-                          fontSize: { xs: '1.2rem', md: '1.35rem' },
-                          color: 'white',
-                          minHeight: { xs: '2.4rem', md: '2.7rem' },
-                          display: 'flex',
-                          alignItems: 'center',
-                          textAlign: 'center',
-                          justifyContent: 'center',
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          fontWeight: 600,
+                          mb: 1,
+                          fontSize: { xs: '1.25rem', md: '1.375rem' },
+                          color: '#FFFFFF',
                         }}
                       >
                         {reason.title}
                       </Typography>
-                      <Typography 
-                        variant="body1" 
-                        sx={{ 
-                          color: 'rgba(255, 255, 255, 0.9)',
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          color: '#E0E0E0',
                           lineHeight: 1.6,
-                          fontSize: { xs: '0.95rem', md: '1.05rem' },
+                          fontSize: { xs: '1rem', md: '1.125rem' },
                           fontWeight: 400,
-                          textAlign: 'center',
                         }}
                       >
                         {reason.description}
@@ -471,71 +375,47 @@ const About = () => {
         <Box
           sx={{
             background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
-            color: 'white',
-            py: { 
-              xs: 6, 
-              sm: 8, 
-              md: 10,
-              lg: 12 
-            },
-            '@media (min-height: 1200px)': {
-              py: { xs: 4, sm: 6, md: 8 }
-            },
-            position: 'relative',
-            overflow: 'hidden',
-            '&::before': {
-              content: '""',
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              background: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3C/g%3E%3C/svg%3E")`,
-              opacity: 0.3,
-            },
+            color: '#FFFFFF',
+            py: { xs: 4, md: 6 },
           }}
         >
-          <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 1 }}>
-            {/* Title Section */}
-            <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 } }}>
+          <Container maxWidth="xl">
+            <Box sx={{ textAlign: 'center', mb: 4 }}>
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Typography 
-                  variant="h2" 
-                  sx={{ 
-                    fontWeight: 700, 
-                    mb: { xs: 2, md: 3 },
+                <Typography
+                  variant="h1"
+                  sx={{
+                    fontWeight: 600,
+                    mb: 2,
                     fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+                    color: '#FFFFFF',
                   }}
                 >
                   Ready to Transform Your Business?
                 </Typography>
-                <Typography 
-                  variant="h6" 
-                  sx={{ 
-                    opacity: 0.9, 
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: '1rem', md: '1.125rem' },
                     lineHeight: 1.6,
-                    fontSize: { xs: '1rem', md: '1.25rem', lg: '1.35rem' },
-                    maxWidth: { xs: '100%', md: 800, lg: 900 },
+                    fontWeight: 500,
+                    maxWidth: 700,
                     mx: 'auto',
-                    px: { xs: 2, md: 0 },
+                    color: '#E0E0E0',
                   }}
                 >
-                  Join hundreds of successful businesses that have already transformed their operations 
-                  with our innovative virtual solutions. Experience the difference that expert guidance 
-                  and cutting-edge technology can make for your retail success.
+                  Join hundreds of successful businesses that have transformed their operations with our innovative virtual solutions.
                 </Typography>
               </motion.div>
             </Box>
-
-            {/* Card Section */}
-            <Box sx={{ mb: { xs: 4, md: 6 } }}>
+            <Box sx={{ mb: 4 }}>
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
@@ -544,81 +424,67 @@ const About = () => {
                 <Card
                   sx={{
                     backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    backdropFilter: 'blur(20px)',
                     border: '1px solid rgba(255, 255, 255, 0.2)',
-                    borderRadius: 4,
-                    transition: 'all 0.3s ease',
-                    maxWidth: { xs: '100%', sm: 800, md: 900, lg: 1000 },
+                    borderRadius: 3,
+                    maxWidth: 800,
                     mx: 'auto',
                     '&:hover': {
                       backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                      border: '1px solid rgba(255, 255, 255, 0.3)',
-                      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2)',
                     },
                   }}
                 >
-                  <CardContent sx={{ p: { xs: 3, sm: 4, md: 5, lg: 6 } }}>
-                    <Typography 
-                      variant="h5" 
-                      sx={{ 
-                        fontWeight: 600, 
-                        mb: { xs: 3, md: 4 },
-                        fontSize: { xs: '1.25rem', md: '1.5rem', lg: '1.75rem' },
+                  <CardContent sx={{ p: { xs: 2, md: 3 } }}>
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        fontWeight: 600,
+                        mb: 2,
+                        fontSize: { xs: '1.25rem', md: '1.5rem' },
+                        color: '#FFFFFF',
                         textAlign: 'center',
-                        color: 'white',
                       }}
                     >
                       Why Businesses Choose Us
                     </Typography>
-                    
-                    <Box sx={{ maxWidth: 800, mx: 'auto' }}>
+                    <Box sx={{ maxWidth: 600, mx: 'auto' }}>
                       {[
                         'Leading virtual retail solutions provider',
                         'Award-winning technology platform',
                         '24/7 dedicated support team',
                         'Industry-recognized expertise',
                         'Proven track record of success',
-                        'Customized solutions for every business'
+                        'Customized solutions for every business',
                       ].map((feature, index) => (
                         <motion.div
                           key={index}
-                          initial={{ opacity: 0, x: -20 }}
+                          initial={{ opacity: 0, x: -10 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.4, delay: index * 0.1 }}
                           viewport={{ once: true }}
                         >
-                          <Box 
-                            sx={{ 
-                              display: 'flex', 
+                          <Box
+                            sx={{
+                              display: 'flex',
                               alignItems: 'center',
-                              p: { xs: 2.5, md: 3 },
-                              mb: { xs: 1.5, md: 2 },
+                              p: 1,
+                              mb: 1,
                               borderRadius: 2,
                               backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                              border: '1px solid rgba(255, 255, 255, 0.1)',
-                              transition: 'all 0.3s ease',
-                              '&:hover': {
-                                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                                borderColor: 'rgba(255, 255, 255, 0.2)',
-                                transform: 'translateX(8px)',
-                              },
                             }}
                           >
-                            <CheckCircle 
-                              sx={{ 
-                                color: '#00F0FF', 
-                                fontSize: { xs: '1.5rem', md: '1.8rem' },
-                                mr: { xs: 2, md: 3 },
-                                flexShrink: 0,
-                              }} 
+                            <CheckCircle
+                              sx={{
+                                color: '#00F0FF',
+                                fontSize: { xs: '1.5rem', md: '1.75rem' },
+                                mr: 2,
+                              }}
                             />
                             <Typography
                               variant="body1"
                               sx={{
-                                color: 'white',
+                                color: '#E0E0E0',
                                 fontWeight: 500,
-                                fontSize: { xs: '1rem', md: '1.1rem' },
-                                lineHeight: 1.5,
+                                fontSize: { xs: '1rem', md: '1.125rem' },
                               }}
                             >
                               {feature}
@@ -631,59 +497,35 @@ const About = () => {
                 </Card>
               </motion.div>
             </Box>
-
-            {/* Button Section */}
             <Box sx={{ textAlign: 'center' }}>
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <motion.div
-                  whileHover={{ y: -3 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.2 }}
+                <Button
+                  variant="contained"
+                  size="large"
+                  endIcon={<ArrowForward />}
+                  onClick={() => {
+                    const footer = document.getElementById('footer-contact');
+                    if (footer) footer.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  sx={{
+                    backgroundColor: '#007BFF',
+                    color: '#FFFFFF',
+                    px: { xs: 3, md: 4 },
+                    py: 1.5,
+                    fontSize: { xs: '1rem', md: '1.125rem' },
+                    fontWeight: 600,
+                    borderRadius: 3,
+                    '&:hover': {
+                      backgroundColor: '#005BFF',
+                      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)',
+                    },
+                  }}
                 >
-                  <Button
-                    variant="contained"
-                    size="large"
-                    endIcon={<ArrowForward />}
-                    onClick={() => {
-                      const footer = document.getElementById('footer-contact');
-                      if (footer) {
-                        footer.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
-                    sx={{
-                      backgroundColor: theme.palette.mode === 'dark' 
-                        ? 'rgba(169, 255, 79, 0.9)' 
-                        : theme.palette.primary.main,
-                      color: theme.palette.mode === 'dark' 
-                        ? '#0D0F1C' 
-                        : 'white',
-                      px: { xs: 4, md: 6, lg: 8 },
-                      py: { xs: 2, md: 2.5, lg: 3 },
-                      fontSize: { xs: '1rem', md: '1.2rem', lg: '1.3rem' },
-                      borderRadius: 3,
-                      fontWeight: 600,
-                      boxShadow: theme.palette.mode === 'dark'
-                        ? '0 8px 32px rgba(169, 255, 79, 0.2)'
-                        : '0 8px 32px rgba(0, 0, 0, 0.1)',
-                      transition: 'all 0.3s ease',
-                      '&:hover': {
-                        backgroundColor: theme.palette.mode === 'dark' 
-                          ? 'rgba(169, 255, 79, 1)' 
-                          : theme.palette.primary.dark,
-                        boxShadow: theme.palette.mode === 'dark'
-                          ? '0 12px 40px rgba(169, 255, 79, 0.3)'
-                          : `0 12px 40px ${theme.palette.primary.main}40`,
-                      },
-                    }}
-                  >
-                    Start Your Journey Today
-                  </Button>
-                </motion.div>
+                  Start Your Journey Today
+                </Button>
               </motion.div>
             </Box>
           </Container>

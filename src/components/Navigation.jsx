@@ -235,11 +235,13 @@ const Navigation = () => {
                       <Button
                         onClick={() => handleNavigation(item.path)}
                         sx={{
-                          color: location.pathname === '/' && !isScrolled
-                            ? (location.pathname === item.path ? '#F5F5F5' : '#F5F5F5')
-                            : (location.pathname === item.path 
-                              ? (mode === 'light' ? '#7F00FF' : '#00F0FF')
-                              : (mode === 'light' ? '#0D0F1C' : '#F5F5F5')),
+                          color: mode === 'dark'
+                            ? (location.pathname === item.path ? '#FFFFFF' : '#F5F5F5')
+                            : (location.pathname === '/' && !isScrolled
+                              ? (location.pathname === item.path ? '#F5F5F5' : '#F5F5F5')
+                              : (location.pathname === item.path 
+                                ? '#15357A'
+                                : '#0D0F1C')),
                           fontWeight: location.pathname === item.path ? 600 : 500,
                           position: 'relative',
                           px: { sm: 1, md: 2 },
@@ -249,15 +251,15 @@ const Navigation = () => {
                           backgroundColor: location.pathname === item.path 
                             ? (location.pathname === '/' && !isScrolled 
                               ? 'rgba(245, 245, 245, 0.2)' 
-                              : (mode === 'light' ? 'rgba(127, 0, 255, 0.1)' : 'rgba(0, 240, 255, 0.15)'))
+                              : (mode === 'light' ? 'rgba(21, 53, 122, 0.12)' : 'rgba(34, 80, 178, 0.15)'))
                             : 'transparent',
                           '&:hover': {
                             backgroundColor: location.pathname === '/' && !isScrolled
                               ? 'rgba(245, 245, 245, 0.15)' 
-                              : (mode === 'light' ? 'rgba(127, 0, 255, 0.1)' : 'rgba(0, 240, 255, 0.1)'),
-                            color: location.pathname === '/' && !isScrolled
+                              : (mode === 'light' ? 'rgba(21, 53, 122, 0.18)' : 'rgba(34, 80, 178, 0.18)'),
+                            color: mode === 'dark' ? '#FFFFFF' : (location.pathname === '/' && !isScrolled
                               ? '#F5F5F5'
-                              : (mode === 'light' ? '#7F00FF' : '#00F0FF'),
+                              : '#15357A'),
                             borderRadius: 2,
                           },
                         }}
