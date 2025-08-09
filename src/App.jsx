@@ -7,9 +7,34 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Solutions from './pages/Solutions';
-import JoinOurTeam from './pages/Join';
+import Lenis from 'lenis';  // Assume installed via npm i lenis
 
 function App() {
+  React.useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
     <ARKThemeProvider>
       <Router>
@@ -19,7 +44,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/solutions" element={<Solutions />} />
-            {/* <Route path="/join" element={<JoinOurTeam />} /> */}
           </Routes>
           <Footer />
         </Box>

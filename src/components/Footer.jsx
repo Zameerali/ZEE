@@ -16,7 +16,6 @@ import {
   Phone,
   LocationOn,
   LinkedIn,
-  Twitter,
   Facebook,
   YouTube,
   ArrowUpward,
@@ -75,10 +74,19 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: <LinkedIn />, url: 'https://linkedin.com/company/zee-kraze-consultants', label: 'LinkedIn' },
-    { icon: <Twitter />, url: 'https://twitter.com/zeekrazeconsultants', label: 'Twitter' },
-    { icon: <Facebook />, url: 'https://facebook.com/zeekrazeconsultants', label: 'Facebook' },
-    { icon: <YouTube />, url: 'https://youtube.com/zeekrazeconsultants', label: 'YouTube' },
+    { icon: <LinkedIn />, url: 'https://linkedin.com/company/zee-kraze-consultants', label: 'LinkedIn', color: '#0077B5' },
+    {
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.53 3H21.5L14.88 10.39L22.68 21H16.16L11.21 14.41L5.61 21H1.63L8.7 13.09L1.14 3H7.84L12.32 9.03L17.53 3ZM16.41 19.13H18.23L7.36 4.77H5.41L16.41 19.13Z" fill="#000"/>
+        </svg>
+      ),
+      url: 'https://x.com/zeekrazeconsultants',
+      label: 'X',
+      color: '#000000',
+    },
+    { icon: <Facebook />, url: 'https://facebook.com/zeekrazeconsultants', label: 'Facebook', color: '#1877F3' },
+    { icon: <YouTube />, url: 'https://youtube.com/zeekrazeconsultants', label: 'YouTube', color: '#FF0000' },
   ];
 
   return (
@@ -112,7 +120,7 @@ const Footer = () => {
                 color: '#FFFFFF',
               }}
             >
-              Connect & Participate
+              Get in Touch
             </Typography>
             <Typography
               variant="body1"
@@ -140,18 +148,7 @@ const Footer = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Typography
-                variant="h5"
-                sx={{
-                  fontWeight: 600,
-                  mb: 4,
-                  fontSize: { xs: '1.25rem', md: '1.5rem' },
-                  color: '#FFFFFF',
-                  textAlign: 'left',
-                }}
-              >
-                Get In Touch
-              </Typography>
+              
 
               {/* Contact Details - Responsive Grid */}
               <Grid container spacing={2} sx={{ mb: 4 }}>
@@ -165,7 +162,7 @@ const Footer = () => {
                       p: 2,
                       backgroundColor: 'rgba(255, 255, 255, 0.1)',
                       borderRadius: 2,
-                      height: '100%',
+                      height: '80%',
                       gap: 1.5,
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',
@@ -228,7 +225,7 @@ const Footer = () => {
                       p: 2,
                       backgroundColor: 'rgba(255, 255, 255, 0.1)',
                       borderRadius: 2,
-                      height: '100%',
+                      height: '80%',
                       gap: 1.5,
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',
@@ -326,7 +323,7 @@ const Footer = () => {
                       p: 2,
                       backgroundColor: 'rgba(255, 255, 255, 0.1)',
                       borderRadius: 2,
-                      height: '100%',
+                      height: '80%',
                       gap: 1.5,
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',
@@ -401,19 +398,22 @@ const Footer = () => {
                       rel="noopener noreferrer"
                       aria-label={social.label}
                       sx={{
-                        color: '#FFFFFF',
-                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                        backgroundColor: '#fff',
                         border: '1px solid rgba(255, 255, 255, 0.2)',
                         width: 48,
                         height: 48,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        p: 0,
                         '&:hover': {
-                          backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                          backgroundColor: 'rgba(255,255,255,0.85)',
                           borderColor: 'rgba(255, 255, 255, 0.4)',
                         },
                         transition: 'all 0.3s ease',
                       }}
                     >
-                      {social.icon}
+                      {React.cloneElement(social.icon, { sx: { color: social.color, fontSize: 28 } })}
                     </IconButton>
                   </motion.div>
                 ))}

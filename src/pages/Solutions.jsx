@@ -685,7 +685,7 @@ const Solutions = () => {
                   px: { xs: 2, md: 0 },
                 }}
               >
-                At ARK Retail Consultants, we offer a comprehensive suite of services designed specifically
+                At ZEE-KRAZE Consultants, we offer a comprehensive suite of services designed specifically
                 to address the unique needs of cellphone retail businesses. We believe in empowering your team
                 and optimizing your processes for sustainable growth.
               </Typography>
