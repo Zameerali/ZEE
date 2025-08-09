@@ -74,15 +74,22 @@ const Navigation = () => {
     }, 100);
   };
 
-
-
   const drawer = (
-    <Box sx={{ width: 280, height: '100%', pt: 2 }}>
+    <Box sx={{ width: 280, height: '100%', pt: 2, bgcolor: mode === 'light' ? '#ffffff' : '#1a1a1a' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: 2, mb: 2 }}>
-        <Typography variant="h6" sx={{ fontWeight: 700, color: 'primary.main' }}>
+        <Typography 
+          variant="h6" 
+          sx={{ 
+            fontWeight: 600, 
+            fontSize: { xs: '1.125rem', md: '1.25rem' }, 
+            lineHeight: 1.2,
+            color: mode === 'light' ? '#0D0F1C' : '#FFFFFF',
+            textShadow: mode === 'light' ? '0 1px 2px rgba(0, 0, 0, 0.3)' : 'none',
+          }}
+        >
           ZEE-KRAZE Consultants
         </Typography>
-        <IconButton onClick={handleDrawerToggle}>
+        <IconButton onClick={handleDrawerToggle} sx={{ color: mode === 'light' ? '#0D0F1C' : '#FFFFFF' }}>
           <CloseIcon />
         </IconButton>
       </Box>
@@ -96,22 +103,26 @@ const Navigation = () => {
             }}
             sx={{
               textDecoration: 'none',
-              color: 'inherit',
               mx: 1,
               borderRadius: 2,
               mb: 1,
-              backgroundColor: location.pathname === item.path ? 'primary.main' : 'transparent',
+              backgroundColor: location.pathname === item.path ? 'rgba(0, 123, 255, 0.15)' : 'transparent',
               cursor: 'pointer',
               '&:hover': {
-                backgroundColor: location.pathname === item.path ? 'primary.dark' : 'action.hover',
+                backgroundColor: location.pathname === item.path ? 'rgba(0, 123, 255, 0.2)' : 'action.hover',
               },
             }}
           >
             <ListItemText 
               primary={item.text}
               primaryTypographyProps={{
-                fontWeight: location.pathname === item.path ? 600 : 400,
-                color: location.pathname === item.path ? 'white' : 'text.primary',
+                fontWeight: location.pathname === item.path ? 600 : 500,
+                fontSize: { xs: '0.875rem', md: '1rem' },
+                lineHeight: 1.6,
+                color: location.pathname === item.path 
+                  ? '#007BFF' 
+                  : (mode === 'light' ? '#0D0F1C' : '#FFFFFF'),
+                textShadow: mode === 'light' ? '0 1px 2px rgba(0, 0, 0, 0.3)' : 'none',
               }}
             />
           </ListItem>
@@ -126,17 +137,18 @@ const Navigation = () => {
             setMobileOpen(false);
           }}
           sx={{
-            backgroundColor: theme.palette.mode === 'dark' 
-              ? 'rgba(169, 255, 79, 0.9)' 
-              : theme.palette.primary.main,
-            color: theme.palette.mode === 'dark' 
-              ? '#0D0F1C' 
-              : 'white',
+            backgroundColor: '#007BFF',
+            color: '#FFFFFF',
             mb: 2,
+            fontSize: { xs: '0.875rem', md: '1rem' },
+            fontWeight: 600,
+            borderRadius: 2,
+            px: { xs: 2, md: 3 },
+            py: 1,
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
             '&:hover': {
-              backgroundColor: theme.palette.mode === 'dark' 
-                ? 'rgba(169, 255, 79, 1)' 
-                : theme.palette.primary.dark,
+              backgroundColor: '#005BFF',
+              boxShadow: '0 6px 16px rgba(0, 0, 0, 0.2)',
             },
           }}
         >
@@ -147,6 +159,20 @@ const Navigation = () => {
           variant="outlined"
           startIcon={mode === 'light' ? <DarkMode /> : <LightMode />}
           onClick={toggleTheme}
+          sx={{
+            fontSize: { xs: '0.875rem', md: '1rem' },
+            fontWeight: 600,
+            borderColor: mode === 'light' ? '#0D0F1C' : '#FFFFFF',
+            color: mode === 'light' ? '#0D0F1C' : '#FFFFFF',
+            borderRadius: 2,
+            px: { xs: 2, md: 3 },
+            py: 1,
+            '&:hover': {
+              borderColor: '#007BFF',
+              color: '#007BFF',
+              backgroundColor: 'rgba(0, 123, 255, 0.05)',
+            },
+          }}
         >
           {mode === 'light' ? 'Dark Mode' : 'Light Mode'}
         </Button>
@@ -164,7 +190,7 @@ const Navigation = () => {
             backgroundColor: isScrolled 
               ? (mode === 'light' ? 'rgba(255, 255, 255, 0.95)' : 'rgba(10, 10, 10, 0.95)')
               : 'transparent',
-            backdropFilter: isScrolled ? 'blur(20px)' : 'none',
+             backdropFilter: isScrolled ? 'blur(20px)' : 'none',
             borderBottom: isScrolled ? `1px solid ${theme.palette.divider}` : 'none',
             transition: 'all 0.3s ease-in-out',
           }}
@@ -201,20 +227,18 @@ const Navigation = () => {
                       width: 'auto',
                       mr: { xs: 1, sm: 2 },
                       objectFit: 'contain',
-                          filter: 'drop-shadow(0 0 0.1px rgba(0, 0, 0, 0.7))',
-
+                      filter: 'drop-shadow(0 0 0.1px rgba(0, 0, 0, 0.7))',
                     }}
                   />
                   <Typography
-                    variant="h5"
+                    variant="h6"
                     sx={{
-                      fontWeight: 700,
-                      color: location.pathname === '/' && !isScrolled 
-                        ? '#F5F5F5' 
-                        : (mode === 'light' ? '#0D0F1C' : '#F5F5F5'),
+                      fontWeight: 600,
                       fontSize: { xs: '0.8rem', sm: '1rem', md: '1.25rem', lg: '1.5rem' },
                       lineHeight: 1.2,
-                      display: 'block',
+                      color: location.pathname === '/' && !isScrolled 
+                        ? '#F5F5F5' 
+                        : (mode === 'light' ? '#0D0F1C' : '#F5F5F5'),                      textShadow: mode === 'light' ? '0 1px 2px rgba(0, 0, 0, 0.3)' : 'none',
                     }}
                   >
                     ZEE-KRAZE Consultants
@@ -235,7 +259,7 @@ const Navigation = () => {
                       <Button
                         onClick={() => handleNavigation(item.path)}
                         sx={{
-                          color: mode === 'dark'
+                         color: mode === 'dark'
                             ? (location.pathname === item.path ? '#FFFFFF' : '#F5F5F5')
                             : (location.pathname === '/' && !isScrolled
                               ? (location.pathname === item.path ? '#F5F5F5' : '#F5F5F5')
@@ -243,17 +267,17 @@ const Navigation = () => {
                                 ? '#15357A'
                                 : '#0D0F1C')),
                           fontWeight: location.pathname === item.path ? 600 : 500,
-                          position: 'relative',
                           px: { sm: 1, md: 2 },
                           py: 1,
-                          fontSize: { sm: '0.875rem', md: '1rem' },
+                          fontSize: { xs: '0.875rem', sm: '0.875rem', md: '1rem' },
                           borderRadius: 2,
                           backgroundColor: location.pathname === item.path 
                             ? (location.pathname === '/' && !isScrolled 
                               ? 'rgba(245, 245, 245, 0.2)' 
                               : (mode === 'light' ? 'rgba(21, 53, 122, 0.12)' : 'rgba(34, 80, 178, 0.15)'))
                             : 'transparent',
-                          '&:hover': {
+                          textShadow: mode === 'light' ? '0 1px 2px rgba(0, 0, 0, 0.3)' : 'none',
+                           '&:hover': {
                             backgroundColor: location.pathname === '/' && !isScrolled
                               ? 'rgba(245, 245, 245, 0.15)' 
                               : (mode === 'light' ? 'rgba(21, 53, 122, 0.18)' : 'rgba(34, 80, 178, 0.18)'),
@@ -280,18 +304,17 @@ const Navigation = () => {
                       sx={{
                         ml: { sm: 1, md: 2 },
                         px: { sm: 2, md: 3 },
-                        fontSize: { sm: '0.875rem', md: '1rem' },
-                        backgroundColor: theme.palette.mode === 'dark' 
-                          ? 'rgba(169, 255, 79, 0.9)' 
-                          : theme.palette.primary.main,
+                        py: 1,
+                        fontSize: { xs: '0.875rem', md: '1rem' },
+                        fontWeight: 600,
+                        backgroundColor: '#007BFF',
                         color: theme.palette.mode === 'dark' 
                           ? '#0D0F1C' 
-                          : 'white',
-                        fontWeight: 600,
+                          : 'white',                        borderRadius: 2,
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
                         '&:hover': {
-                          backgroundColor: theme.palette.mode === 'dark' 
-                            ? 'rgba(169, 255, 79, 1)' 
-                            : theme.palette.primary.dark,
+                          backgroundColor: '#005BFF',
+                          boxShadow: '0 6px 16px rgba(0, 0, 0, 0.2)',
                         },
                       }}
                     >
@@ -326,7 +349,7 @@ const Navigation = () => {
                   <IconButton
                     onClick={toggleTheme}
                     sx={{ 
-                      color: location.pathname === '/' && !isScrolled 
+                       color: location.pathname === '/' && !isScrolled 
                         ? '#F5F5F5' 
                         : (mode === 'light' ? '#0D0F1C' : '#F5F5F5'),
                       '&:hover': {

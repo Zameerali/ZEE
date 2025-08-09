@@ -291,7 +291,7 @@ const ServicesSection = () => {
                       <Avatar
                         sx={{
                           backgroundColor: 'rgba(255, 255, 255, 0.25)',
-                          color: '#007BFF',
+                          color: '#ffffffff',
                           width: { xs: 72, md: 88 },
                           height: { xs: 72, md: 88 },
                           mb: 3,
