@@ -665,7 +665,7 @@ const Solutions = () => {
                 variant="h1"
                 sx={{
                   mb: { xs: 2, md: 2 },
-                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+                  fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.5rem', lg: '3rem' },
                   fontWeight: 600,
                   lineHeight: 1.2,
                   color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',

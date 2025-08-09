@@ -50,9 +50,15 @@ const HeroSection = () => {
       }}
     >
       <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 1 }}>
-        <Grid container spacing={{ xs: 4, md: 6 }} alignItems="center" sx={{ minHeight: { md: '85vh' } }}>
+        <Grid
+          container
+          spacing={{ xs: 4, md: 6 }}
+          alignItems="center"
+          justifyContent="center"
+          sx={{ minHeight: { md: '85vh' } }}
+        >
           {/* Hero Content */}
-          <Grid item xs={12}>
+          <Grid item xs={12} md={10} lg={8} sx={{ mx: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -78,7 +84,7 @@ const HeroSection = () => {
                 sx={{
                   mb: { xs: 2, md: 3 },
                   fontWeight: 600,
-                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+                  fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.5rem', lg: '3rem' },
                   lineHeight: 1.2,
                   color: '#FFFFFF',
                   textAlign: 'center',
@@ -93,7 +99,7 @@ const HeroSection = () => {
                 sx={{
                   mb: { xs: 2, md: 3 },
                   fontWeight: 600,
-                  fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.75rem' },
+                  fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
                   lineHeight: 1.2,
                   color: '#007BFF',
                   textAlign: 'center',

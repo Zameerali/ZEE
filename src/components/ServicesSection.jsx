@@ -79,7 +79,7 @@ const ServicesSection = () => {
                 lineHeight: 1.2,
                 mb: 3,
                 fontWeight: 600,
-                fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+                    fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.5rem', lg: '3rem' },
                 color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
               }}
             >
@@ -175,7 +175,7 @@ const ServicesSection = () => {
                 sx={{ 
                   fontWeight: 600, 
                   mb: { xs: 2, md: 3 },
-                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+                    fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.5rem', lg: '3rem' },
                   lineHeight: 1.2,
                   color: '#FFFFFF',
                 }}
@@ -245,7 +245,7 @@ const ServicesSection = () => {
                       <Avatar
                         sx={{
                           backgroundColor: 'rgba(255, 255, 255, 0.25)',
-                          color: '#007BFF',
+                          color: '#ffffffff',
                           width: { xs: 72, md: 88 },
                           height: { xs: 72, md: 88 },
                           mb: 3,
@@ -258,11 +258,11 @@ const ServicesSection = () => {
                         })}
                       </Avatar>
                       <Typography 
-                        variant="h3" 
+                        variant="h4" 
                         sx={{ 
                           fontWeight: 600, 
                           mb: 2,
-                          fontSize: { xs: '1.25rem', md: '1.375rem' },
+                          fontSize: { xs: '1.375rem', md: '1.5rem' },
                           lineHeight: 1.2,
                           color: '#FFFFFF',
                           minHeight: { xs: '2.4rem', md: '2.7rem' },

@@ -7,8 +7,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Solutions from './pages/Solutions';
-import Lenis from 'lenis';  // Assume installed via npm i lenis
-
+import Lenis from 'lenis'; 
 function App() {
   React.useEffect(() => {
     const lenis = new Lenis({
@@ -53,3 +52,4 @@ function App() {
 }
 
 export default App;
+

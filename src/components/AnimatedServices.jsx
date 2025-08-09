@@ -74,7 +74,7 @@ const AnimatedServices = () => {
           sx={{
             color: '#007BFF',
             fontWeight: 600,
-            fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.75rem' },
+            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
             lineHeight: 1.2,
             minHeight: '2.5em',
             display: 'flex',

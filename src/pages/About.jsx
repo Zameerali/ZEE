@@ -101,7 +101,7 @@ const About = () => {
                 sx={{
                   mb: 2,
                   color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
-                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+                  fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.5rem', lg: '3rem' },
                   fontWeight: 600,
                   lineHeight: 1.2,
                 }}
@@ -277,11 +277,11 @@ const About = () => {
                 sx={{
                   fontWeight: 600,
                   mb: 2,
-                  fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.75rem' },
+                  fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
                   color: '#FFFFFF',
                 }}
               >
-                Why Choose Us?
+                Why Choose ZEE-KRAZE?
               </Typography>
               <Typography
                 variant="body1"
@@ -348,7 +348,7 @@ const About = () => {
                         sx={{
                           fontWeight: 600,
                           mb: 1,
-                          fontSize: { xs: '1.25rem', md: '1.375rem' },
+                          fontSize: { xs: '1.375rem', md: '1.5rem' },
                           color: '#FFFFFF',
                         }}
                       >
@@ -390,15 +390,15 @@ const About = () => {
                 viewport={{ once: true }}
               >
                 <Typography
-                  variant="h1"
+                  variant="h3"
                   sx={{
                     fontWeight: 600,
                     mb: 2,
-                    fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+                    fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
                     color: '#FFFFFF',
                   }}
                 >
-                  Ready to Transform Your Business?
+                  ZEE-KRAZE can Transform Your Business
                 </Typography>
                 <Typography
                   variant="body1"

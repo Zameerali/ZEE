@@ -29,7 +29,6 @@ const Footer = () => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  // Show button when page is scrolled down
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.pageYOffset > 300) {
@@ -99,10 +98,10 @@ const Footer = () => {
         pt: 8,
         pb: 4,
         position: 'relative',
+        boxShadow: '0 -4px 12px rgba(0, 0, 0, 0.2)',
       }}
     >
       <Container maxWidth="xl">
-        {/* Contact Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -114,10 +113,11 @@ const Footer = () => {
               variant="h1"
               sx={{
                 mb: 2,
-                fontWeight: 600,
-                fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+                fontWeight: 700,
+                fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.5rem', lg: '3rem' },
                 lineHeight: 1.2,
                 color: '#FFFFFF',
+                textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
               }}
             >
               Get in Touch
@@ -138,9 +138,7 @@ const Footer = () => {
           </Box>
         </motion.div>
 
-        {/* Main Footer Content */}
         <Grid container spacing={4} sx={{ mb: 6 }}>
-          {/* Contact Information */}
           <Grid item xs={12} lg={6}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -148,11 +146,7 @@ const Footer = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              
-
-              {/* Contact Details - Responsive Grid */}
               <Grid container spacing={2} sx={{ mb: 4 }}>
-                {/* Email */}
                 <Grid item xs={12} lg={4}>
                   <Box
                     sx={{
@@ -160,23 +154,24 @@ const Footer = () => {
                       alignItems: 'center',
                       justifyContent: { xs: 'center', lg: 'flex-start' },
                       p: 2,
-                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.15)',
                       borderRadius: 2,
                       height: '80%',
                       gap: 1.5,
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',
                       '&:hover': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.25)',
                         transform: 'translateY(-2px)',
+                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
                       },
                     }}
                     onClick={() => window.open('mailto:info@zeekrazeconsultants.com', '_blank')}
                   >
                     <Email
                       sx={{
-                        fontSize: 20,
-                        color: '#007BFF',
+                        fontSize: 24,
+                        color: '#FFFFFF',
                         flexShrink: 0,
                       }}
                     />
@@ -205,7 +200,7 @@ const Footer = () => {
                         sx={{
                           fontWeight: 500,
                           fontSize: { xs: '1rem', md: '1.125rem' },
-                          color: '#E0E0E0',
+                          color: '#FFFFFF',
                           wordBreak: 'break-all',
                         }}
                       >
@@ -215,7 +210,6 @@ const Footer = () => {
                   </Box>
                 </Grid>
 
-                {/* Phone */}
                 <Grid item xs={12} lg={4}>
                   <Box
                     sx={{
@@ -223,15 +217,16 @@ const Footer = () => {
                       alignItems: 'center',
                       justifyContent: { xs: 'center', lg: 'flex-start' },
                       p: 2,
-                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.15)',
                       borderRadius: 2,
                       height: '80%',
                       gap: 1.5,
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',
                       '&:hover': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.25)',
                         transform: 'translateY(-2px)',
+                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
                       },
                     }}
                     onClick={(e) => {
@@ -275,8 +270,8 @@ const Footer = () => {
                   >
                     <Phone
                       sx={{
-                        fontSize: 20,
-                        color: '#007BFF',
+                        fontSize: 24,
+                        color: '#FFFFFF',
                         flexShrink: 0,
                       }}
                     />
@@ -304,7 +299,7 @@ const Footer = () => {
                         sx={{
                           fontWeight: 500,
                           fontSize: { xs: '1rem', md: '1.125rem' },
-                          color: '#E0E0E0',
+                          color: '#FFFFFF',
                         }}
                       >
                         +1 (555) 123-4567
@@ -313,7 +308,6 @@ const Footer = () => {
                   </Box>
                 </Grid>
 
-                {/* Address */}
                 <Grid item xs={12} lg={4}>
                   <Box
                     sx={{
@@ -321,23 +315,24 @@ const Footer = () => {
                       alignItems: 'center',
                       justifyContent: { xs: 'center', lg: 'flex-start' },
                       p: 2,
-                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.15)',
                       borderRadius: 2,
                       height: '80%',
                       gap: 1.5,
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',
                       '&:hover': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.25)',
                         transform: 'translateY(-2px)',
+                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
                       },
                     }}
                     onClick={() => window.open('https://maps.google.com/?q=123+Business+Ave,+Suite+100,+City,+State+12345', '_blank')}
                   >
                     <LocationOn
                       sx={{
-                        fontSize: 20,
-                        color: '#007BFF',
+                        fontSize: 24,
+                        color: '#FFFFFF',
                         flexShrink: 0,
                       }}
                     />
@@ -366,7 +361,7 @@ const Footer = () => {
                         sx={{
                           fontWeight: 500,
                           fontSize: { xs: '1rem', md: '1.125rem' },
-                          color: '#E0E0E0',
+                          color: '#FFFFFF',
                         }}
                       >
                         123 Business Ave, Suite 100, City, State 12345
@@ -376,14 +371,13 @@ const Footer = () => {
                 </Grid>
               </Grid>
 
-              {/* Social Media Icons */}
               <Box
                 sx={{
                   display: 'flex',
                   justifyContent: { xs: 'center', lg: 'flex-start' },
                   gap: 2,
                   pt: 2,
-                  borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderTop: '1px solid rgba(255, 255, 255, 0.3)',
                 }}
               >
                 {socialLinks.map((social, index) => (
@@ -392,7 +386,7 @@ const Footer = () => {
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <IconButton
+                     <IconButton
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -421,7 +415,6 @@ const Footer = () => {
             </motion.div>
           </Grid>
 
-          {/* Company Info & Links */}
           <Grid item xs={12} lg={6}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -448,17 +441,18 @@ const Footer = () => {
                     height: { xs: 50, md: 96 },
                     width: 'auto',
                     objectFit: 'contain',
-                    filter: 'drop-shadow(0 0 0.1px rgba(0, 0, 0, 0.7))',
+                    filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))',
                   }}
                 />
                 <Typography
                   variant="h5"
                   sx={{
-                    fontWeight: 600,
+                    fontWeight: 700,
                     fontSize: { xs: '1.25rem', md: '1.5rem' },
                     color: '#FFFFFF',
                     textAlign: { xs: 'center', md: 'left' },
                     lineHeight: 1.2,
+                    textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
                   }}
                 >
                   ZEE-KRAZE Consultants
@@ -472,7 +466,7 @@ const Footer = () => {
                   fontSize: { xs: '1rem', md: '1.125rem' },
                   fontWeight: 500,
                   lineHeight: 1.6,
-                  color: '#E0E0E0',
+                  color: '#FFFFFF',
                   textAlign: { xs: 'center', md: 'left' },
                 }}
               >
@@ -485,11 +479,12 @@ const Footer = () => {
                   <Typography
                     variant="h6"
                     sx={{
-                      fontWeight: 600,
+                      fontWeight: 700,
                       mb: 3,
                       fontSize: { xs: '1.25rem', md: '1.375rem' },
                       color: '#FFFFFF',
                       textAlign: 'left',
+                      textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
                     }}
                   >
                     Quick Links
@@ -512,18 +507,22 @@ const Footer = () => {
                           }, 100);
                         }}
                         sx={{
-                          color: 'rgba(255, 255, 255, 0.8)',
+                          color: '#FFFFFF',
                           textAlign: 'left',
                           justifyContent: 'flex-start',
                           textTransform: 'none',
-                          p: 0.5,
+                          py: 0.5,
+                          px: 1.5,
                           fontSize: { xs: '1rem', md: '1.125rem' },
-                          fontWeight: 500,
+                          fontWeight: 600,
                           minWidth: 'auto',
+                          backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                          borderRadius: 1,
                           '&:hover': {
-                            color: '#007BFF',
-                            backgroundColor: 'transparent',
+                            color: '#FFFFFF',
+                            backgroundColor: theme.palette.primary.main,
                             transform: 'translateX(5px)',
+                            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
                           },
                           transition: 'all 0.3s ease',
                         }}
@@ -538,11 +537,12 @@ const Footer = () => {
                   <Typography
                     variant="h6"
                     sx={{
-                      fontWeight: 600,
+                      fontWeight: 700,
                       mb: 3,
                       fontSize: { xs: '1.25rem', md: '1.375rem' },
                       color: '#FFFFFF',
                       textAlign: 'left',
+                      textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
                     }}
                   >
                     Solutions
@@ -565,18 +565,22 @@ const Footer = () => {
                           }, 100);
                         }}
                         sx={{
-                          color: 'rgba(255, 255, 255, 0.8)',
+                          color: '#FFFFFF',
                           textAlign: 'left',
                           justifyContent: 'flex-start',
                           textTransform: 'none',
-                          p: 0.5,
+                          py: 0.5,
+                          px: 1.5,
                           fontSize: { xs: '1rem', md: '1.125rem' },
-                          fontWeight: 500,
+                          fontWeight: 600,
                           minWidth: 'auto',
+                          backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                          borderRadius: 1,
                           '&:hover': {
-                            color: '#007BFF',
-                            backgroundColor: 'transparent',
+                            color: '#FFFFFF',
+                            backgroundColor: theme.palette.secondary.main,
                             transform: 'translateX(5px)',
+                            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
                           },
                           transition: 'all 0.3s ease',
                         }}
@@ -591,9 +595,8 @@ const Footer = () => {
           </Grid>
         </Grid>
 
-        <Divider sx={{ borderColor: 'rgba(255, 255, 255, 0.2)', mb: 4 }} />
+        <Divider sx={{ borderColor: 'rgba(255, 255, 255, 0.3)', mb: 4 }} />
 
-        {/* Bottom Footer */}
         <Grid container alignItems="center" justifyContent="center">
           <Grid item xs={12}>
             <Typography
@@ -602,7 +605,7 @@ const Footer = () => {
                 fontSize: { xs: '1rem', md: '1.125rem' },
                 fontWeight: 500,
                 lineHeight: 1.6,
-                color: 'rgba(255, 255, 255, 0.8)',
+                color: '#FFFFFF',
                 textAlign: 'center',
               }}
             >
@@ -612,7 +615,6 @@ const Footer = () => {
         </Grid>
       </Container>
 
-      {/* Scroll to Top Button */}
       {isVisible && (
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
@@ -630,16 +632,16 @@ const Footer = () => {
               position: 'fixed',
               bottom: { xs: 16, md: 24 },
               right: { xs: 16, md: 24 },
-              backgroundColor: '#007BFF',
+              backgroundColor: 'rgba(255, 255, 255, 0.15)',
               color: '#FFFFFF',
               zIndex: 1000,
               width: { xs: 48, md: 56 },
               height: { xs: 48, md: 56 },
               boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
               backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
               '&:hover': {
-                backgroundColor: '#005BFF',
+                backgroundColor: theme.palette.primary.main,
                 transform: 'translateY(-3px) scale(1.05)',
                 boxShadow: '0 8px 30px rgba(0, 0, 0, 0.5)',
               },
@@ -654,7 +656,6 @@ const Footer = () => {
         </motion.div>
       )}
 
-      {/* Snackbar for phone number copy confirmation */}
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={3000}
@@ -667,7 +668,7 @@ const Footer = () => {
           severity="success"
           variant="filled"
           sx={{
-            backgroundColor: '#007BFF',
+            backgroundColor: theme.palette.primary.main,
             color: '#FFFFFF',
             fontWeight: 600,
             fontSize: { xs: '1rem', md: '1.125rem' },
