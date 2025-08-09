@@ -15,12 +15,6 @@ import {
   Warning,
   Analytics,
   ArrowForward,
-  SupportAgent,
-  Phone,
-  Store,
-  TrendingUp,
-  
-
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -28,46 +22,6 @@ import { useNavigate } from 'react-router-dom';
 const ServicesSection = () => {
   const theme = useTheme();
   const navigate = useNavigate();
-
-  // Defined but not rendered as per user intent
-  const services = [
-    {
-      title: 'Smart Retail Management',
-      subtitle: 'VRO Technology',
-      description: 'Transform your retail operations with our Virtual Retail Operations (VRO) platform. Manage inventory, sales, and customer interactions from anywhere.',
-      icon: <Store />,
-      color: '#007BFF',
-      features: ['Real-time Inventory Management', 'Multi-store Operations', 'Cloud-based Dashboard', 'Mobile Accessibility'],
-      badge: 'Most Popular',
-    },
-    {
-      title: 'Retail Excellence Training',
-      subtitle: 'Professional Development',
-      description: 'Comprehensive training programs designed to elevate your team’s performance and customer service excellence.',
-      icon: <TrendingUp />,
-      color: '#007BFF',
-      features: ['Consultative Selling Techniques', 'Product Knowledge Mastery', 'Customer Experience Enhancement', 'Performance Analytics'],
-      badge: 'New',
-    },
-    {
-      title: 'Virtual Sales Consultant',
-      subtitle: 'VSC Platform',
-      description: 'AI-powered sales assistance that guides your team through complex sales processes and customer interactions.',
-      icon: <SupportAgent />,
-      color: '#007BFF',
-      features: ['AI-Powered Recommendations', 'Real-time Sales Coaching', 'Customer Behavior Analysis', 'Performance Optimization'],
-      badge: 'AI-Powered',
-    },
-    {
-      title: 'Sales Excellence Program',
-      subtitle: 'SRP Integration',
-      description: 'Comprehensive Sales Resource Planning (SRP) system that optimizes your sales processes and maximizes revenue potential.',
-      icon: <Phone />,
-      color: '#007BFF',
-      features: ['Sales Process Automation', 'Revenue Optimization', 'Team Performance Tracking', 'Custom Reporting'],
-      badge: 'Enterprise',
-    },
-  ];
 
   const challenges = [
     { icon: <TrendingDown />, title: 'Intense Competition', description: 'Struggling to stay ahead in a crowded market' },
@@ -291,7 +245,7 @@ const ServicesSection = () => {
                       <Avatar
                         sx={{
                           backgroundColor: 'rgba(255, 255, 255, 0.25)',
-                          color: '#ffffffff',
+                          color: '#007BFF',
                           width: { xs: 72, md: 88 },
                           height: { xs: 72, md: 88 },
                           mb: 3,
