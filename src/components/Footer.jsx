@@ -133,98 +133,103 @@ const Footer = () => {
                 color: '#E0E0E0',
               }}
             >
-              Ready to transform your retail operations? Let's start the conversation.
+              Ready to transform your retail operations?
+              <br />  
+              Let's start the conversation.
             </Typography>
           </Box>
         </motion.div>
 
-        <Grid container spacing={4} sx={{ mb: 6 }}>
-          <Grid item xs={12} lg={6}>
+        <Grid container spacing={4} sx={{ mb: 6, alignItems: 'baseline' }}>
+          {/* Left Side: Business Name and Logo, Social Media, Contact Details */}
+          <Grid item xs={12} md={6}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Grid container spacing={2} sx={{ mb: 4 }}>
-                <Grid item xs={12} lg={4}>
+              {/* Business Name and Logo on the Same Line, Properly Aligned */}
+              <Box sx={{ display: 'flex', alignItems: 'baseline', mb: 4, gap: 2, verticalAlign: 'baseline' }}>
+                <Box component="img" src={logo} alt="ZEE-KRAZE Consultants Logo" sx={{ height: { xs: 40, md: 60 }, width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))', verticalAlign: 'middle' }} />
+                <Typography variant="h5" sx={{ fontWeight: 700, fontSize: { xs: '1.25rem', md: '1.5rem' }, color: '#FFFFFF', lineHeight: 1.2, textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)', verticalAlign: 'middle' }}>
+                  ZEE-KRAZE Consultants
+                </Typography>
+              </Box>
+
+              {/* Social Media Icons Left Aligned Below Business Name */}
+              <Box sx={{ display: 'flex', justifyContent: 'flex-start', gap: 2, mb: 4 }}>
+                {socialLinks.map((social, index) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <IconButton
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      sx={{
+                        backgroundColor: '#fff',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                        width: 48,
+                        height: 48,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        p: 0,
+                        '&:hover': {
+                          backgroundColor: 'rgba(255,255,255,0.85)',
+                          borderColor: 'rgba(255, 255, 255, 0.4)',
+                        },
+                        transition: 'all 0.3s ease',
+                      }}
+                    >
+                      {React.cloneElement(social.icon, { sx: { color: social.color, fontSize: 28 } })}
+                    </IconButton>
+                  </motion.div>
+                ))}
+              </Box>
+
+              {/* Contact Details at Bottom with Reduced Gap, No Background */}
+              <Grid container spacing={0.5} direction="column">
+                <Grid item xs={12}>
                   <Box
                     sx={{
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: { xs: 'center', lg: 'flex-start' },
+                      justifyContent: 'flex-start',
                       p: 2,
-                      backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                      borderRadius: 2,
-                      height: '80%',
-                      gap: 1.5,
+                      gap: 1,
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',
                       '&:hover': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.25)',
+                        color: '#FFFFFF',
                         transform: 'translateY(-2px)',
                         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
                       },
                     }}
                     onClick={() => window.open('mailto:info@zeekrazeconsultants.com', '_blank')}
                   >
-                    <Email
-                      sx={{
-                        fontSize: 24,
-                        color: '#FFFFFF',
-                        flexShrink: 0,
-                      }}
-                    />
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 1,
-                        textAlign: { xs: 'center', lg: 'left' },
-                        flexWrap: 'wrap',
-                      }}
-                    >
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          fontSize: { xs: '1rem', md: '1.125rem' },
-                          fontWeight: 600,
-                          color: '#FFFFFF',
-                          whiteSpace: 'nowrap',
-                        }}
-                      >
-                        Email Us:
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          fontWeight: 500,
-                          fontSize: { xs: '1rem', md: '1.125rem' },
-                          color: '#FFFFFF',
-                          wordBreak: 'break-all',
-                        }}
-                      >
-                        info@zeekrazeconsultants.com
-                      </Typography>
-                    </Box>
+                    <Email sx={{ fontSize: 20, color: '#FFFFFF', flexShrink: 0 }} />
+                    <Typography variant="body2" sx={{ fontSize: { xs: '0.875rem', md: '1rem' }, fontWeight: 600, color: '#FFFFFF', whiteSpace: 'nowrap', textAlign: 'left' }}>
+                      Email Us: info@zeekrazeconsultants.com
+                    </Typography>
                   </Box>
                 </Grid>
-
-                <Grid item xs={12} lg={4}>
+                <Grid item xs={12}>
                   <Box
                     sx={{
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: { xs: 'center', lg: 'flex-start' },
+                      justifyContent: 'flex-start',
                       p: 2,
-                      backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                      borderRadius: 2,
-                      height: '80%',
-                      gap: 1.5,
+                      gap: 1,
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',
                       '&:hover': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.25)',
+                        color: '#FFFFFF',
                         transform: 'translateY(-2px)',
                         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
                       },
@@ -232,9 +237,7 @@ const Footer = () => {
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
-
                       const phoneNumber = '+1 (555) 123-4567';
-
                       if (navigator.clipboard && window.isSecureContext) {
                         navigator.clipboard.writeText(phoneNumber).then(() => {
                           console.log('Phone number copied successfully');
@@ -268,235 +271,54 @@ const Footer = () => {
                       }
                     }}
                   >
-                    <Phone
-                      sx={{
-                        fontSize: 24,
-                        color: '#FFFFFF',
-                        flexShrink: 0,
-                      }}
-                    />
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 1,
-                        textAlign: { xs: 'center', lg: 'left' },
-                      }}
-                    >
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          fontSize: { xs: '1rem', md: '1.125rem' },
-                          fontWeight: 600,
-                          color: '#FFFFFF',
-                          whiteSpace: 'nowrap',
-                        }}
-                      >
-                        Call Us:
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          fontWeight: 500,
-                          fontSize: { xs: '1rem', md: '1.125rem' },
-                          color: '#FFFFFF',
-                        }}
-                      >
-                        +1 (555) 123-4567
-                      </Typography>
-                    </Box>
+                    <Phone sx={{ fontSize: 20, color: '#FFFFFF', flexShrink: 0 }} />
+                    <Typography variant="body2" sx={{ fontSize: { xs: '0.875rem', md: '1rem' }, fontWeight: 600, color: '#FFFFFF', whiteSpace: 'nowrap', textAlign: 'left' }}>
+                      Call Us: +1 (555) 123-4567
+                    </Typography>
                   </Box>
                 </Grid>
-
-                <Grid item xs={12} lg={4}>
+                <Grid item xs={12}>
                   <Box
                     sx={{
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: { xs: 'center', lg: 'flex-start' },
+                      justifyContent: 'flex-start',
                       p: 2,
-                      backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                      borderRadius: 2,
-                      height: '80%',
-                      gap: 1.5,
+                      gap: 1,
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',
                       '&:hover': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.25)',
+                        color: '#FFFFFF',
                         transform: 'translateY(-2px)',
                         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
                       },
                     }}
                     onClick={() => window.open('https://maps.google.com/?q=123+Business+Ave,+Suite+100,+City,+State+12345', '_blank')}
                   >
-                    <LocationOn
-                      sx={{
-                        fontSize: 24,
-                        color: '#FFFFFF',
-                        flexShrink: 0,
-                      }}
-                    />
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 1,
-                        textAlign: { xs: 'center', lg: 'left' },
-                        flexWrap: 'wrap',
-                      }}
-                    >
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          fontSize: { xs: '1rem', md: '1.125rem' },
-                          fontWeight: 600,
-                          color: '#FFFFFF',
-                          whiteSpace: 'nowrap',
-                        }}
-                      >
-                        Visit Us:
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          fontWeight: 500,
-                          fontSize: { xs: '1rem', md: '1.125rem' },
-                          color: '#FFFFFF',
-                        }}
-                      >
-                        123 Business Ave, Suite 100, City, State 12345
-                      </Typography>
-                    </Box>
+                    <LocationOn sx={{ fontSize: 20, color: '#FFFFFF', flexShrink: 0 }} />
+                    <Typography variant="body2" sx={{ fontSize: { xs: '0.875rem', md: '1rem' }, fontWeight: 600, color: '#FFFFFF', whiteSpace: 'nowrap', textAlign: 'left' }}>
+                      Visit Us: 123 Business Ave, Suite 100, City, State 12345
+                    </Typography>
                   </Box>
                 </Grid>
               </Grid>
-
-              <Box
-                sx={{
-                  display: 'flex',
-                  justifyContent: { xs: 'center', lg: 'flex-start' },
-                  gap: 2,
-                  pt: 2,
-                  borderTop: '1px solid rgba(255, 255, 255, 0.3)',
-                }}
-              >
-                {socialLinks.map((social, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                     <IconButton
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.label}
-                      sx={{
-                        backgroundColor: '#fff',
-                        border: '1px solid rgba(255, 255, 255, 0.2)',
-                        width: 48,
-                        height: 48,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        p: 0,
-                        '&:hover': {
-                          backgroundColor: 'rgba(255,255,255,0.85)',
-                          borderColor: 'rgba(255, 255, 255, 0.4)',
-                        },
-                        transition: 'all 0.3s ease',
-                      }}
-                    >
-                      {React.cloneElement(social.icon, { sx: { color: social.color, fontSize: 28 } })}
-                    </IconButton>
-                  </motion.div>
-                ))}
-              </Box>
             </motion.div>
           </Grid>
 
-          <Grid item xs={12} lg={6}>
+          {/* Right Side: Quick Links and Solutions Aligned with Business Name, No Background */}
+          <Grid item xs={12} md={6}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  justifyContent: { xs: 'center', md: 'flex-start' },
-                  mb: 4,
-                  textAlign: { xs: 'center', md: 'left' },
-                  gap: { xs: 1.5, md: 3 },
-                }}
-              >
-                <Box
-                  component="img"
-                  src={logo}
-                  alt="ZEE-KRAZE Consultants Logo"
-                  sx={{
-                    height: { xs: 50, md: 96 },
-                    width: 'auto',
-                    objectFit: 'contain',
-                    filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))',
-                  }}
-                />
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontWeight: 700,
-                    fontSize: { xs: '1.25rem', md: '1.5rem' },
-                    color: '#FFFFFF',
-                    textAlign: { xs: 'center', md: 'left' },
-                    lineHeight: 1.2,
-                    textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
-                  }}
-                >
-                  ZEE-KRAZE Consultants
-                </Typography>
-              </Box>
-
-              <Typography
-                variant="body1"
-                sx={{
-                  mb: 4,
-                  fontSize: { xs: '1rem', md: '1.125rem' },
-                  fontWeight: 500,
-                  lineHeight: 1.6,
-                  color: '#FFFFFF',
-                  textAlign: { xs: 'center', md: 'left' },
-                }}
-              >
-                Transforming telecom retail operations through advanced technology solutions,
-                innovative training programs, and comprehensive support systems.
-              </Typography>
-
-              <Grid container spacing={3}>
-                <Grid item xs={6} sm={6}>
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      fontWeight: 700,
-                      mb: 3,
-                      fontSize: { xs: '1.25rem', md: '1.375rem' },
-                      color: '#FFFFFF',
-                      textAlign: 'left',
-                      textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
-                    }}
-                  >
+              <Grid container spacing={4} alignItems="baseline">
+                <Grid item xs={12} sm={6}>
+                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 3, fontSize: { xs: '1.25rem', md: '1.5rem' }, color: '#FFFFFF', textAlign: 'left', textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)', lineHeight: 1.2 }}>
                     Quick Links
                   </Typography>
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: 1,
-                      alignItems: 'flex-start',
-                    }}
-                  >
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, alignItems: 'flex-start' }}>
                     {footerLinks.company.map((link, index) => (
                       <Button
                         key={index}
@@ -516,8 +338,6 @@ const Footer = () => {
                           fontSize: { xs: '1rem', md: '1.125rem' },
                           fontWeight: 600,
                           minWidth: 'auto',
-                          backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                          borderRadius: 1,
                           '&:hover': {
                             color: '#FFFFFF',
                             backgroundColor: theme.palette.primary.main,
@@ -532,29 +352,11 @@ const Footer = () => {
                     ))}
                   </Box>
                 </Grid>
-
-                <Grid item xs={6} sm={6}>
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      fontWeight: 700,
-                      mb: 3,
-                      fontSize: { xs: '1.25rem', md: '1.375rem' },
-                      color: '#FFFFFF',
-                      textAlign: 'left',
-                      textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
-                    }}
-                  >
+                <Grid item xs={12} sm={6}>
+                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 3, fontSize: { xs: '1.25rem', md: '1.5rem' }, color: '#FFFFFF', textAlign: 'left', textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)', lineHeight: 1.2 }}>
                     Solutions
                   </Typography>
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: 1,
-                      alignItems: 'flex-start',
-                    }}
-                  >
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, alignItems: 'flex-start' }}>
                     {footerLinks.solutions.slice(0, 3).map((link, index) => (
                       <Button
                         key={index}
@@ -574,8 +376,6 @@ const Footer = () => {
                           fontSize: { xs: '1rem', md: '1.125rem' },
                           fontWeight: 600,
                           minWidth: 'auto',
-                          backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                          borderRadius: 1,
                           '&:hover': {
                             color: '#FFFFFF',
                             backgroundColor: theme.palette.secondary.main,

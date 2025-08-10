@@ -24,10 +24,34 @@ const ServicesSection = () => {
   const navigate = useNavigate();
 
   const challenges = [
-    { icon: <TrendingDown />, title: 'Intense Competition', description: 'Struggling to stay ahead in a crowded market' },
-    { icon: <Person />, title: 'Customer Experience Gaps', description: 'Difficulty providing consistent quality service' },
-    { icon: <Warning />, title: 'Operational Bottlenecks', description: 'Inefficient processes slowing down your business' },
-    { icon: <Analytics />, title: 'Sales & Profitability Pressures', description: 'Revenue targets becoming harder to achieve' },
+    {
+      icon: <TrendingDown />, 
+      title: 'Intense Competition',
+      description: 'Struggling to stay ahead in a crowded market',
+      image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+      imageAlt: 'A man sitting at a table with a chess board, representing intense competition',
+    },
+    {
+      icon: <Person />, 
+      title: 'Customer Experience Gaps',
+      description: 'Difficulty providing consistent quality service',
+      image: 'https://images.unsplash.com/photo-1515168833906-d2a3b82b1a48?auto=format&fit=crop&w=800&q=80',
+      imageAlt: 'A person holding a yellow book, representing customer experience gaps',
+    },
+    {
+      icon: <Warning />, 
+      title: 'Operational Bottlenecks',
+      description: 'Inefficient processes slowing down your business',
+      image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80',
+      imageAlt: 'Satellite communication connects buildings in a network, representing operational bottlenecks',
+    },
+    {
+      icon: <Analytics />, 
+      title: 'Sales & Profitability Pressures',
+      description: 'Revenue targets becoming harder to achieve',
+      image: 'https://images.pexels.com/photos/5466243/pexels-photo-5466243.jpeg?auto=compress&w=800&q=80',
+      imageAlt: 'A person in black suit holding a pen, representing sales pressure',
+    },
   ];
 
   return (
@@ -223,69 +247,101 @@ const ServicesSection = () => {
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.05, y: -5 }}
                   >
-                    <Box 
-                      sx={{ 
+                    <Box
+                      sx={{
                         textAlign: 'center',
-                        p: { xs: 3, md: 4 },
+                        p: 0,
                         borderRadius: 3,
                         transition: 'all 0.3s ease',
                         backgroundColor: 'rgba(255, 255, 255, 0.08)',
                         border: '1px solid rgba(255, 255, 255, 0.15)',
-                        height: { xs: 320, md: 360 },
+                        height: { xs: 340, md: 380 },
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'flex-start',
+                        overflow: 'hidden',
+                        position: 'relative',
                         '&:hover': {
                           backgroundColor: 'rgba(255, 255, 255, 0.15)',
                           borderColor: 'rgba(255, 255, 255, 0.25)',
                         },
                       }}
                     >
-                      <Avatar
+                      {/* Image area with icon badge overlay */}
+                      <Box
                         sx={{
-                          backgroundColor: 'rgba(255, 255, 255, 0.25)',
-                          color: '#ffffffff',
-                          width: { xs: 72, md: 88 },
-                          height: { xs: 72, md: 88 },
-                          mb: 3,
-                          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-                          border: '2px solid rgba(255, 255, 255, 0.2)',
-                        }}
-                      >
-                        {React.cloneElement(challenge.icon, { 
-                          sx: { fontSize: { xs: 32, md: 36 } } 
-                        })}
-                      </Avatar>
-                      <Typography 
-                        variant="h4" 
-                        sx={{ 
-                          fontWeight: 600, 
+                          width: '100%',
+                          height: { xs: 170, md: 200 },
+                          position: 'relative',
                           mb: 2,
-                          fontSize: { xs: '1.375rem', md: '1.5rem' },
-                          lineHeight: 1.2,
-                          color: '#FFFFFF',
-                          minHeight: { xs: '2.4rem', md: '2.7rem' },
                           display: 'flex',
                           alignItems: 'center',
-                          textAlign: 'center',
                           justifyContent: 'center',
+                          background: 'linear-gradient(135deg, #007BFF 0%, #005BFF 100%)',
                         }}
                       >
-                        {challenge.title}
-                      </Typography>
-                      <Typography 
-                        variant="body1" 
-                        sx={{ 
-                          color: '#E0E0E0',
-                          lineHeight: 1.6,
-                          fontSize: { xs: '1rem', md: '1.125rem' },
-                          fontWeight: 500,
-                          textAlign: 'center',
-                        }}
-                      >
-                        {challenge.description}
-                      </Typography>
+                        <img
+                          src={challenge.image}
+                          alt={challenge.imageAlt}
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            filter: 'brightness(0.92) contrast(1.08)',
+                            borderTopLeftRadius: 12,
+                            borderTopRightRadius: 12,
+                          }}
+                        />
+                        <Avatar
+                          sx={{
+                            position: 'absolute',
+                            left: 24,
+                            top: 24,
+                            backgroundColor: theme.palette.primary.main,
+                            color: '#fff',
+                            width: { xs: 56, md: 64 },
+                            height: { xs: 56, md: 64 },
+                            boxShadow: '0 4px 16px rgba(0,0,0,0.18)',
+                            border: '2px solid #fff',
+                          }}
+                        >
+                          {React.cloneElement(challenge.icon, {
+                            sx: { fontSize: { xs: 28, md: 32 } },
+                          })}
+                        </Avatar>
+                      </Box>
+                      <Box sx={{ px: { xs: 2, md: 3 }, pb: 3, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+                        <Typography
+                          variant="h4"
+                          sx={{
+                            fontWeight: 600,
+                            mb: 1.2,
+                            fontSize: { xs: '1.25rem', md: '1.45rem' },
+                            lineHeight: 1.2,
+                            color: '#FFFFFF',
+                            minHeight: { xs: '2.2rem', md: '2.5rem' },
+                            display: 'flex',
+                            alignItems: 'center',
+                            textAlign: 'center',
+                            justifyContent: 'center',
+                          }}
+                        >
+                          {challenge.title}
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          sx={{
+                            color: '#E0E0E0',
+                            lineHeight: 1.6,
+                            fontSize: { xs: '1rem', md: '1.125rem' },
+                            fontWeight: 500,
+                            textAlign: 'center',
+                          }}
+                        >
+                          {challenge.description}
+                        </Typography>
+                      </Box>
                     </Box>
                   </motion.div>
                 ))}

@@ -230,19 +230,48 @@ const Navigation = () => {
                       filter: 'drop-shadow(0 0 0.1px rgba(0, 0, 0, 0.7))',
                     }}
                   />
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      fontWeight: 600,
-                      fontSize: { xs: '0.8rem', sm: '1rem', md: '1.25rem', lg: '1.5rem' },
-                      lineHeight: 1.2,
-                      color: location.pathname === '/' && !isScrolled 
-                        ? '#F5F5F5' 
-                        : (mode === 'light' ? '#0D0F1C' : '#F5F5F5'),                      textShadow: mode === 'light' ? '0 1px 2px rgba(0, 0, 0, 0.3)' : 'none',
-                    }}
-                  >
-                    ZEE-KRAZE Consultants
-                  </Typography>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', position: 'relative' }}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontWeight: 700,
+                        fontSize: { xs: '0.8rem', sm: '1rem', md: '1.25rem', lg: '1.5rem' },
+                        lineHeight: 1.2,
+                        color: 'inherit',
+                        letterSpacing: 0.5,
+                        textShadow: mode === 'light' ? '0 1px 2px rgba(0, 0, 0, 0.3)' : 'none',
+                        background: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 0.5,
+                      }}
+                    >
+                      <Box
+                        component="span"
+                        sx={{
+                          background: 'linear-gradient(90deg, #007BFF 60%, #00F0FF 100%)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          fontWeight: 700,
+                        }}
+                      >
+                        ZEE-KRAZE
+                      </Box>
+                      <Box component="span" sx={{ color: location.pathname === '/' && !isScrolled ? '#F5F5F5' : (mode === 'light' ? '#0D0F1C' : '#F5F5F5'), fontWeight: 500, ml: 0.5 }}>
+                        Consultants
+                      </Box>
+                    </Typography>
+                    <Box
+                      sx={{
+                        width: '100%',
+                        height: 2,
+                        mt: 0.5,
+                        borderRadius: 1,
+                        background: 'linear-gradient(90deg, #007BFF 0%, #00F0FF 100%)',
+                        opacity: 0.5,
+                      }}
+                    />
+                  </Box>
                 </Box>
               </motion.div>
 
