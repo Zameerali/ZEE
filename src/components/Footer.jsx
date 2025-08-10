@@ -213,7 +213,7 @@ const Footer = () => {
                     onClick={() => window.open('mailto:info@zeekrazeconsultants.com', '_blank')}
                   >
                     <Email sx={{ fontSize: 20, color: '#FFFFFF', flexShrink: 0 }} />
-                    <Typography variant="body2" sx={{ fontSize: { xs: '0.875rem', md: '1rem' }, fontWeight: 600, color: '#FFFFFF', whiteSpace: 'nowrap', textAlign: 'left' }}>
+                    <Typography variant="body2" sx={{ fontSize: { xs: '0.875rem', md: '1rem' }, fontWeight: 600, color: '#FFFFFF', whiteSpace: { xs: 'normal', md: 'nowrap' }, wordBreak: { xs: 'break-word', md: 'normal' }, textAlign: 'left' }}>
                       Email Us: info@zeekrazeconsultants.com
                     </Typography>
                   </Box>
@@ -272,7 +272,7 @@ const Footer = () => {
                     }}
                   >
                     <Phone sx={{ fontSize: 20, color: '#FFFFFF', flexShrink: 0 }} />
-                    <Typography variant="body2" sx={{ fontSize: { xs: '0.875rem', md: '1rem' }, fontWeight: 600, color: '#FFFFFF', whiteSpace: 'nowrap', textAlign: 'left' }}>
+                    <Typography variant="body2" sx={{ fontSize: { xs: '0.875rem', md: '1rem' }, fontWeight: 600, color: '#FFFFFF', whiteSpace: { xs: 'normal', md: 'nowrap' }, wordBreak: { xs: 'break-word', md: 'normal' }, textAlign: 'left' }}>
                       Call Us: +1 (555) 123-4567
                     </Typography>
                   </Box>
@@ -296,7 +296,7 @@ const Footer = () => {
                     onClick={() => window.open('https://maps.google.com/?q=123+Business+Ave,+Suite+100,+City,+State+12345', '_blank')}
                   >
                     <LocationOn sx={{ fontSize: 20, color: '#FFFFFF', flexShrink: 0 }} />
-                    <Typography variant="body2" sx={{ fontSize: { xs: '0.875rem', md: '1rem' }, fontWeight: 600, color: '#FFFFFF', whiteSpace: 'nowrap', textAlign: 'left' }}>
+                    <Typography variant="body2" sx={{ fontSize: { xs: '0.875rem', md: '1rem' }, fontWeight: 600, color: '#FFFFFF', whiteSpace: { xs: 'normal', md: 'nowrap' }, wordBreak: { xs: 'break-word', md: 'normal' }, textAlign: 'left' }}>
                       Visit Us: 123 Business Ave, Suite 100, City, State 12345
                     </Typography>
                   </Box>
