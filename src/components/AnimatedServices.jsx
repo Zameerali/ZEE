@@ -72,7 +72,7 @@ const AnimatedServices = () => {
         <Typography
           variant="h3"
           sx={{
-            color: '#007BFF',
+            color: '#00F0FF',
             fontWeight: 600,
             fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
             lineHeight: 1.2,
@@ -89,7 +89,7 @@ const AnimatedServices = () => {
             transition={{ duration: 0.8, repeat: Infinity }}
             style={{
               marginLeft: '2px',
-              color: '#007BFF',
+              color: '#00F0FF',
               fontSize: 'inherit',
             }}
           >
@@ -109,7 +109,7 @@ const AnimatedServices = () => {
           <Typography
             variant="body1"
             sx={{
-              color: '#007BFF',
+              color: '#00F0FF',
               fontWeight: 600,
               mb: 1,
               fontSize: { xs: '1rem', md: '1.125rem' },

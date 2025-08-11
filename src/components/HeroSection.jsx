@@ -64,20 +64,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <Box sx={{ mb: { xs: 3, md: 4 } }}>
-                <Chip
-                  label="Transforming Retail Excellence"
-                  sx={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    mb: { xs: 3, md: 4 },
-                    backdropFilter: 'blur(10px)',
-                    fontSize: { xs: '1rem', md: '1.125rem' },
-                    height: { xs: 32, md: 36 },
-                  }}
-                />
-              </Box>
+              
 
               <Typography
                 variant="h1"
@@ -101,7 +88,7 @@ const HeroSection = () => {
                   fontWeight: 600,
                   fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
                   lineHeight: 1.2,
-                  color: '#007BFF',
+                  color: '#00F0FF',
                   textAlign: 'center',
                   textShadow: '0 2px 8px rgba(0,0,0,0.3)',
                 }}
@@ -118,7 +105,7 @@ const HeroSection = () => {
                   fontWeight: 500,
                   lineHeight: 1.6,
                   color: '#E0E0E0',
-                  mb: 6,
+                  mb: 1,
                   px: { xs: 2, md: 0 },
                   textAlign: 'center',
                 }}

@@ -4,22 +4,15 @@ import {
   Container,
   Typography,
   Button,
-  Grid,
   Chip,
   useTheme,
-  Avatar,
 } from '@mui/material';
-import {
-  TrendingDown,
-  Person,
-  Warning,
-  Analytics,
-  ArrowForward,
-} from '@mui/icons-material';
+import { ArrowForward } from '@mui/icons-material';
 import IntenseCompetition from '../assets/Intense_Competition.jpg';
 import CustomerExperience from '../assets/Customer_Experience.jpg';
 import OperationalBottlenecks from '../assets/Operational_Bottlenecks.jpg';
 import SalesPressure from '../assets/Sales_Pressure.webp';
+import Staff_Performance from '../assets/Staff_Performance.jpg';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
@@ -52,13 +45,19 @@ const ServicesSection = () => {
       image: SalesPressure,
       imageAlt: 'Sales & Profitability Pressures',
     },
+    {
+      title: 'Employee Performance Management',
+      description: 'Ensuring your team is engaged and productive',
+      image: Staff_Performance,
+      imageAlt: 'Employee Performance Management',
+    }
   ];
 
   return (
-    <Box sx={{ 
+    <Box sx={{
       py: { xs: 6, sm: 8, md: 10, lg: 12 },
       '@media (min-height: 1200px)': { py: { xs: 4, sm: 6, md: 8 } },
-      backgroundColor: 'background.default' 
+      backgroundColor: 'background.default'
     }}>
       <Container maxWidth="xl">
         {/* Header */}
@@ -68,8 +67,8 @@ const ServicesSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <Box sx={{ 
-            textAlign: 'center', 
+          <Box sx={{
+            textAlign: 'center',
             mb: { xs: 6, md: 8 },
             '@media (min-height: 1200px)': { mb: { xs: 4, md: 6 } }
           }}>
@@ -94,7 +93,7 @@ const ServicesSection = () => {
                 transition: 'all 0.3s ease',
               }}
             />
-            
+
             <Typography
               variant="h1"
               sx={{
@@ -109,7 +108,7 @@ const ServicesSection = () => {
             >
               Find Out How This Model Can Create Value for Your Business
             </Typography>
-            
+
             <Typography
               variant="body1"
               sx={{
@@ -122,11 +121,11 @@ const ServicesSection = () => {
                 fontWeight: 500,
               }}
             >
-              Ready to revolutionize your retail operations? Our team of experts is here to guide you through 
-              a personalized consultation and show you exactly how our solutions can boost your revenue, 
+              Ready to revolutionize your retail operations? Our team of experts is here to guide you through
+              a personalized consultation and show you exactly how our solutions can boost your revenue,
               streamline operations, and enhance customer satisfaction.
             </Typography>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -194,10 +193,10 @@ const ServicesSection = () => {
             }}
           >
             <Box sx={{ position: 'relative', zIndex: 1 }}>
-              <Typography 
-                variant="h1" 
-                sx={{ 
-                  fontWeight: 600, 
+              <Typography
+                variant="h1"
+                sx={{
+                  fontWeight: 600,
                   mb: { xs: 2, md: 3 },
                   fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.5rem', lg: '3rem' },
                   lineHeight: 1.2,
@@ -206,10 +205,10 @@ const ServicesSection = () => {
               >
                 Are You Facing Challenges at Your Cellphone Retail Locations?
               </Typography>
-              
-              <Typography 
-                variant="body1" 
-                sx={{ 
+
+              <Typography
+                variant="body1"
+                sx={{
                   mb: { xs: 3, md: 4 },
                   fontSize: { xs: '1rem', md: '1.125rem' },
                   lineHeight: 1.6,
@@ -221,9 +220,9 @@ const ServicesSection = () => {
               >
                 Many retail businesses struggle with the same recurring issues that impact growth and profitability.
               </Typography>
-              
-              <Box 
-                sx={{ 
+
+              <Box
+                sx={{
                   display: 'grid',
                   gridTemplateColumns: {
                     xs: '1fr',
@@ -238,7 +237,12 @@ const ServicesSection = () => {
                   '@media (min-height: 1200px)': { mb: { xs: 3, md: 4 } },
                 }}
               >
-                {challenges.map((challenge, index) => (
+                {challenges.map((challenge, index) => {
+                const isLast =
+                  challenges.length % 2 !== 0 &&
+                  index === challenges.length - 1;
+
+                const cardContent = (
                   <motion.div
                     key={challenge.title}
                     initial={{ opacity: 0, y: 20 }}
@@ -246,6 +250,7 @@ const ServicesSection = () => {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.05, y: -5 }}
+                    style={{ width: '100%' }}
                   >
                     <Box
                       sx={{
@@ -255,7 +260,7 @@ const ServicesSection = () => {
                         transition: 'all 0.3s ease',
                         backgroundColor: 'rgba(255, 255, 255, 0.08)',
                         border: '1px solid rgba(255, 255, 255, 0.15)',
-                        height: 'auto',
+                        height: '100%',
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
@@ -268,7 +273,7 @@ const ServicesSection = () => {
                         },
                       }}
                     >
-                      {/* Image area with dynamic aspect ratio */}
+                      {/* Image area */}
                       <Box
                         sx={{
                           width: '100%',
@@ -292,7 +297,14 @@ const ServicesSection = () => {
                           }}
                         />
                       </Box>
-                      <Box sx={{ px: { xs: 3, md: 4 }, pb: { xs: 4, md: 5 }, flex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+                      <Box sx={{
+                        px: { xs: 3, md: 4 },
+                        pb: { xs: 4, md: 5 },
+                        flex: 2,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'flex-start'
+                      }}>
                         <Typography
                           variant="h4"
                           sx={{
@@ -326,7 +338,26 @@ const ServicesSection = () => {
                       </Box>
                     </Box>
                   </motion.div>
-                ))}
+                );
+
+                if (isLast) {
+                  return (
+                    <Box
+                      key={challenge.title}
+                      sx={{
+                        gridColumn: { lg: '1 / span 2' },
+                        display: 'flex',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <Box sx={{ flex: 1, maxWidth: { lg: '50%' } }}>
+                        {cardContent}
+                      </Box>
+                    </Box>
+                  );
+                }
+                return cardContent;
+              })}
               </Box>
 
               <motion.div
