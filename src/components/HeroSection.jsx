@@ -33,7 +33,7 @@ const HeroSection = () => {
           ${theme.palette.secondary.main} 50%, 
           ${theme.palette.primary.dark} 100%)`,
         color: '#FFFFFF',
-        pt: { xs: 12, md: 16 },
+        pt: { xs: 10, md: 14 },
         pb: { xs: 8, md: 12 },
         position: 'relative',
         overflow: 'hidden',
