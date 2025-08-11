@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Solutions from './pages/Solutions';
+import OurTeam from './pages/OurTeam';
 import Lenis from 'lenis'; 
 function App() {
   React.useEffect(() => {
@@ -43,6 +44,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/solutions" element={<Solutions />} />
+            <Route path="/our-team" element={<OurTeam />} />
           </Routes>
           <Footer />
         </Box>

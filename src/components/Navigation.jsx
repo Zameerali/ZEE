@@ -40,7 +40,7 @@ const Navigation = () => {
     { text: 'Home', path: '/' },
     { text: 'Our Virtual Space', path: '/about' },
     { text: 'Solutions', path: '/solutions' },
-    { text: 'Join Our Team', path: '/join' },
+    { text: 'Our Team', path: '/our-team' },
   ];
 
   useEffect(() => {
