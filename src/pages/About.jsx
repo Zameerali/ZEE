@@ -18,7 +18,7 @@ import OurVision from '../assets/Our_Vision.webp';
 import WhatWeDo from '../assets/What_We_Do.webp'
 import IndustryExpertise from '../assets/Industry_Expertise.jpg'
 import MeasurebaleResults from '../assets/Measurable_Results.webp'
-import LongTermPartnership from '../assets/Long_Term_Partnership (2).webp'
+import LongTermPartnership from '../assets/Long_term_Partnership (2).webp'
 import TailoredSolutions from '../assets/Tailored_Solutions.webp'; 
 import training from '../assets/training.jpg';
 import { motion } from 'framer-motion';
