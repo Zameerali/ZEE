@@ -10,6 +10,10 @@ import {
   useTheme,
   Snackbar,
   Alert,
+  Table,
+  TableBody,
+  TableRow,
+  TableCell,
 } from '@mui/material';
 import {
   Email,
@@ -20,12 +24,13 @@ import {
   YouTube,
   ArrowUpward,
 } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import logo from '../assets/ZEELogo.png';
 
 const Footer = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -53,22 +58,23 @@ const Footer = () => {
     setSnackbarOpen(false);
   };
 
+  const handleNavigation = (path) => {
+    navigate(path);
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100); // Small delay to ensure navigation completes
+  };
+
   const footerLinks = {
     company: [
       { text: 'Our Virtual Space', path: '/about' },
       { text: 'Our Solutions', path: '/solutions' },
-      { text: 'Join Our Team', path: '/join' },
+      { text: 'Our Team', path: '/our-team' },
     ],
     solutions: [
       { text: 'Smart Retail Management', path: '/solutions' },
       { text: 'Virtual Sales Consultant', path: '/solutions' },
       { text: 'Sales Excellence Program', path: '/solutions' },
-      { text: 'Retail Training', path: '/solutions' },
-    ],
-    support: [
-      { text: 'Documentation', path: '/docs' },
-      { text: 'API Reference', path: '/api' },
-      { text: '24/7 Support', path: '/support' },
     ],
   };
 
@@ -134,7 +140,7 @@ const Footer = () => {
               }}
             >
               Ready to transform your retail operations?
-              <br />  
+              <br />
               Let's start the conversation.
             </Typography>
           </Box>
@@ -149,15 +155,34 @@ const Footer = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              {/* Business Name and Logo on the Same Line, Properly Aligned */}
               <Box sx={{ display: 'flex', alignItems: 'baseline', mb: 4, gap: 2, verticalAlign: 'baseline' }}>
-                <Box component="img" src={logo} alt="ZEE-KRAZE Consultants Logo" sx={{ height: { xs: 40, md: 60 }, width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))', verticalAlign: 'middle' }} />
-                <Typography variant="h5" sx={{ fontWeight: 700, fontSize: { xs: '1.25rem', md: '1.5rem' }, color: '#FFFFFF', lineHeight: 1.2, textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)', verticalAlign: 'middle' }}>
+                <Box
+                  component="img"
+                  src={logo}
+                  alt="ZEE-KRAZE Consultants Logo"
+                  sx={{
+                    height: { xs: 40, md: 60 },
+                    width: 'auto',
+                    objectFit: 'contain',
+                    filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))',
+                    verticalAlign: 'middle',
+                  }}
+                />
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontWeight: 700,
+                    fontSize: { xs: '1.25rem', md: '1.5rem' },
+                    color: '#FFFFFF',
+                    lineHeight: 1.2,
+                    textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
+                    verticalAlign: 'middle',
+                  }}
+                >
                   ZEE-KRAZE Consultants
                 </Typography>
               </Box>
 
-              {/* Social Media Icons Left Aligned Below Business Name */}
               <Box sx={{ display: 'flex', justifyContent: 'flex-start', gap: 2, mb: 4 }}>
                 {socialLinks.map((social, index) => (
                   <motion.div
@@ -192,8 +217,7 @@ const Footer = () => {
                 ))}
               </Box>
 
-              {/* Contact Details at Bottom with Reduced Gap, No Background */}
-              <Grid container spacing={0.5} direction="column">
+              <Grid container  direction="column">
                 <Grid item xs={12}>
                   <Box
                     sx={{
@@ -213,8 +237,18 @@ const Footer = () => {
                     onClick={() => window.open('mailto:info@zeekrazeconsultants.com', '_blank')}
                   >
                     <Email sx={{ fontSize: 20, color: '#FFFFFF', flexShrink: 0 }} />
-                    <Typography variant="body2" sx={{ fontSize: { xs: '0.875rem', md: '1rem' }, fontWeight: 600, color: '#FFFFFF', whiteSpace: { xs: 'normal', md: 'nowrap' }, wordBreak: { xs: 'break-word', md: 'normal' }, textAlign: 'left' }}>
-                      Email Us: info@zeekrazeconsultants.com
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        fontSize: { xs: '0.875rem', md: '1rem' },
+                        fontWeight: 600,
+                        color: '#FFFFFF',
+                        whiteSpace: { xs: 'normal', md: 'nowrap' },
+                        wordBreak: { xs: 'break-word', md: 'normal' },
+                        textAlign: 'left',
+                      }}
+                    >
+                      info@zeekrazeconsultants.com
                     </Typography>
                   </Box>
                 </Grid>
@@ -272,8 +306,18 @@ const Footer = () => {
                     }}
                   >
                     <Phone sx={{ fontSize: 20, color: '#FFFFFF', flexShrink: 0 }} />
-                    <Typography variant="body2" sx={{ fontSize: { xs: '0.875rem', md: '1rem' }, fontWeight: 600, color: '#FFFFFF', whiteSpace: { xs: 'normal', md: 'nowrap' }, wordBreak: { xs: 'break-word', md: 'normal' }, textAlign: 'left' }}>
-                      Call Us: +1 (555) 123-4567
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        fontSize: { xs: '0.875rem', md: '1rem' },
+                        fontWeight: 600,
+                        color: '#FFFFFF',
+                        whiteSpace: { xs: 'normal', md: 'nowrap' },
+                        wordBreak: { xs: 'break-word', md: 'normal' },
+                        textAlign: 'left',
+                      }}
+                    >
+                      +1 (713) 877 8823
                     </Typography>
                   </Box>
                 </Grid>
@@ -293,11 +337,21 @@ const Footer = () => {
                         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
                       },
                     }}
-                    onClick={() => window.open('https://maps.google.com/?q=123+Business+Ave,+Suite+100,+City,+State+12345', '_blank')}
+                    onClick={() => window.open('https://maps.google.com/?q=1texas', '_blank')}
                   >
                     <LocationOn sx={{ fontSize: 20, color: '#FFFFFF', flexShrink: 0 }} />
-                    <Typography variant="body2" sx={{ fontSize: { xs: '0.875rem', md: '1rem' }, fontWeight: 600, color: '#FFFFFF', whiteSpace: { xs: 'normal', md: 'nowrap' }, wordBreak: { xs: 'break-word', md: 'normal' }, textAlign: 'left' }}>
-                      Visit Us: 123 Business Ave, Suite 100, City, State 12345
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        fontSize: { xs: '0.875rem', md: '1rem' },
+                        fontWeight: 600,
+                        color: '#FFFFFF',
+                        whiteSpace: { xs: 'normal', md: 'nowrap' },
+                        wordBreak: { xs: 'break-word', md: 'normal' },
+                        textAlign: 'left',
+                      }}
+                    >
+                      Taipei Toronto Texas
                     </Typography>
                   </Box>
                 </Grid>
@@ -305,7 +359,7 @@ const Footer = () => {
             </motion.div>
           </Grid>
 
-          {/* Right Side: Quick Links and Solutions Aligned with Business Name, No Background */}
+          {/* Right Side: Quick Links and Solutions in Table Form */}
           <Grid item xs={12} md={6}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -313,84 +367,125 @@ const Footer = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <Grid container spacing={4} alignItems="baseline">
-                <Grid item xs={12} sm={6}>
-                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 3, fontSize: { xs: '1.25rem', md: '1.5rem' }, color: '#FFFFFF', textAlign: 'left', textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)', lineHeight: 1.2 }}>
-                    Quick Links
-                  </Typography>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, alignItems: 'flex-start' }}>
-                    {footerLinks.company.map((link, index) => (
-                      <Button
-                        key={index}
-                        onClick={() => {
-                          window.location.href = link.path;
-                          setTimeout(() => {
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                          }, 100);
-                        }}
+              <Table
+                sx={{
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  borderRadius: '8px',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  width: '100%',
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
+                }}
+              >
+                <TableBody>
+                  <TableRow>
+                    <TableCell
+                      sx={{
+                        borderBottom: '1px solid rgba(255, 255, 255, 0.3)',
+                        p: 2,
+                        background: 'rgba(0, 0, 0, 0.1)',
+                      }}
+                    >
+                      <Typography
+                        variant="h6"
                         sx={{
+                          fontWeight: 700,
+                          fontSize: { xs: '1.25rem', md: '1.5rem' },
                           color: '#FFFFFF',
                           textAlign: 'left',
-                          justifyContent: 'flex-start',
-                          textTransform: 'none',
-                          py: 0.5,
-                          px: 1.5,
-                          fontSize: { xs: '1rem', md: '1.125rem' },
-                          fontWeight: 600,
-                          minWidth: 'auto',
-                          '&:hover': {
-                            color: '#FFFFFF',
-                            backgroundColor: theme.palette.primary.main,
-                            transform: 'translateX(5px)',
-                            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-                          },
-                          transition: 'all 0.3s ease',
+                          textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
                         }}
                       >
-                        {link.text}
-                      </Button>
-                    ))}
-                  </Box>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 3, fontSize: { xs: '1.25rem', md: '1.5rem' }, color: '#FFFFFF', textAlign: 'left', textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)', lineHeight: 1.2 }}>
-                    Solutions
-                  </Typography>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, alignItems: 'flex-start' }}>
-                    {footerLinks.solutions.slice(0, 3).map((link, index) => (
-                      <Button
-                        key={index}
-                        onClick={() => {
-                          window.location.href = link.path;
-                          setTimeout(() => {
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                          }, 100);
-                        }}
+                        Quick Links
+                      </Typography>
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        borderBottom: '1px solid rgba(255, 255, 255, 0.3)',
+                        p: 2,
+                        background: 'rgba(0, 0, 0, 0.1)',
+                      }}
+                    >
+                      <Typography
+                        variant="h6"
                         sx={{
+                          fontWeight: 700,
+                          fontSize: { xs: '1.25rem', md: '1.5rem' },
                           color: '#FFFFFF',
                           textAlign: 'left',
-                          justifyContent: 'flex-start',
-                          textTransform: 'none',
-                          py: 0.5,
-                          px: 1.5,
-                          fontSize: { xs: '1rem', md: '1.125rem' },
-                          fontWeight: 600,
-                          minWidth: 'auto',
-                          '&:hover': {
-                            color: '#FFFFFF',
-                            backgroundColor: theme.palette.secondary.main,
-                            transform: 'translateX(5px)',
-                            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-                          },
-                          transition: 'all 0.3s ease',
+                          textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
                         }}
                       >
-                        {link.text}
-                      </Button>
-                    ))}
-                  </Box>
-                </Grid>
-              </Grid>
+                        Solutions
+                      </Typography>
+                    </TableCell>
+                  </TableRow>
+                  {footerLinks.company.map((companyLink, index) => (
+                    <TableRow
+                      key={index}
+                      sx={{
+                        '&:hover': {
+                          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                        },
+                      }}
+                    >
+                      <TableCell sx={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)', p: 1 }}>
+                        <Button
+                          onClick={() => handleNavigation(companyLink.path)}
+                          sx={{
+                            color: '#FFFFFF',
+                            textAlign: 'left',
+                            justifyContent: 'flex-start',
+                            textTransform: 'none',
+                            py: 0.5,
+                            px: 1.5,
+                            fontSize: { xs: '1rem', md: '1.125rem' },
+                            fontWeight: 600,
+                            minWidth: 'auto',
+                            width: '100%',
+                            '&:hover': {
+                              color: '#FFFFFF',
+                              backgroundColor: theme.palette.primary.main,
+                              transform: 'translateX(5px)',
+                              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+                            },
+                            transition: 'all 0.3s ease',
+                          }}
+                        >
+                          {companyLink.text}
+                        </Button>
+                      </TableCell>
+                      <TableCell sx={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)', p: 1 }}>
+                        {index < footerLinks.solutions.length && (
+                          <Button
+                            onClick={() => handleNavigation(footerLinks.solutions[index].path)}
+                            sx={{
+                              color: '#FFFFFF',
+                              textAlign: 'left',
+                              justifyContent: 'flex-start',
+                              textTransform: 'none',
+                              py: 0.5,
+                              px: 1.5,
+                              fontSize: { xs: '1rem', md: '1.125rem' },
+                              fontWeight: 600,
+                              minWidth: 'auto',
+                              width: '100%',
+                              '&:hover': {
+                                color: '#FFFFFF',
+                                backgroundColor: theme.palette.secondary.main,
+                                transform: 'translateX(5px)',
+                                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+                              },
+                              transition: 'all 0.3s ease',
+                            }}
+                          >
+                            {footerLinks.solutions[index].text}
+                          </Button>
+                        )}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
             </motion.div>
           </Grid>
         </Grid>

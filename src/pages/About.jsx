@@ -8,19 +8,13 @@ import {
   useTheme,
 } from '@mui/material';
 import { ArrowForward } from '@mui/icons-material';
-import IntenseCompetition from '../assets/Intense_Competition.jpg';
-import CustomerExperience from '../assets/Customer_Experience.jpg';
-import OperationalBottlenecks from '../assets/Operational_Bottlenecks.jpg';
-import SalesPressure from '../assets/Sales_Pressure.webp';
-import Staff_Performance from '../assets/Staff_Performance.jpg';
-
-import OurVision from '../assets/Our_Vision.webp';
-import WhatWeDo from '../assets/What_We_Do.webp'
-import IndustryExpertise from '../assets/Industry_Expertise.jpg'
-import MeasurebaleResults from '../assets/Measurable_Results.webp'
-import LongTermPartnership from '../assets/Long_term_Partnership (2).webp'
-import TailoredSolutions from '../assets/Tailored_Solutions.webp'; 
+import IndustryExpertise from '../assets/Industry_Expertise.jpg';
+import TailoredSolutions from '../assets/Tailored_Solutions.webp';
 import training from '../assets/training.jpg';
+import MeasurebaleResults from '../assets/Measurable_Results.webp';
+import LongTermPartnership from '../assets/Long_term_Partnership (2).webp';
+import OurVision from '../assets/Our_Vision.webp';
+import WhatWeDo from '../assets/What_We_Do.webp';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
@@ -208,7 +202,7 @@ const About = () => {
                     variant="h4"
                     sx={{
                       fontWeight: 600,
-                      fontSize: { xs: '1.25rem', md: '1.45rem' },
+                      fontSize: { xs: '1.35rem', md: '1.55rem' },
                       lineHeight: 1.2,
                       color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
                       minHeight: { xs: '2.5rem', md: '3rem' },
@@ -225,7 +219,7 @@ const About = () => {
                     sx={{
                       color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
                       lineHeight: 1.6,
-                      fontSize: { xs: '1rem', md: '1.125rem' },
+                      fontSize: { xs: '0.9rem', md: '1rem' },
                       fontWeight: 500,
                       textAlign: 'center',
                       flexGrow: 1,
@@ -301,7 +295,7 @@ const About = () => {
                     variant="h4"
                     sx={{
                       fontWeight: 600,
-                      fontSize: { xs: '1.25rem', md: '1.45rem' },
+                      fontSize: { xs: '1.35rem', md: '1.55rem' },
                       lineHeight: 1.2,
                       color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
                       minHeight: { xs: '2.5rem', md: '3rem' },
@@ -318,7 +312,7 @@ const About = () => {
                     sx={{
                       color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
                       lineHeight: 1.6,
-                      fontSize: { xs: '1rem', md: '1.125rem' },
+                      fontSize: { xs: '0.9rem', md: '1rem' },
                       fontWeight: 500,
                       textAlign: 'center',
                       flexGrow: 1,
@@ -378,136 +372,121 @@ const About = () => {
               </Typography>
               <Box
                 sx={{
-                  display: 'grid',
-                  gridTemplateColumns: {
-                    xs: '1fr',
-                    sm: 'repeat(auto-fit, minmax(320px, 1fr))',
-                    md: 'repeat(auto-fit, minmax(400px, 1fr))',
-                    lg: 'repeat(2, 1fr)',
-                  },
+                  display: 'flex',
+                  flexWrap: 'wrap',
                   gap: { xs: 3, md: 4 },
-                  maxWidth: { lg: 1200 },
+                  maxWidth: { lg: 1600 },
                   mx: 'auto',
-                  mb: { xs: 3, md: 4 },
                   justifyContent: 'center',
+                  alignItems: 'center',
+                  mb: { xs: 3, md: 4 },
                 }}
               >
-                {whyChooseUs.map((reason, index) => {
-                  const isLast = whyChooseUs.length % 2 !== 0 && index === whyChooseUs.length - 1;
-                  const cardContent = (
-                    <motion.div
-                      key={reason.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      whileHover={{ scale: 1.05, y: -5 }}
+                {whyChooseUs.map((reason, index) => (
+                  <motion.div
+                    key={reason.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    style={{ flex: '0 0 auto', maxWidth: { xs: 280, sm: 320, md: 400 }, minWidth: 0 }}
+                  >
+                    <Box
+                      sx={{
+                        textAlign: 'center',
+                        p: 0,
+                        maxWidth: { xs: 280, sm: 320, md: 400 },
+                        mx: 'auto',
+                        borderRadius: 3,
+                        transition: 'all 0.3s ease',
+                        backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        height: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'flex-start',
+                        overflow: 'hidden',
+                        position: 'relative',
+                        '&:hover': {
+                          backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                          borderColor: 'rgba(255, 255, 255, 0.25)',
+                        },
+                      }}
                     >
+                      {/* Image area */}
                       <Box
                         sx={{
-                          textAlign: 'center',
-                          p: 0,
-                          borderRadius: 3,
-                          transition: 'all 0.3s ease',
-                          backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                          border: '1px solid rgba(255, 255, 255, 0.15)',
-                          height: '100%',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          alignItems: 'center',
-                          justifyContent: 'flex-start',
-                          overflow: 'hidden',
+                          width: '100%',
+                          paddingTop: '56.25%', // 16:9 aspect ratio
                           position: 'relative',
-                          '&:hover': {
-                            backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                            borderColor: 'rgba(255, 255, 255, 0.25)',
-                          },
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          background: 'linear-gradient(135deg, #007BFF 0%, #005BFF 100%)',
+                          overflow: 'hidden',
                         }}
                       >
-                        {/* Image area */}
-                        <Box
-                          sx={{
+                        <img
+                          src={reason.image}
+                          alt={reason.imageAlt}
+                          style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
                             width: '100%',
-                            paddingTop: '56.25%', // 16:9 aspect ratio
-                            position: 'relative',
-                            background: 'linear-gradient(135deg, #007BFF 0%, #005BFF 100%)',
+                            height: '100%',
+                            objectFit: 'cover',
+                            objectPosition: 'center',
+                            borderTopLeftRadius: 12,
+                            borderTopRightRadius: 12,
                           }}
-                        >
-                          <img
-                            src={reason.image}
-                            alt={reason.imageAlt}
-                            style={{
-                              position: 'absolute',
-                              top: 0,
-                              left: 0,
-                              width: '100%',
-                              height: '100%',
-                              objectFit: 'cover',
-                              borderTopLeftRadius: 12,
-                              borderTopRightRadius: 12,
-                            }}
-                          />
-                        </Box>
-                        <Box sx={{
+                        />
+                      </Box>
+                      <Box
+                        sx={{
                           px: { xs: 3, md: 4 },
                           pb: { xs: 4, md: 5 },
                           flex: 2,
                           display: 'flex',
                           flexDirection: 'column',
                           justifyContent: 'flex-start',
-                        }}>
-                          <Typography
-                            variant="h4"
-                            sx={{
-                              fontWeight: 600,
-                              mb: 1.5,
-                              fontSize: { xs: '1.25rem', md: '1.45rem' },
-                              lineHeight: 1.2,
-                              color: '#FFFFFF',
-                              minHeight: { xs: '2.5rem', md: '3rem' },
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                            }}
-                          >
-                            {reason.title}
-                          </Typography>
-                          <Typography
-                            variant="body1"
-                            sx={{
-                              color: '#E0E0E0',
-                              lineHeight: 1.6,
-                              fontSize: { xs: '1rem', md: '1.125rem' },
-                              fontWeight: 500,
-                              textAlign: 'center',
-                              flexGrow: 1,
-                            }}
-                          >
-                            {reason.description}
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </motion.div>
-                  );
-
-                  if (isLast) {
-                    return (
-                      <Box
-                        key={reason.title}
-                        sx={{
-                          gridColumn: { lg: '1 / span 2' },
-                          display: 'flex',
-                          justifyContent: 'center',
                         }}
                       >
-                        <Box sx={{ flex: 1, maxWidth: { lg: '50%' } }}>
-                          {cardContent}
-                        </Box>
+                        <Typography
+                          variant="h4"
+                          sx={{
+                            fontWeight: 600,
+                            mb: 1.5,
+                      fontSize: { xs: '1.35rem', md: '1.55rem' },
+                            lineHeight: 1.2,
+                            color: '#FFFFFF',
+                            minHeight: { xs: '2.5rem', md: '3rem' },
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                          }}
+                        >
+                          {reason.title}
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          sx={{
+                            color: '#E0E0E0',
+                            lineHeight: 1.6,
+                            fontSize: { xs: '0.9rem', md: '1rem' },
+                            fontWeight: 500,
+                            textAlign: 'center',
+                            flexGrow: 1,
+                          }}
+                        >
+                          {reason.description}
+                        </Typography>
                       </Box>
-                    );
-                  }
-                  return cardContent;
-                })}
+                    </Box>
+                  </motion.div>
+                ))}
               </Box>
             </Container>
           </Box>

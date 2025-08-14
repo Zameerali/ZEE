@@ -8,8 +8,8 @@ import {
   useTheme,
 } from '@mui/material';
 import { ArrowForward } from '@mui/icons-material';
-import IntenseCompetition from '../assets/Intense_Competition.jpg';
-import CustomerExperience from '../assets/Customer_Experience.jpg';
+import IntenseCompetition from '../assets/Competition.jpg';
+import CustomerExperience from '../assets/Experience.jpg';
 import OperationalBottlenecks from '../assets/Operational_Bottlenecks.jpg';
 import SalesPressure from '../assets/Sales_Pressure.webp';
 import Staff_Performance from '../assets/Staff_Performance.jpg';
@@ -50,15 +50,17 @@ const ServicesSection = () => {
       description: 'Ensuring your team is engaged and productive',
       image: Staff_Performance,
       imageAlt: 'Employee Performance Management',
-    }
+    },
   ];
 
   return (
-    <Box sx={{
-      py: { xs: 6, sm: 8, md: 10, lg: 12 },
-      '@media (min-height: 1200px)': { py: { xs: 4, sm: 6, md: 8 } },
-      backgroundColor: 'background.default'
-    }}>
+    <Box
+      sx={{
+        py: { xs: 6, sm: 8, md: 10, lg: 12 },
+        '@media (min-height: 1200px)': { py: { xs: 4, sm: 6, md: 8 } },
+        backgroundColor: 'background.default',
+      }}
+    >
       <Container maxWidth="xl">
         {/* Header */}
         <motion.div
@@ -67,11 +69,13 @@ const ServicesSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <Box sx={{
-            textAlign: 'center',
-            mb: { xs: 6, md: 8 },
-            '@media (min-height: 1200px)': { mb: { xs: 4, md: 6 } }
-          }}>
+          <Box
+            sx={{
+              textAlign: 'center',
+              mb: { xs: 6, md: 8 },
+              '@media (min-height: 1200px)': { mb: { xs: 4, md: 6 } },
+            }}
+          >
             <Chip
               label="Our Solutions"
               sx={{
@@ -198,7 +202,7 @@ const ServicesSection = () => {
                 sx={{
                   fontWeight: 600,
                   mb: { xs: 2, md: 3 },
-                  fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.5rem', lg: '3rem' },
+                  fontSize: { xs: '1.5rem', sm: '2rem', md: '2.25rem', lg: '2.5rem' },
                   lineHeight: 1.2,
                   color: '#FFFFFF',
                 }}
@@ -223,26 +227,18 @@ const ServicesSection = () => {
 
               <Box
                 sx={{
-                  display: 'grid',
-                  gridTemplateColumns: {
-                    xs: '1fr',
-                    sm: 'repeat(auto-fit, minmax(320px, 1fr))',
-                    md: 'repeat(auto-fit, minmax(400px, 1fr))',
-                    lg: 'repeat(2, 1fr)',
-                  },
+                  display: 'flex',
+                  flexWrap: 'wrap',
                   gap: { xs: 3, md: 4 },
-                  maxWidth: { lg: 1200 },
+                  maxWidth: { lg: 1600 },
                   mx: 'auto',
+                  justifyContent: 'center',
+                  alignItems: 'center',
                   mb: { xs: 3, md: 4 },
                   '@media (min-height: 1200px)': { mb: { xs: 3, md: 4 } },
                 }}
               >
-                {challenges.map((challenge, index) => {
-                const isLast =
-                  challenges.length % 2 !== 0 &&
-                  index === challenges.length - 1;
-
-                const cardContent = (
+                {challenges.map((challenge, index) => (
                   <motion.div
                     key={challenge.title}
                     initial={{ opacity: 0, y: 20 }}
@@ -250,12 +246,14 @@ const ServicesSection = () => {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.05, y: -5 }}
-                    style={{ width: '100%' }}
+                    style={{ flex: '0 0 auto', maxWidth: { xs: 280, sm: 320, md: 400 }, minWidth: 0 }}
                   >
                     <Box
                       sx={{
                         textAlign: 'center',
                         p: 0,
+                        maxWidth: { xs: 280, sm: 320, md: 400 },
+                        mx: 'auto',
                         borderRadius: 3,
                         transition: 'all 0.3s ease',
                         backgroundColor: 'rgba(255, 255, 255, 0.08)',
@@ -279,7 +277,11 @@ const ServicesSection = () => {
                           width: '100%',
                           paddingTop: '56.25%', // 16:9 aspect ratio
                           position: 'relative',
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
                           background: 'linear-gradient(135deg, #007BFF 0%, #005BFF 100%)',
+                          overflow: 'hidden',
                         }}
                       >
                         <img
@@ -292,25 +294,28 @@ const ServicesSection = () => {
                             width: '100%',
                             height: '100%',
                             objectFit: 'cover',
+                            objectPosition: 'center',
                             borderTopLeftRadius: 12,
                             borderTopRightRadius: 12,
                           }}
                         />
                       </Box>
-                      <Box sx={{
-                        px: { xs: 3, md: 4 },
-                        pb: { xs: 4, md: 5 },
-                        flex: 2,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'flex-start'
-                      }}>
+                      <Box
+                        sx={{
+                          px: { xs: 3, md: 4 },
+                          pb: { xs: 4, md: 5 },
+                          flex: 2,
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'flex-start',
+                        }}
+                      >
                         <Typography
                           variant="h4"
                           sx={{
                             fontWeight: 600,
                             mb: 1.5,
-                            fontSize: { xs: '1.25rem', md: '1.45rem' },
+                            fontSize: { xs: '1.35rem', md: '1.55rem' },
                             lineHeight: 1.2,
                             color: '#FFFFFF',
                             minHeight: { xs: '2.5rem', md: '3rem' },
@@ -327,7 +332,7 @@ const ServicesSection = () => {
                           sx={{
                             color: '#E0E0E0',
                             lineHeight: 1.6,
-                            fontSize: { xs: '1rem', md: '1.125rem' },
+                            fontSize: { xs: '0.9rem', md: '1rem' },
                             fontWeight: 500,
                             textAlign: 'center',
                             flexGrow: 1,
@@ -338,26 +343,7 @@ const ServicesSection = () => {
                       </Box>
                     </Box>
                   </motion.div>
-                );
-
-                if (isLast) {
-                  return (
-                    <Box
-                      key={challenge.title}
-                      sx={{
-                        gridColumn: { lg: '1 / span 2' },
-                        display: 'flex',
-                        justifyContent: 'center',
-                      }}
-                    >
-                      <Box sx={{ flex: 1, maxWidth: { lg: '50%' } }}>
-                        {cardContent}
-                      </Box>
-                    </Box>
-                  );
-                }
-                return cardContent;
-              })}
+                ))}
               </Box>
 
               <motion.div
