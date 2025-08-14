@@ -169,7 +169,6 @@ const SolutionContent = React.memo(({ solution }) => {
               >
                 Solution Modules
               </Typography>
-              // ...existing code...
               <Box
                 sx={{
                   display: 'flex',
