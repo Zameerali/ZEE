@@ -4,8 +4,6 @@ import {
   Container,
   Typography,
   Grid,
-  Card,
-  CardContent,
   Button,
   Chip,
   useTheme,
@@ -16,9 +14,8 @@ import {
   ListItemText,
   Tabs,
   Tab,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
+  Card,
+  CardContent,
 } from '@mui/material';
 import {
   Store,
@@ -27,7 +24,6 @@ import {
   School,
   CheckCircle,
   ArrowForward,
-  ExpandMore,
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 
@@ -173,77 +169,113 @@ const SolutionContent = React.memo(({ solution }) => {
               >
                 Solution Modules
               </Typography>
-              {solution.modules.map((module, index) => (
-                <Accordion
-                  key={index}
-                  expanded={solution.expandedModule === `module-${index}`}
-                  onChange={solution.handleModuleChange(`module-${index}`)}
-                  sx={{
-                    mb: 1,
-                    borderRadius: 2,
-                    '&:before': { display: 'none' },
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                    backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : '#F9F9F9',
-                  }}
-                >
-                  <AccordionSummary
-                    expandIcon={<ExpandMore />}
-                    sx={{
-                      backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : '#F9F9F9',
-                      borderRadius: 2,
+              // ...existing code...
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: { xs: 3, md: 4 },
+                  justifyContent: 'center',
+                  alignItems: 'stretch',
+                }}
+              >
+                {solution.modules.map((module, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    style={{
+                      flex: '0 1 400px',
+                      maxWidth: 400,
+                      minWidth: 320,
+                      display: 'flex',
                     }}
                   >
-                    <Typography
-                      variant="h6"
+                    <Card
                       sx={{
-                        fontWeight: 600,
-                        fontSize: { xs: '1.25rem', md: '1.375rem' },
-                        color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
+                        borderRadius: 3,
+                        backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : '#F9F9F9',
+                        border: theme.palette.mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(0, 0, 0, 0.1)',
+                        transition: 'all 0.3s ease',
+                        width: '400px',
+                        minWidth: '320px',
+                        maxWidth: '400px',
+                        boxSizing: 'border-box',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'stretch',
+                        '&:hover': {
+                          backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.05)',
+                          borderColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.25)' : 'rgba(0, 0, 0, 0.15)',
+                          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)',
+                        },
                       }}
                     >
-                      {module.title}
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        mb: 2,
-                        fontSize: { xs: '1rem', md: '1.125rem' },
-                        fontWeight: 500,
-                        lineHeight: 1.6,
-                        color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
-                      }}
-                    >
-                      {module.description}
-                    </Typography>
-                    <List dense>
-                      {module.features.map((feature, featureIndex) => (
-                        <ListItem
-                          key={featureIndex}
+                      <CardContent sx={{ p: { xs: 2, md: 3 }, flex: 1 }}>
+                        <Typography
+                          variant="h6"
                           sx={{
-                            px: 0,
-                            py: 0.5,
+                            fontWeight: 600,
+                            mb: 2,
+                            fontSize: { xs: '1.25rem', md: '1.375rem' },
+                            color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
+                            textAlign: 'center',
+                            wordBreak: 'break-word',
+                            overflowWrap: 'break-word',
                           }}
                         >
-                          <ListItemIcon sx={{ minWidth: 28 }}>
-                            <CheckCircle sx={{ color: solution.color, fontSize: 16 }} />
-                          </ListItemIcon>
-                          <ListItemText
-                            primary={feature}
-                            primaryTypographyProps={{
-                              variant: 'body1',
-                              fontSize: { xs: '1rem', md: '1.125rem' },
-                              fontWeight: 500,
-                              color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
-                            }}
-                          />
-                        </ListItem>
-                      ))}
-                    </List>
-                  </AccordionDetails>
-                </Accordion>
-              ))}
+                          {module.title}
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          sx={{
+                            mb: 2,
+                            fontSize: { xs: '1rem', md: '1.125rem' },
+                            fontWeight: 500,
+                            lineHeight: 1.6,
+                            color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
+                            textAlign: 'center',
+                            wordBreak: 'break-word',
+                            overflowWrap: 'break-word',
+                            whiteSpace: 'normal',
+                            display: 'block',
+                          }}
+                        >
+                          {module.description}
+                        </Typography>
+                        <List dense>
+                          {module.features.map((feature, featureIndex) => (
+                            <ListItem
+                              key={featureIndex}
+                              sx={{
+                                px: 0,
+                                py: 0.5,
+                              }}
+                            >
+                              <ListItemIcon sx={{ minWidth: 28 }}>
+                                <CheckCircle sx={{ color: solution.color, fontSize: 16 }} />
+                              </ListItemIcon>
+                              <ListItemText
+                                primary={feature}
+                                primaryTypographyProps={{
+                                  variant: 'body1',
+                                  fontSize: { xs: '1rem', md: '1.125rem' },
+                                  fontWeight: 500,
+                                  color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
+                                  wordBreak: 'break-word',
+                                  overflowWrap: 'break-word',
+                                  whiteSpace: 'normal',
+                                }}
+                              />
+                            </ListItem>
+                          ))}
+                        </List>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </Box>
             </>
           )}
         </Grid>
@@ -344,17 +376,11 @@ const SolutionContent = React.memo(({ solution }) => {
 const Solutions = () => {
   const theme = useTheme();
   const [selectedTab, setSelectedTab] = useState(0);
-  const [expandedModule, setExpandedModule] = useState(false);
 
   const handleTabChange = (event, newValue) => {
     console.log('Tab clicked:', newValue);
     setSelectedTab(newValue);
     console.log('Selected tab updated:', newValue);
-    setExpandedModule(false);
-  };
-
-  const handleModuleChange = (panel) => (event, isExpanded) => {
-    setExpandedModule(isExpanded ? panel : false);
   };
 
   const solutions = [
@@ -400,8 +426,6 @@ const Solutions = () => {
           features: ['Multi-location support', 'Scalable workflows', 'Flexible systems'],
         },
       ],
-      expandedModule,
-      handleModuleChange,
     },
     {
       id: 'telecom-management',
@@ -445,8 +469,6 @@ const Solutions = () => {
           features: ['Remote coaching', 'Team training modules', 'Customer engagement tools'],
         },
       ],
-      expandedModule,
-      handleModuleChange,
     },
     {
       id: 'virtual-sales',
@@ -490,8 +512,6 @@ const Solutions = () => {
           features: ['On-demand consultation', 'Expert support', 'Remote guidance'],
         },
       ],
-      expandedModule,
-      handleModuleChange,
     },
     {
       id: 'excellence-program',
@@ -560,8 +580,6 @@ const Solutions = () => {
           features: ['Workflow optimization', 'Standard operating procedures', 'Lean retail principles'],
         },
       ],
-      expandedModule,
-      handleModuleChange,
     },
     {
       id: 'retail-excellence',
@@ -623,12 +641,8 @@ const Solutions = () => {
           ],
         },
       ],
-      expandedModule,
-      handleModuleChange,
     },
   ];
-
-  const currentSolution = solutions[selectedTab];
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
@@ -643,23 +657,23 @@ const Solutions = () => {
               <Chip
                 label="Our Solutions"
                 sx={{
-                mb: 4,
-                backgroundColor: '#007BFF',
-                color: '#FFFFFF',
-                fontWeight: 600,
-                fontSize: { xs: '1rem', md: '1.125rem' },
-                height: { xs: 40, md: 48 },
-                px: { xs: 2, md: 3 },
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
-                '& .MuiChip-label': { px: { xs: 2, md: 3 }, fontWeight: 600 },
-                '&:hover': {
-                  transform: 'translateY(-1px)',
-                  backgroundColor: '#005BFF',
-                  boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)',
-                },
-                transition: 'all 0.3s ease',
-              }}
+                  mb: 4,
+                  backgroundColor: '#007BFF',
+                  color: '#FFFFFF',
+                  fontWeight: 600,
+                  fontSize: { xs: '1rem', md: '1.125rem' },
+                  height: { xs: 40, md: 48 },
+                  px: { xs: 2, md: 3 },
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
+                  '& .MuiChip-label': { px: { xs: 2, md: 3 }, fontWeight: 600 },
+                  '&:hover': {
+                    transform: 'translateY(-1px)',
+                    backgroundColor: '#005BFF',
+                    boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)',
+                  },
+                  transition: 'all 0.3s ease',
+                }}
               />
               <Typography
                 variant="h1"
@@ -782,7 +796,7 @@ const Solutions = () => {
             </Tabs>
           </Box>
 
-          <SolutionContent solution={currentSolution} />
+          <SolutionContent solution={solutions[selectedTab]} />
         </Container>
       </Box>
     </motion.div>
