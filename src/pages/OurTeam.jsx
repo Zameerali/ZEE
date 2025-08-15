@@ -10,6 +10,7 @@ import {
   Grid,
   Snackbar,
   Alert,
+  Chip
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -82,30 +83,28 @@ const OurTeam = () => {
         <Container maxWidth="xl">
           {/* Header Section */}
           <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 8 } }}>
-            <Typography
-              variant="h2"
-              sx={{
-                fontWeight: 600,
-                fontSize: { xs: '2rem', md: '2.5rem', lg: '3rem' },
-                mb: 2,
-                color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
-              }}
-            >
-              Our Team
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
-                maxWidth: 800,
-                mx: 'auto',
-                fontSize: { xs: '1rem', md: '1.125rem' },
-                fontWeight: 500,
-                lineHeight: 1.6,
-              }}
-            >
-              Meet the dedicated professionals driving our mission to transform retail with innovative solutions.
-            </Typography>
+             <Chip
+                label="Our Team"
+                sx={{
+                  mb: 4,
+                  backgroundColor: '#007BFF',
+                  color: '#FFFFFF',
+                  fontWeight: 600,
+                  fontSize: { xs: '1rem', md: '1.125rem' },
+                  height: { xs: 40, md: 48 },
+                  px: { xs: 2, md: 3 },
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
+                  '& .MuiChip-label': { px: { xs: 2, md: 3 }, fontWeight: 600 },
+                  '&:hover': {
+                    transform: 'translateY(-1px)',
+                    backgroundColor: '#005BFF',
+                    boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)',
+                  },
+                  transition: 'all 0.3s ease',
+                }}
+              />
+            
           </Box>
           
           {/* Team Members */}

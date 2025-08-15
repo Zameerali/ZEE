@@ -14,7 +14,6 @@ import {
 import {
   Email,
   Phone,
-  LocationOn,
   LinkedIn,
   Facebook,
   YouTube,
@@ -23,6 +22,9 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import logo from '../assets/ZEELogo.png';
+import twFlag from '../assets/ta.svg';
+import caFlag from '../assets/cn.svg';
+import usFlag from '../assets/us.svg';
 
 const Footer = () => {
   const theme = useTheme();
@@ -90,6 +92,22 @@ const Footer = () => {
     { icon: <YouTube />, url: 'https://youtube.com/zeekrazeconsultants', label: 'YouTube', color: '#FF0000' },
   ];
 
+ const offices = [
+  { flag: twFlag, text: 'Taipei, Taiwan', mapQuery: 'Taipei,Taiwan', color: '#fe0000', alt: 'Taiwan Flag' },
+  { flag: caFlag, text: 'Toronto, Canada', mapQuery: 'Toronto,Canada', color: '#ff0000', alt: 'Canada Flag' },
+  { flag: usFlag, text: 'Texas, United States', mapQuery: 'Texas,USA', color: '#B22234', alt: 'USA Flag' },
+];
+
+  const hoverStyles = {
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      color: '#FFFFFF',
+      transform: 'translateY(-2px)',
+      textShadow: '0 2px 8px rgba(255, 255, 255, 0.3)',
+    },
+  };
+
   return (
     <Box
       component="footer"
@@ -97,8 +115,9 @@ const Footer = () => {
       sx={{
         background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
         color: '#FFFFFF',
-        pt: 8,
+        pt: 2,
         pb: 4,
+        px: 2,
         position: 'relative',
         boxShadow: '0 -4px 12px rgba(0, 0, 0, 0.2)',
       }}
@@ -116,7 +135,7 @@ const Footer = () => {
               sx={{
                 mb: 2,
                 fontWeight: 700,
-                fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.5rem', lg: '3rem' },
+                  fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem', lg: '2.5rem' },
                 lineHeight: 1.2,
                 color: '#FFFFFF',
                 textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
@@ -142,15 +161,19 @@ const Footer = () => {
           </Box>
         </motion.div>
 
-        <Grid container spacing={4} sx={{ mb: 6, alignItems: 'flex-start', justifyContent: 'center' }}>
-          {/* Quick Links - Left on md+ */}
+        <Grid container spacing={2} sx={{ mb: 2, alignItems: 'flex-start', justifyContent: 'space-between' }}>
+          {/* Business Name, Logo, Social, Contact - Leftmost */}
           <Grid
             item
             xs={12}
             md={3}
             sx={{
-              order: { xs: 2, md: 1 },
-              textAlign: { xs: 'center', md: 'left' },
+              order: { xs: 1, md: 1 },
+              textAlign: 'left', // Always left aligned
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-start', // Always start from left
+              mb: { xs: 2, md: 0 }, // Add margin bottom on mobile for section separation
             }}
           >
             <motion.div
@@ -158,6 +181,7 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
+              style={{ width: '100%' }}
             >
               <Typography
                 variant="h6"
@@ -169,57 +193,9 @@ const Footer = () => {
                   textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
                 }}
               >
-                Quick Links
+                ZEE-KRAZE Consultants
               </Typography>
-              {footerLinks.company.map((link, index) => (
-                <Button
-                  key={index}
-                  onClick={() => handleNavigation(link.path)}
-                  sx={{
-                    color: '#FFFFFF',
-                    textAlign: 'left',
-                    justifyContent: { xs: 'center', md: 'flex-start' },
-                    textTransform: 'none',
-                    display: 'block',
-                    py: 0.5,
-                    px: 0,
-                    fontSize: { xs: '1rem', md: '1.125rem' },
-                    fontWeight: 600,
-                    '&:hover': {
-                      color: '#FFFFFF',
-                      backgroundColor: 'transparent',
-                      textDecoration: 'underline',
-                    },
-                    transition: 'all 0.3s ease',
-                  }}
-                >
-                  {link.text}
-                </Button>
-              ))}
-            </motion.div>
-          </Grid>
-
-          {/* Center: Logo, Business Name, Social, Contact */}
-          <Grid
-            item
-            xs={12}
-            md={6}
-            sx={{
-              order: { xs: 1, md: 2 },
-              textAlign: 'center',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 4, gap: 2 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', mb: 2, gap: 2 }}>
                 <Box
                   component="img"
                   src={logo}
@@ -231,21 +207,9 @@ const Footer = () => {
                     filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))',
                   }}
                 />
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontWeight: 700,
-                    fontSize: { xs: '1.25rem', md: '1.5rem' },
-                    color: '#FFFFFF',
-                    lineHeight: 1.2,
-                    textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
-                  }}
-                >
-                  ZEE-KRAZE Consultants
-                </Typography>
               </Box>
 
-              <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mb: 4 }}>
+              <Box sx={{ display: 'flex', justifyContent: 'flex-start', gap: 2, mb: 2 }}>
                 {socialLinks.map((social, index) => (
                   <motion.div
                     key={index}
@@ -283,25 +247,19 @@ const Footer = () => {
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
-                  alignItems: 'center',
-                  maxWidth: 400,
-                  mx: 'auto',
+                  alignItems: 'flex-start',
+                  width: '100%',
                 }}
               >
                 <Box
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    p: 2,
+                    justifyContent: 'flex-start',
+                    py: 1,
                     gap: 1,
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      color: '#FFFFFF',
-                      transform: 'translateY(-2px)',
-                      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                    },
+                    width: '100%',
+                    ...hoverStyles,
                   }}
                   onClick={() => window.open('mailto:info@zeekrazeconsultants.com', '_blank')}
                 >
@@ -313,6 +271,7 @@ const Footer = () => {
                       fontWeight: 600,
                       color: '#FFFFFF',
                       ml: 1,
+                      wordBreak: 'break-all',
                     }}
                   >
                     info@zeekrazeconsultants.com
@@ -322,16 +281,11 @@ const Footer = () => {
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    p: 2,
+                    justifyContent: 'flex-start',
+                    py: 1,
                     gap: 1,
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      color: '#FFFFFF',
-                      transform: 'translateY(-2px)',
-                      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                    },
+                    width: '100%',
+                    ...hoverStyles,
                   }}
                   onClick={(e) => {
                     e.preventDefault();
@@ -361,48 +315,79 @@ const Footer = () => {
                     +1 (713) 877 8823
                   </Typography>
                 </Box>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    p: 2,
-                    gap: 1,
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      color: '#FFFFFF',
-                      transform: 'translateY(-2px)',
-                      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                    },
-                  }}
-                  onClick={() => window.open('https://maps.google.com/?q=Taipei+Toronto+Texas', '_blank')}
-                >
-                  <LocationOn sx={{ fontSize: 20, color: '#FFFFFF', flexShrink: 0 }} />
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: { xs: '0.875rem', md: '1rem' },
-                      fontWeight: 600,
-                      color: '#FFFFFF',
-                      ml: 1,
-                    }}
-                  >
-                    Taipei Toronto Texas
-                  </Typography>
-                </Box>
               </Box>
             </motion.div>
           </Grid>
 
-          {/* Solutions - Right on md+ */}
+          {/* Quick Links */}
+          <Grid
+            item
+            xs={12}
+            md={3}
+            sx={{
+              order: { xs: 2, md: 2 },
+              textAlign: 'left', // Always left aligned
+              mb: { xs: 2, md: 0 }, // Add margin bottom on mobile for section separation
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 700,
+                  fontSize: { xs: '1.25rem', md: '1.5rem' },
+                  color: '#FFFFFF',
+                  mb: 2,
+                  textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
+                }}
+              >
+                Quick Links
+              </Typography>
+              {footerLinks.company.map((link, index) => (
+                <Button
+                  key={index}
+                  onClick={() => handleNavigation(link.path)}
+                  sx={{
+                    color: '#FFFFFF',
+                    textAlign: 'left',
+                    justifyContent: 'flex-start', // Always left aligned
+                    textTransform: 'none',
+                    display: 'block',
+                    py: 1,
+                    px: 0,
+                    fontSize: { xs: '1rem', md: '1.125rem' },
+                    fontWeight: 600,
+                    width: '100%',
+                    ...hoverStyles,
+                    '&:hover': {
+                      color: '#FFFFFF',
+                      backgroundColor: 'transparent',
+                      textDecoration: 'underline',
+                      transform: 'translateY(-2px)',
+                      textShadow: '0 2px 8px rgba(255, 255, 255, 0.3)',
+                    },
+                  }}
+                >
+                  {link.text}
+                </Button>
+              ))}
+            </motion.div>
+          </Grid>
+
+          {/* Solutions */}
           <Grid
             item
             xs={12}
             md={3}
             sx={{
               order: { xs: 3, md: 3 },
-              textAlign: { xs: 'center', md: 'left' },
+              textAlign: 'left', // Always left aligned
+              mb: { xs: 2, md: 0 }, // Add margin bottom on mobile for section separation
             }}
           >
             <motion.div
@@ -430,23 +415,99 @@ const Footer = () => {
                   sx={{
                     color: '#FFFFFF',
                     textAlign: 'left',
-                    justifyContent: { xs: 'center', md: 'flex-start' },
+                    justifyContent: 'flex-start', // Always left aligned
                     textTransform: 'none',
                     display: 'block',
-                    py: 0.5,
+                    py: 1,
                     px: 0,
                     fontSize: { xs: '1rem', md: '1.125rem' },
                     fontWeight: 600,
+                    width: '100%',
+                    ...hoverStyles,
                     '&:hover': {
                       color: '#FFFFFF',
                       backgroundColor: 'transparent',
                       textDecoration: 'underline',
+                      transform: 'translateY(-2px)',
+                      textShadow: '0 2px 8px rgba(255, 255, 255, 0.3)',
                     },
-                    transition: 'all 0.3s ease',
                   }}
                 >
                   {link.text}
                 </Button>
+              ))}
+            </motion.div>
+          </Grid>
+
+          {/* Our Offices */}
+          <Grid
+            item
+            xs={12}
+            md={3}
+            sx={{
+              order: { xs: 4, md: 4 },
+              textAlign: 'left', // Always left aligned
+              mb: { xs: 0, md: 0 }, // No margin bottom for last section
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 700,
+                  fontSize: { xs: '1.25rem', md: '1.5rem' },
+                  color: '#FFFFFF',
+                  mb: 2,
+                  textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
+                }}
+              >
+                Our Offices
+              </Typography>
+              {offices.map((office, index) => (
+                <Box
+                  key={index}
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start', // Always left aligned
+                    py: 1,
+                    gap: 1,
+                    width: '100%',
+                    ...hoverStyles,
+                  }}
+                  onClick={() => window.open(`https://maps.google.com/?q=${office.mapQuery}`, '_blank')}
+                >
+                  <Box
+                    component="img"
+                    src={office.flag}
+                    alt={office.alt}
+                    sx={{
+                      width: 28,
+                      height: 20,
+                      borderRadius: 1,
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      objectFit: 'cover',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                      mr: 1,
+                    }}
+                  />
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      fontSize: { xs: '0.875rem', md: '1rem' },
+                      fontWeight: 600,
+                      color: '#FFFFFF',
+                      ml: 1,
+                    }}
+                  >
+                    {office.text}
+                  </Typography>
+                </Box>
               ))}
             </motion.div>
           </Grid>

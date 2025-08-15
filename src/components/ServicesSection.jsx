@@ -106,7 +106,7 @@ const ServicesSection = () => {
                 lineHeight: 1.2,
                 mb: 3,
                 fontWeight: 600,
-                fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.5rem', lg: '3rem' },
+                  fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem', lg: '2.5rem' },
                 color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
               }}
             >
@@ -198,11 +198,11 @@ const ServicesSection = () => {
           >
             <Box sx={{ position: 'relative', zIndex: 1 }}>
               <Typography
-                variant="h1"
+                variant="h3"
                 sx={{
                   fontWeight: 600,
                   mb: { xs: 2, md: 3 },
-                  fontSize: { xs: '1.5rem', sm: '2rem', md: '2.25rem', lg: '2.5rem' },
+                  fontSize: { xs: '1.25rem', sm: '1.75rem', md: '2rem' },
                   lineHeight: 1.2,
                   color: '#FFFFFF',
                 }}

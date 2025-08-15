@@ -71,7 +71,7 @@ const HeroSection = () => {
                 sx={{
                   mb: { xs: 2, md: 3 },
                   fontWeight: 600,
-                  fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.5rem', lg: '3rem' },
+                  fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem', lg: '2.5rem' },
                   lineHeight: 1.2,
                   color: '#FFFFFF',
                   textAlign: 'center',
@@ -86,7 +86,7 @@ const HeroSection = () => {
                 sx={{
                   mb: { xs: 2, md: 3 },
                   fontWeight: 600,
-                  fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+                  fontSize: { xs: '1.25rem', sm: '1.75rem', md: '2rem' },
                   lineHeight: 1.2,
                   color: '#00F0FF',
                   textAlign: 'center',

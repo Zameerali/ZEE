@@ -13,8 +13,8 @@ import TailoredSolutions from '../assets/Tailored_Solutions.webp';
 import training from '../assets/training.jpg';
 import MeasurebaleResults from '../assets/Measurable_Results.webp';
 import LongTermPartnership from '../assets/Long_term_Partnership (2).webp';
-import OurVision from '../assets/Our_Vision.webp';
-import WhatWeDo from '../assets/What_We_Do.webp';
+import OurVision from '../assets/Our_Vision.jpg';
+import WhatWeDo from '../assets/What_We_Do.jpg';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
@@ -101,7 +101,7 @@ const About = () => {
                 sx={{
                   mb: 2,
                   color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
-                  fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.5rem', lg: '3rem' },
+                  fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem', lg: '2.5rem' },
                   fontWeight: 600,
                   lineHeight: 1.2,
                 }}
@@ -130,17 +130,16 @@ const About = () => {
         <Container maxWidth="xl">
           <Box
             sx={{
-              display: 'grid',
-              gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+              display: 'flex',
+              flexDirection: 'column',
               gap: { xs: 3, md: 4 },
               mb: { xs: 4, md: 6 },
-              maxWidth: { lg: 1200 },
-              mx: 'auto',
+              alignItems: 'center',
             }}
           >
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05, y: -5 }}
@@ -153,26 +152,30 @@ const About = () => {
                   transition: 'all 0.3s ease',
                   backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : '#F9F9F9',
                   border: theme.palette.mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(0, 0, 0, 0.1)',
-                  height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'flex-start',
                   overflow: 'hidden',
                   position: 'relative',
+                  boxSizing: 'border-box',
                   '&:hover': {
                     backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : '#F0F0F0',
                     borderColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.25)' : 'rgba(0, 0, 0, 0.2)',
                   },
+                  width: { xs: '100%', sm: 700, md: 750, lg: 900 },
+                  maxWidth: '100%',
+                  minHeight: { xs: 240, md: 280 },
                 }}
               >
                 {/* Image area */}
                 <Box
                   sx={{
                     width: '100%',
-                    paddingTop: '56.25%', // 16:9 aspect ratio
+                    height: { xs: 190, md: 210 },
                     position: 'relative',
                     background: 'linear-gradient(135deg, #007BFF 0%, #005BFF 100%)',
+                    boxSizing: 'border-box',
                   }}
                 >
                   <img
@@ -190,26 +193,30 @@ const About = () => {
                     }}
                   />
                 </Box>
-                <Box sx={{
-                  px: { xs: 3, md: 4 },
-                  pb: { xs: 4, md: 5 },
-                  flex: 2,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'flex-start',
-                }}>
+                <Box
+                  sx={{
+                    px: { xs: 2.5, md: 3 },
+                    pb: { xs: 2.5, md: 3.5 },
+                    flex: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
+                    width: '100%',
+                    boxSizing: 'border-box',
+                  }}
+                >
                   <Typography
                     variant="h4"
                     sx={{
                       fontWeight: 600,
-                      fontSize: { xs: '1.35rem', md: '1.55rem' },
+                      fontSize: { xs: '1.15rem', md: '1.35rem' },
                       lineHeight: 1.2,
                       color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
-                      minHeight: { xs: '2.5rem', md: '3rem' },
+                      minHeight: { xs: '1.6rem', md: '2rem' },
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      mb: 2,
+                      mb: 0.8,
                     }}
                   >
                     Our Vision
@@ -218,8 +225,8 @@ const About = () => {
                     variant="body1"
                     sx={{
                       color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
-                      lineHeight: 1.6,
-                      fontSize: { xs: '0.9rem', md: '1rem' },
+                      lineHeight: 1.5,
+                      fontSize: { xs: '0.85rem', md: '0.95rem' },
                       fontWeight: 500,
                       textAlign: 'center',
                       flexGrow: 1,
@@ -232,8 +239,8 @@ const About = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05, y: -5 }}
@@ -246,26 +253,30 @@ const About = () => {
                   transition: 'all 0.3s ease',
                   backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : '#F9F9F9',
                   border: theme.palette.mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(0, 0, 0, 0.1)',
-                  height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'flex-start',
                   overflow: 'hidden',
                   position: 'relative',
+                  boxSizing: 'border-box',
                   '&:hover': {
                     backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : '#F0F0F0',
                     borderColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.25)' : 'rgba(0, 0, 0, 0.2)',
                   },
+                  width: { xs: '100%', sm: 700, md: 750, lg: 900 },
+                  maxWidth: '100%',
+                  minHeight: { xs: 240, md: 280 },
                 }}
               >
                 {/* Image area */}
                 <Box
                   sx={{
                     width: '100%',
-                    paddingTop: '56.25%', // 16:9 aspect ratio
+                    height: { xs: 190, md: 210 },
                     position: 'relative',
                     background: 'linear-gradient(135deg, #007BFF 0%, #005BFF 100%)',
+                    boxSizing: 'border-box',
                   }}
                 >
                   <img
@@ -283,26 +294,30 @@ const About = () => {
                     }}
                   />
                 </Box>
-                <Box sx={{
-                  px: { xs: 3, md: 4 },
-                  pb: { xs: 4, md: 5 },
-                  flex: 2,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'flex-start',
-                }}>
+                <Box
+                  sx={{
+                    px: { xs: 2.5, md: 3 },
+                    pb: { xs: 2.5, md: 3.5 },
+                    flex: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
+                    width: '100%',
+                    boxSizing: 'border-box',
+                  }}
+                >
                   <Typography
                     variant="h4"
                     sx={{
                       fontWeight: 600,
-                      fontSize: { xs: '1.35rem', md: '1.55rem' },
+                      fontSize: { xs: '1.15rem', md: '1.35rem' },
                       lineHeight: 1.2,
                       color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
-                      minHeight: { xs: '2.5rem', md: '3rem' },
+                      minHeight: { xs: '1.6rem', md: '2rem' },
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      mb: 2,
+                      mb: 0.8,
                     }}
                   >
                     What We Do
@@ -311,8 +326,8 @@ const About = () => {
                     variant="body1"
                     sx={{
                       color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
-                      lineHeight: 1.6,
-                      fontSize: { xs: '0.9rem', md: '1rem' },
+                      lineHeight: 1.5,
+                      fontSize: { xs: '0.85rem', md: '0.95rem' },
                       fontWeight: 500,
                       textAlign: 'center',
                       flexGrow: 1,
@@ -350,7 +365,7 @@ const About = () => {
                 sx={{
                   fontWeight: 600,
                   mb: 2,
-                  fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+                  fontSize: { xs: '1.25rem', sm: '1.75rem', md: '2rem' },
                   color: '#FFFFFF',
                 }}
               >
@@ -409,6 +424,7 @@ const About = () => {
                         justifyContent: 'flex-start',
                         overflow: 'hidden',
                         position: 'relative',
+                        boxSizing: 'border-box',
                         '&:hover': {
                           backgroundColor: 'rgba(255, 255, 255, 0.15)',
                           borderColor: 'rgba(255, 255, 255, 0.25)',
@@ -426,6 +442,7 @@ const About = () => {
                           alignItems: 'center',
                           background: 'linear-gradient(135deg, #007BFF 0%, #005BFF 100%)',
                           overflow: 'hidden',
+                          boxSizing: 'border-box',
                         }}
                       >
                         <img
@@ -452,6 +469,7 @@ const About = () => {
                           display: 'flex',
                           flexDirection: 'column',
                           justifyContent: 'flex-start',
+                          boxSizing: 'border-box',
                         }}
                       >
                         <Typography
@@ -459,7 +477,7 @@ const About = () => {
                           sx={{
                             fontWeight: 600,
                             mb: 1.5,
-                      fontSize: { xs: '1.35rem', md: '1.55rem' },
+                            fontSize: { xs: '1.35rem', md: '1.55rem' },
                             lineHeight: 1.2,
                             color: '#FFFFFF',
                             minHeight: { xs: '2.5rem', md: '3rem' },
@@ -513,7 +531,7 @@ const About = () => {
                   sx={{
                     fontWeight: 600,
                     mb: 2,
-                    fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+                    fontSize: { xs: '1.25rem', sm: '1.75rem', md: '2rem' },
                     color: '#FFFFFF',
                   }}
                 >
