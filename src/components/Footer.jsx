@@ -562,7 +562,7 @@ const Footer = () => {
                 textAlign: 'center',
               }}
             >
-              © {new Date().getFullYear()} ZEE-KRAZE Consultants. All rights reserved.
+              © {new Date().getFullYear()} ZEE-KRAZE Consultants. All rights reserved. Powered by DigitalScribeAgency
             </Typography>
           </Grid>
         </Grid>
