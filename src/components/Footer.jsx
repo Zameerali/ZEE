@@ -92,19 +92,21 @@ const Footer = () => {
     { icon: <YouTube />, url: 'https://youtube.com/zeekrazeconsultants', label: 'YouTube', color: '#FF0000' },
   ];
 
- const offices = [
-  { flag: twFlag, text: 'Taipei, Taiwan', mapQuery: 'Taipei,Taiwan', color: '#fe0000', alt: 'Taiwan Flag' },
-  { flag: caFlag, text: 'Toronto, Canada', mapQuery: 'Toronto,Canada', color: '#ff0000', alt: 'Canada Flag' },
-  { flag: usFlag, text: 'Texas, United States', mapQuery: 'Texas,USA', color: '#B22234', alt: 'USA Flag' },
-];
+  const offices = [
+    { flag: twFlag, text: 'Taipei', mapQuery: 'Taipei,Taiwan', color: '#fe0000', alt: 'Taiwan Flag' },
+    { flag: caFlag, text: 'Toronto', mapQuery: 'Toronto,Canada', color: '#ff0000', alt: 'Canada Flag' },
+    { flag: usFlag, text: 'Texas', mapQuery: 'Texas,USA', color: '#B22234', alt: 'USA Flag' },
+  ];
 
   const hoverStyles = {
     cursor: 'pointer',
     transition: 'all 0.3s ease',
+    
     '&:hover': {
-      color: '#FFFFFF',
+      backgroundColor: 'rgba(34, 80, 178, 0.18)',
       transform: 'translateY(-2px)',
       textShadow: '0 2px 8px rgba(255, 255, 255, 0.3)',
+      borderRadius: '13px',
     },
   };
 
@@ -135,7 +137,7 @@ const Footer = () => {
               sx={{
                 mb: 2,
                 fontWeight: 700,
-                  fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem', lg: '2.5rem' },
+                fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem', lg: '2.5rem' },
                 lineHeight: 1.2,
                 color: '#FFFFFF',
                 textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
@@ -169,47 +171,84 @@ const Footer = () => {
             md={3}
             sx={{
               order: { xs: 1, md: 1 },
-              textAlign: 'left', // Always left aligned
+              textAlign: 'left',
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'flex-start', // Always start from left
-              mb: { xs: 2, md: 0 }, // Add margin bottom on mobile for section separation
+              alignItems: 'flex-start',
+              mb: { xs: 2, md: 0 },
             }}
           >
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
               style={{ width: '100%' }}
             >
-              <Typography
-                variant="h6"
+              <Box
                 sx={{
-                  fontWeight: 700,
-                  fontSize: { xs: '1.25rem', md: '1.5rem' },
-                  color: '#FFFFFF',
-                  mb: 2,
-                  textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'flex-start',
+                  mb: 1.5,
+                  gap: 1,
                 }}
               >
-                ZEE-KRAZE Consultants
-              </Typography>
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', mb: 2, gap: 2 }}>
                 <Box
                   component="img"
                   src={logo}
                   alt="ZEE-KRAZE Consultants Logo"
                   sx={{
-                    height: { xs: 40, md: 60 },
+                    height: { xs: '2rem', md: '2.5rem' },
                     width: 'auto',
+                    mr: 1,
                     objectFit: 'contain',
-                    filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))',
+                    filter: 'drop-shadow(0 0 0.1px rgba(0, 0, 0, 0.7))',
                   }}
                 />
+                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', position: 'relative' }}>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 700,
+                      fontSize: { xs: '1.25rem', md: '1.5rem' },
+                      lineHeight: 1.2,
+                      color: '#FFFFFF',
+                      letterSpacing: 0.5,
+                      textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 0.5,
+                    }}
+                  >
+                    <Box
+                      component="span"
+                      sx={{
+                        background: 'linear-gradient(90deg, #007BFF 60%, #00F0FF 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        fontWeight: 700,
+                      }}
+                    >
+                      ZEE-KRAZE
+                    </Box>
+                    <Box component="span" sx={{ color: '#FFFFFF', fontWeight: 500, ml: 0.5 }}>
+                      Consultants
+                    </Box>
+                  </Typography>
+                  <Box
+                    sx={{
+                      width: '100%',
+                      height: 2,
+                      mt: 0.5,
+                      borderRadius: 1,
+                      background: 'linear-gradient(90deg, #007BFF 0%, #00F0FF 100%)',
+                      opacity: 0.5,
+                    }}
+                  />
+                </Box>
               </Box>
 
-              <Box sx={{ display: 'flex', justifyContent: 'flex-start', gap: 2, mb: 2 }}>
+              <Box sx={{ display: 'flex', justifyContent: 'flex-start', gap: 2, mb: 2, py: 1 }}>
                 {socialLinks.map((social, index) => (
                   <motion.div
                     key={index}
@@ -326,8 +365,8 @@ const Footer = () => {
             md={3}
             sx={{
               order: { xs: 2, md: 2 },
-              textAlign: 'left', // Always left aligned
-              mb: { xs: 2, md: 0 }, // Add margin bottom on mobile for section separation
+              textAlign: 'left',
+              mb: { xs: 2, md: 0 },
             }}
           >
             <motion.div
@@ -342,7 +381,7 @@ const Footer = () => {
                   fontWeight: 700,
                   fontSize: { xs: '1.25rem', md: '1.5rem' },
                   color: '#FFFFFF',
-                  mb: 2,
+                  mb: 1.5,
                   textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
                 }}
               >
@@ -355,7 +394,7 @@ const Footer = () => {
                   sx={{
                     color: '#FFFFFF',
                     textAlign: 'left',
-                    justifyContent: 'flex-start', // Always left aligned
+                    justifyContent: 'flex-start',
                     textTransform: 'none',
                     display: 'block',
                     py: 1,
@@ -364,13 +403,6 @@ const Footer = () => {
                     fontWeight: 600,
                     width: '100%',
                     ...hoverStyles,
-                    '&:hover': {
-                      color: '#FFFFFF',
-                      backgroundColor: 'transparent',
-                      textDecoration: 'underline',
-                      transform: 'translateY(-2px)',
-                      textShadow: '0 2px 8px rgba(255, 255, 255, 0.3)',
-                    },
                   }}
                 >
                   {link.text}
@@ -386,8 +418,8 @@ const Footer = () => {
             md={3}
             sx={{
               order: { xs: 3, md: 3 },
-              textAlign: 'left', // Always left aligned
-              mb: { xs: 2, md: 0 }, // Add margin bottom on mobile for section separation
+              textAlign: 'left',
+              mb: { xs: 2, md: 0 },
             }}
           >
             <motion.div
@@ -402,7 +434,7 @@ const Footer = () => {
                   fontWeight: 700,
                   fontSize: { xs: '1.25rem', md: '1.5rem' },
                   color: '#FFFFFF',
-                  mb: 2,
+                  mb: 1.5,
                   textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
                 }}
               >
@@ -415,7 +447,7 @@ const Footer = () => {
                   sx={{
                     color: '#FFFFFF',
                     textAlign: 'left',
-                    justifyContent: 'flex-start', // Always left aligned
+                    justifyContent: 'flex-start',
                     textTransform: 'none',
                     display: 'block',
                     py: 1,
@@ -424,13 +456,6 @@ const Footer = () => {
                     fontWeight: 600,
                     width: '100%',
                     ...hoverStyles,
-                    '&:hover': {
-                      color: '#FFFFFF',
-                      backgroundColor: 'transparent',
-                      textDecoration: 'underline',
-                      transform: 'translateY(-2px)',
-                      textShadow: '0 2px 8px rgba(255, 255, 255, 0.3)',
-                    },
                   }}
                 >
                   {link.text}
@@ -446,8 +471,8 @@ const Footer = () => {
             md={3}
             sx={{
               order: { xs: 4, md: 4 },
-              textAlign: 'left', // Always left aligned
-              mb: { xs: 0, md: 0 }, // No margin bottom for last section
+              textAlign: 'left',
+              mb: { xs: 0, md: 0 },
             }}
           >
             <motion.div
@@ -462,7 +487,7 @@ const Footer = () => {
                   fontWeight: 700,
                   fontSize: { xs: '1.25rem', md: '1.5rem' },
                   color: '#FFFFFF',
-                  mb: 2,
+                  mb: 1.5,
                   textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
                 }}
               >
@@ -474,7 +499,7 @@ const Footer = () => {
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'flex-start', // Always left aligned
+                    justifyContent: 'flex-start',
                     py: 1,
                     gap: 1,
                     width: '100%',
@@ -489,7 +514,7 @@ const Footer = () => {
                     sx={{
                       width: 28,
                       height: 20,
-                      borderRadius: 1,
+                      borderRadius: 0.5,
                       border: '1px solid rgba(255, 255, 255, 0.3)',
                       objectFit: 'cover',
                       boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
