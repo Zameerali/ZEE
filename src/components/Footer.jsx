@@ -369,20 +369,12 @@ const Footer = () => {
                 <Box
                   component="span"
                   sx={{
-                    color: '#007BFF',
-                  }}
-                >
-                  Quick L
-                </Box>
-                <Box
-                  component="span"
-                  sx={{
-                    background: 'linear-gradient(90deg, #007BFF 20%, #00F0FF 100%)',
+                    background: 'linear-gradient(90deg, #007BFF 60%, #00F0FF 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                   }}
                 >
-                  inks
+                  Quick Links
                 </Box>
               </Typography>
               {footerLinks.company.map((link, index) => (
@@ -440,20 +432,12 @@ const Footer = () => {
                 <Box
                   component="span"
                   sx={{
-                    color: '#007BFF',
-                  }}
-                >
-                  Solut
-                </Box>
-                <Box
-                  component="span"
-                  sx={{
-                    background: 'linear-gradient(90deg, #007BFF 20%, #00F0FF 100%)',
+                    background: 'linear-gradient(90deg, #007BFF 60%, #00F0FF 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                   }}
                 >
-                  ions
+                  Solutions
                 </Box>
               </Typography>
               {footerLinks.solutions.map((link, index) => (
@@ -511,20 +495,12 @@ const Footer = () => {
                 <Box
                   component="span"
                   sx={{
-                    color: '#007BFF',
-                  }}
-                >
-                  Our Off
-                </Box>
-                <Box
-                  component="span"
-                  sx={{
-                    background: 'linear-gradient(90deg, #007BFF 20%, #00F0FF 100%)',
+                    background: 'linear-gradient(90deg, #007BFF 60%, #00F0FF 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                   }}
                 >
-                  ices
+                  Our Offices
                 </Box>
               </Typography>
               {offices.map((office, index) => (
