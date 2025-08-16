@@ -47,7 +47,7 @@ const SolutionContent = React.memo(({ solution }) => {
       transition={{ duration: 0.5 }}
     >
       <Grid container spacing={{ xs: 3, md: 4 }} sx={{ mb: { xs: 6, md: 8 } }}>
-        <Grid item xs={12} lg={8}>
+        <Grid item xs={12} lg={6}>
           <motion.div whileHover={{ scale: 1.01, y: -2 }} transition={{ duration: 0.3 }}>
             <Card
               sx={{
@@ -55,6 +55,9 @@ const SolutionContent = React.memo(({ solution }) => {
                 backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : '#F9F9F9',
                 border: theme.palette.mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(0, 0, 0, 0.1)',
                 mb: { xs: 3, md: 4 },
+                mx: 'auto',
+                 maxWidth: { xs: '100%', md: 1000 }, // Reduce max width
+          minWidth: { xs: '100%', md: 320 },
                 transition: 'all 0.3s ease',
                 '&:hover': {
                   backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.05)',
@@ -165,6 +168,10 @@ const SolutionContent = React.memo(({ solution }) => {
                   mb: 3,
                   fontSize: { xs: '1.5rem', md: '1.75rem' },
                   color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
+                  ml: { xs: 0, md: 'auto' }, // Align with card
+            mr: { xs: 0, md: 'auto' }, // Center heading with card
+            maxWidth: { xs: '100%', md: 500 }, // Match card width
+            textAlign: 'center',
                 }}
               >
                 Solution Modules
@@ -718,14 +725,14 @@ const Solutions = () => {
               sx={{
                 '& .MuiTabs-indicator': {
                   backgroundColor: '#007BFF',
-                  height: 3,
+                  height: 2,
                 },
                 '& .MuiTab-root': {
                   textTransform: 'none',
                   fontWeight: 600,
                   fontSize: { xs: '1rem', md: '1.125rem' },
-                  minHeight: { xs: 48, md: 60 },
-                  px: { xs: 2, md: 3 },
+                  minHeight: { xs: 40, md: 45 },
+                  px: { xs: 1, md: 2 },
                   opacity: 1,
                   pointerEvents: 'auto',
                   transition: 'all 0.3s ease',
