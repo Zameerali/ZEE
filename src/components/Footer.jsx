@@ -372,7 +372,7 @@ const Footer = () => {
                     color: '#007BFF',
                   }}
                 >
-                  Quick Lin
+                  Quick L
                 </Box>
                 <Box
                   component="span"
@@ -382,7 +382,7 @@ const Footer = () => {
                     WebkitTextFillColor: 'transparent',
                   }}
                 >
-                  ks
+                  inks
                 </Box>
               </Typography>
               {footerLinks.company.map((link, index) => (
@@ -443,7 +443,7 @@ const Footer = () => {
                     color: '#007BFF',
                   }}
                 >
-                  Solutio
+                  Solut
                 </Box>
                 <Box
                   component="span"
@@ -453,7 +453,7 @@ const Footer = () => {
                     WebkitTextFillColor: 'transparent',
                   }}
                 >
-                  ns
+                  ions
                 </Box>
               </Typography>
               {footerLinks.solutions.map((link, index) => (
@@ -514,7 +514,7 @@ const Footer = () => {
                     color: '#007BFF',
                   }}
                 >
-                  Our Offic
+                  Our Off
                 </Box>
                 <Box
                   component="span"
@@ -524,7 +524,7 @@ const Footer = () => {
                     WebkitTextFillColor: 'transparent',
                   }}
                 >
-                  es
+                  ices
                 </Box>
               </Typography>
               {offices.map((office, index) => (

@@ -13,7 +13,7 @@ import TailoredSolutions from '../assets/Tailored_Solutions.webp';
 import training from '../assets/training.jpg';
 import MeasurebaleResults from '../assets/Measurable_Results.webp';
 import LongTermPartnership from '../assets/Long_term_Partnership (2).webp';
-import OurVision from '../assets/Our_Vision.jpg';
+import OurVision from '../assets/Vision.png';
 import WhatWeDo from '../assets/What_We_Do.jpg';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -32,7 +32,7 @@ const About = () => {
     },
     {
       title: 'Tailored Solutions',
-      description: 'We don’t believe in one-size-fits-all. Our programs are customized to your specific business needs and goals.',
+      description: 'We dont believe in one-size-fits-all. Our programs are customized to your specific business needs and goals.',
       color: '#007BFF',
       image: TailoredSolutions,
       imageAlt: 'Tailored Solutions',
@@ -53,7 +53,7 @@ const About = () => {
     },
     {
       title: 'Long-Term Partnership',
-      description: 'We’re committed to your ongoing success, offering continued support and strategic advice.',
+      description: 'We are committed to your ongoing success, offering continued support and strategic advice.',
       color: '#D81B60',
       image: LongTermPartnership,
       imageAlt: 'Long-Term Partnership',
@@ -126,219 +126,167 @@ const About = () => {
           </motion.div>
         </Container>
 
-        {/* Vision & What We Do */}
+        {/* Mission & Vision Section */}
         <Container maxWidth="xl">
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: { xs: 3, md: 4 },
-              mb: { xs: 4, md: 6 },
-              alignItems: 'center',
-            }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.02, y: -5 }}
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, y: -5 }}
+            {/* Main Container */}
+            <Box
+              sx={{
+                maxWidth: { xs: '100%', sm: 800, md: 900, lg: 1000 },
+                mx: 'auto',
+                mb: { xs: 4, md: 6 },
+              }}
             >
+              {/* Compass Image Container */}
               <Box
                 sx={{
-                  textAlign: 'center',
-                  p: 0,
                   borderRadius: 3,
-                  transition: 'all 0.3s ease',
+                  overflow: 'hidden',
                   backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : '#F9F9F9',
                   border: theme.palette.mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(0, 0, 0, 0.1)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'flex-start',
-                  overflow: 'hidden',
-                  position: 'relative',
-                  boxSizing: 'border-box',
+                  transition: 'all 0.3s ease',
                   '&:hover': {
                     backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : '#F0F0F0',
                     borderColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.25)' : 'rgba(0, 0, 0, 0.2)',
                   },
-                  width: { xs: '100%', sm: 700, md: 750, lg: 900 },
-                  maxWidth: '100%',
-                  minHeight: { xs: 240, md: 280 },
+                  mb: 3,
                 }}
               >
-                {/* Image area */}
                 <Box
                   sx={{
                     width: '100%',
-                    height: { xs: 190, md: 210 },
+                    height: { xs: 280, sm: 320, md: 360, lg: 400 },
                     position: 'relative',
                     background: 'linear-gradient(135deg, #007BFF 0%, #005BFF 100%)',
-                    boxSizing: 'border-box',
+                    
                   }}
                 >
                   <img
                     src={OurVision}
-                    alt="Our Vision"
+                    alt="Compass - Our Direction"
                     style={{
                       position: 'absolute',
                       top: 0,
                       left: 0,
                       width: '100%',
                       height: '100%',
-                      objectFit: 'cover',
-                      borderTopLeftRadius: 12,
-                      borderTopRightRadius: 12,
+                      objectFit: 'fit',
+                      borderRadius: 12,
                     }}
                   />
                 </Box>
-                <Box
-                  sx={{
-                    px: { xs: 2.5, md: 3 },
-                    pb: { xs: 2.5, md: 3.5 },
-                    flex: 1,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'flex-start',
-                    width: '100%',
-                    boxSizing: 'border-box',
-                  }}
-                >
-                  <Typography
-                    variant="h4"
-                    sx={{
-                      fontWeight: 600,
-                      fontSize: { xs: '1.15rem', md: '1.35rem' },
-                      lineHeight: 1.2,
-                      color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
-                      minHeight: { xs: '1.6rem', md: '2rem' },
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      mb: 0.8,
-                    }}
-                  >
-                    Our Vision
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
-                      lineHeight: 1.5,
-                      fontSize: { xs: '0.85rem', md: '0.95rem' },
-                      fontWeight: 500,
-                      textAlign: 'center',
-                      flexGrow: 1,
-                    }}
-                  >
-                    Our vision is to transform the way businesses manage performance and sales by leveraging innovative virtual solutions. We aim to create a future where every retail store and enterprise team operates at its full potential—driving growth, improving customer experiences, and building long-term success.
-                  </Typography>
-                </Box>
               </Box>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, y: -5 }}
-            >
+              
+              {/* Mission & Vision Text Container */}
               <Box
                 sx={{
-                  textAlign: 'center',
-                  p: 0,
-                  borderRadius: 3,
-                  transition: 'all 0.3s ease',
-                  backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : '#F9F9F9',
-                  border: theme.palette.mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(0, 0, 0, 0.1)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'flex-start',
-                  overflow: 'hidden',
-                  position: 'relative',
-                  boxSizing: 'border-box',
-                  '&:hover': {
-                    backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : '#F0F0F0',
-                    borderColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.25)' : 'rgba(0, 0, 0, 0.2)',
-                  },
-                  width: { xs: '100%', sm: 700, md: 750, lg: 900 },
-                  maxWidth: '100%',
-                  minHeight: { xs: 240, md: 280 },
+                  display: 'grid',
+                  gridTemplateColumns: { xs: '1fr', md: '1fr auto 1fr' },
+                  gap: { xs: 3, md: 0 },
+                  px: { xs: 2, md: 0 },
+                  alignItems: 'start',
                 }}
               >
-                {/* Image area */}
+                {/* Our Mission */}
                 <Box
                   sx={{
-                    width: '100%',
-                    height: { xs: 190, md: 210 },
-                    position: 'relative',
-                    background: 'linear-gradient(135deg, #007BFF 0%, #005BFF 100%)',
-                    boxSizing: 'border-box',
-                  }}
-                >
-                  <img
-                    src={WhatWeDo}
-                    alt="What We Do"
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      borderTopLeftRadius: 12,
-                      borderTopRightRadius: 12,
-                    }}
-                  />
-                </Box>
-                <Box
-                  sx={{
-                    px: { xs: 2.5, md: 3 },
-                    pb: { xs: 2.5, md: 3.5 },
-                    flex: 1,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'flex-start',
-                    width: '100%',
-                    boxSizing: 'border-box',
+                    textAlign: 'left',
+                    pr: { xs: 0, md: 4 },
                   }}
                 >
                   <Typography
-                    variant="h4"
+                    variant="h3"
                     sx={{
                       fontWeight: 600,
-                      fontSize: { xs: '1.15rem', md: '1.35rem' },
+                      fontSize: { xs: '1.75rem', md: '2rem', lg: '2.25rem' },
                       lineHeight: 1.2,
-                      color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
-                      minHeight: { xs: '1.6rem', md: '2rem' },
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      mb: 0.8,
+                      color: '#4A90E2',
+                      mb: { xs: 2, md: 3 },
+                      textAlign: 'center',
+                      letterSpacing: '1px',
                     }}
                   >
-                    What We Do
+                    OUR MISSION
                   </Typography>
                   <Typography
                     variant="body1"
                     sx={{
                       color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
-                      lineHeight: 1.5,
-                      fontSize: { xs: '0.85rem', md: '0.95rem' },
-                      fontWeight: 500,
-                      textAlign: 'center',
-                      flexGrow: 1,
+                      lineHeight: 1.7,
+                      fontSize: { xs: '1rem', md: '1.1rem', lg: '1.15rem' },
+                      fontWeight: 400,
+                      textAlign: 'left',
                     }}
                   >
-                    We offer a comprehensive suite of services designed specifically to address the unique needs of cellphone retail businesses. Our solutions combine cutting-edge technology with practical training methodologies to deliver measurable results.
+                    To redefine business success by enabling companies to unlock their full potential through innovative, virtual performance and sales solutions.
+                  </Typography>
+                </Box>
+
+                {/* Divider Line */}
+                <Box
+                  sx={{
+                    display: { xs: 'none', md: 'flex' },
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    height: '100%',
+                    minHeight: 200,
+                    px: 2,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: '2px',
+                      height: '80%',
+                      background: `linear-gradient(to bottom, transparent 0%, ${theme.palette.mode === 'dark' ? '#4A90E2' : '#4A90E2'} 20%, ${theme.palette.mode === 'dark' ? '#4A90E2' : '#4A90E2'} 80%, transparent 100%)`,
+                      borderRadius: '1px',
+                      opacity: 0.6,
+                    }}
+                  />
+                </Box>
+
+                {/* Our Vision */}
+                <Box
+                  sx={{
+                    textAlign: 'left',
+                    pl: { xs: 0, md: 4 },
+                  }}
+                >
+                  <Typography
+                    variant="h3"
+                    sx={{
+                      fontWeight: 600,
+                      fontSize: { xs: '1.75rem', md: '2rem', lg: '2.25rem' },
+                      lineHeight: 1.2,
+                      color: '#4A90E2',
+                      mb: { xs: 2, md: 3 },
+                      textAlign: 'center',
+                      letterSpacing: '1px',
+                    }}
+                  >
+                    OUR VISION
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
+                      lineHeight: 1.7,
+                      fontSize: { xs: '1rem', md: '1.1rem', lg: '1.15rem' },
+                      fontWeight: 400,
+                      textAlign: 'left',
+                    }}
+                  >
+                    Our mission is to provide businesses with smarter strategies and virtual solutions that transform how they manage performance and sales, empowering teams and driving sustainable growth.
                   </Typography>
                 </Box>
               </Box>
-            </motion.div>
-          </Box>
+            </Box>
+          </motion.div>
         </Container>
 
         {/* Why Choose Us */}
