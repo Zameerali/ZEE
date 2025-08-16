@@ -548,7 +548,7 @@ const About = () => {
                     color: '#E0E0E0',
                   }}
                 >
-                  Join hundreds of successful businesses that have transformed their operations with our innovative virtual solutions.
+                  Join successful businesses that have transformed their operations with our innovative virtual solutions.
                 </Typography>
               </motion.div>
             </Box>
@@ -590,9 +590,7 @@ const About = () => {
                         'Leading virtual retail solutions provider',
                         'Award-winning technology platform',
                         '24/7 dedicated support team',
-                        'Industry-recognized expertise',
                         'Proven track record of success',
-                        'Customized solutions for every business',
                       ].map((feature, index) => (
                         <motion.div
                           key={index}

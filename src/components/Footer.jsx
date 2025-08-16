@@ -17,7 +17,6 @@ import {
   LinkedIn,
   Facebook,
   YouTube,
-  ArrowUpward,
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -30,24 +29,6 @@ const Footer = () => {
   const theme = useTheme();
   const navigate = useNavigate();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   const handleCloseSnackbar = (event, reason) => {
     if (reason === 'clickaway') {
@@ -101,7 +82,6 @@ const Footer = () => {
   const hoverStyles = {
     cursor: 'pointer',
     transition: 'all 0.3s ease',
-    
     '&:hover': {
       backgroundColor: 'rgba(34, 80, 178, 0.18)',
       transform: 'translateY(-2px)',
@@ -380,12 +360,30 @@ const Footer = () => {
                 sx={{
                   fontWeight: 700,
                   fontSize: { xs: '1.25rem', md: '1.5rem' },
-                  color: '#FFFFFF',
                   mb: 1.5,
                   textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
+                  display: 'inline-flex',
+                  alignItems: 'baseline',
                 }}
               >
-                Quick Links
+                <Box
+                  component="span"
+                  sx={{
+                    color: '#007BFF',
+                  }}
+                >
+                  Quick Lin
+                </Box>
+                <Box
+                  component="span"
+                  sx={{
+                    background: 'linear-gradient(90deg, #007BFF 20%, #00F0FF 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
+                  ks
+                </Box>
               </Typography>
               {footerLinks.company.map((link, index) => (
                 <Button
@@ -433,12 +431,30 @@ const Footer = () => {
                 sx={{
                   fontWeight: 700,
                   fontSize: { xs: '1.25rem', md: '1.5rem' },
-                  color: '#FFFFFF',
                   mb: 1.5,
                   textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
+                  display: 'inline-flex',
+                  alignItems: 'baseline',
                 }}
               >
-                Solutions
+                <Box
+                  component="span"
+                  sx={{
+                    color: '#007BFF',
+                  }}
+                >
+                  Solutio
+                </Box>
+                <Box
+                  component="span"
+                  sx={{
+                    background: 'linear-gradient(90deg, #007BFF 20%, #00F0FF 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
+                  ns
+                </Box>
               </Typography>
               {footerLinks.solutions.map((link, index) => (
                 <Button
@@ -486,12 +502,30 @@ const Footer = () => {
                 sx={{
                   fontWeight: 700,
                   fontSize: { xs: '1.25rem', md: '1.5rem' },
-                  color: '#FFFFFF',
                   mb: 1.5,
                   textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
+                  display: 'inline-flex',
+                  alignItems: 'baseline',
                 }}
               >
-                Our Offices
+                <Box
+                  component="span"
+                  sx={{
+                    color: '#007BFF',
+                  }}
+                >
+                  Our Offic
+                </Box>
+                <Box
+                  component="span"
+                  sx={{
+                    background: 'linear-gradient(90deg, #007BFF 20%, #00F0FF 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
+                  es
+                </Box>
               </Typography>
               {offices.map((office, index) => (
                 <Box
@@ -557,47 +591,6 @@ const Footer = () => {
           </Grid>
         </Grid>
       </Container>
-
-      {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0 }}
-          transition={{
-            type: 'spring',
-            stiffness: 300,
-            damping: 25,
-          }}
-        >
-          <IconButton
-            onClick={scrollToTop}
-            sx={{
-              position: 'fixed',
-              bottom: { xs: 16, md: 24 },
-              right: { xs: 16, md: 24 },
-              backgroundColor: 'rgba(255, 255, 255, 0.15)',
-              color: '#FFFFFF',
-              zIndex: 1000,
-              width: { xs: 48, md: 56 },
-              height: { xs: 48, md: 56 },
-              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.3)',
-              '&:hover': {
-                backgroundColor: theme.palette.primary.main,
-                transform: 'translateY(-3px) scale(1.05)',
-                boxShadow: '0 8px 30px rgba(0, 0, 0, 0.5)',
-              },
-              '&:active': {
-                transform: 'translateY(-1px) scale(0.98)',
-              },
-              transition: 'all 0.2s cubic-bezier(0, 0, 0.2, 1)',
-            }}
-          >
-            <ArrowUpward sx={{ fontSize: { xs: 20, md: 24 } }} />
-          </IconButton>
-        </motion.div>
-      )}
 
       <Snackbar
         open={snackbarOpen}
