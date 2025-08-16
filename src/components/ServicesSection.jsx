@@ -56,7 +56,7 @@ const ServicesSection = () => {
   return (
     <Box
       sx={{
-        py: { xs: 6, sm: 8, md: 10, lg: 12 },
+        py: { xs: 4, sm: 6, md: 8, lg: 10 },
         '@media (min-height: 1200px)': { py: { xs: 4, sm: 6, md: 8 } },
         backgroundColor: 'background.default',
       }}
@@ -76,7 +76,7 @@ const ServicesSection = () => {
               '@media (min-height: 1200px)': { mb: { xs: 4, md: 6 } },
             }}
           >
-            <Chip
+            {/* <Chip
               label="Our Solutions"
               sx={{
                 mb: 4,
@@ -96,7 +96,7 @@ const ServicesSection = () => {
                 },
                 transition: 'all 0.3s ease',
               }}
-            />
+            /> */}
 
             <Typography
               variant="h1"

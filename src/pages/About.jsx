@@ -319,7 +319,7 @@ const About = () => {
               >
                 Why Choose ZEE-KRAZE?
               </Typography>
-              <Typography
+              {/* <Typography
                 variant="body1"
                 sx={{
                   mb: 3,
@@ -332,7 +332,7 @@ const About = () => {
                 }}
               >
                 We deliver comprehensive solutions designed for your success.
-              </Typography>
+              </Typography> */}
               <Box
                 sx={{
                   display: 'flex',
