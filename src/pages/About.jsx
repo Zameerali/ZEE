@@ -164,7 +164,7 @@ const About = () => {
                     height: { xs: 280, sm: 320, md: 360, lg: 400 },
                     position: 'relative',
                     background: 'linear-gradient(135deg, #007BFF 0%, #005BFF 100%)',
-                    
+
                   }}
                 >
                   <img
@@ -206,7 +206,7 @@ const About = () => {
                       fontWeight: 600,
                       fontSize: { xs: '1.75rem', md: '2rem', lg: '2.25rem' },
                       lineHeight: 1.2,
-                      color: '#4A90E2',
+                      color: theme.palette.mode === 'dark' ? '#4A90E2' : '#4A90E2',
                       mb: { xs: 2, md: 3 },
                       textAlign: 'center',
                       letterSpacing: '1px',
