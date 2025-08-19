@@ -46,18 +46,21 @@ const SolutionContent = React.memo(({ solution }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Grid container spacing={{ xs: 3, md: 4 }} sx={{ mb: { xs: 6, md: 8 } }}>
-        <Grid item xs={12} lg={6}>
+      <Box sx={{ mb: { xs: 6, md: 8 } }}>
+        {/* Main Solution Card - Centered */}
+        <Box sx={{ 
+          display: 'flex', 
+          justifyContent: 'center',
+          mb: { xs: 4, md: 6 }
+        }}>
           <motion.div whileHover={{ scale: 1.01, y: -2 }} transition={{ duration: 0.3 }}>
             <Card
               sx={{
                 borderRadius: 3,
                 backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : '#F9F9F9',
                 border: theme.palette.mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(0, 0, 0, 0.1)',
-                mb: { xs: 3, md: 4 },
-                mx: 'auto',
-                 maxWidth: { xs: '100%', md: 1000 }, // Reduce max width
-          minWidth: { xs: '100%', md: 320 },
+                width: { xs: '100%', md: '1000px' },
+                maxWidth: '100%',
                 transition: 'all 0.3s ease',
                 '&:hover': {
                   backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.05)',
@@ -158,223 +161,210 @@ const SolutionContent = React.memo(({ solution }) => {
               </CardContent>
             </Card>
           </motion.div>
+        </Box>
 
-          {solution.modules && (
-            <>
-              <Typography
-                variant="h4"
-                sx={{
-                  fontWeight: 600,
-                  mb: 3,
-                  fontSize: { xs: '1.5rem', md: '1.75rem' },
-                  color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
-                  ml: { xs: 0, md: 'auto' }, // Align with card
-            mr: { xs: 0, md: 'auto' }, // Center heading with card
-            maxWidth: { xs: '100%', md: 500 }, // Match card width
-            textAlign: 'center',
-                }}
-              >
-                Solution Modules
-              </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: { xs: 3, md: 4 },
-                  justifyContent: 'center',
-                  alignItems: 'stretch',
-                }}
-              >
-                {solution.modules.map((module, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    style={{
-                      flex: '0 1 400px',
-                      maxWidth: 400,
-                      minWidth: 320,
-                      display: 'flex',
-                    }}
-                  >
-                    <Card
-                      sx={{
-                        borderRadius: 3,
-                        backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : '#F9F9F9',
-                        border: theme.palette.mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(0, 0, 0, 0.1)',
-                        transition: 'all 0.3s ease',
-                        width: '400px',
-                        minWidth: '320px',
-                        maxWidth: '400px',
-                        boxSizing: 'border-box',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'stretch',
-                        '&:hover': {
-                          backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.05)',
-                          borderColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.25)' : 'rgba(0, 0, 0, 0.15)',
-                          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)',
-                        },
-                      }}
-                    >
-                      <CardContent sx={{ p: { xs: 2, md: 3 }, flex: 1 }}>
-                        <Typography
-                          variant="h6"
-                          sx={{
-                            fontWeight: 600,
-                            mb: 2,
-                            fontSize: { xs: '1.25rem', md: '1.375rem' },
-                            color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
-                            textAlign: 'center',
-                            wordBreak: 'break-word',
-                            overflowWrap: 'break-word',
-                          }}
-                        >
-                          {module.title}
-                        </Typography>
-                        <Typography
-                          variant="body1"
-                          sx={{
-                            mb: 2,
-                            fontSize: { xs: '1rem', md: '1.125rem' },
-                            fontWeight: 500,
-                            lineHeight: 1.6,
-                            color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
-                            textAlign: 'center',
-                            wordBreak: 'break-word',
-                            overflowWrap: 'break-word',
-                            whiteSpace: 'normal',
-                            display: 'block',
-                          }}
-                        >
-                          {module.description}
-                        </Typography>
-                        <List dense>
-                          {module.features.map((feature, featureIndex) => (
-                            <ListItem
-                              key={featureIndex}
-                              sx={{
-                                px: 0,
-                                py: 0.5,
-                              }}
-                            >
-                              <ListItemIcon sx={{ minWidth: 28 }}>
-                                <CheckCircle sx={{ color: solution.color, fontSize: 16 }} />
-                              </ListItemIcon>
-                              <ListItemText
-                                primary={feature}
-                                primaryTypographyProps={{
-                                  variant: 'body1',
-                                  fontSize: { xs: '1rem', md: '1.125rem' },
-                                  fontWeight: 500,
-                                  color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
-                                  wordBreak: 'break-word',
-                                  overflowWrap: 'break-word',
-                                  whiteSpace: 'normal',
-                                }}
-                              />
-                            </ListItem>
-                          ))}
-                        </List>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </Box>
-            </>
-          )}
-        </Grid>
-
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            minHeight: { xs: 'auto', md: 'auto' },
-            height: { xs: 'auto', md: 'fit-content' },
-            py: { xs: 2, md: 2 },
-            px: { xs: 2, md: 0 },
-            width: '100%',
-            maxWidth: '100%',
-          }}
-        >
-          <motion.div whileHover={{ scale: 1.02, y: -4 }} transition={{ duration: 0.3 }}>
-            <Box
+        {/* Solution Modules - Centered */}
+        {solution.modules && (
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Typography
+              variant="h4"
               sx={{
-                backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : '#F9F9F9',
-                backdropFilter: 'blur(10px)',
-                border: theme.palette.mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(0, 0, 0, 0.1)',
-                borderRadius: 3,
-                maxWidth: { xs: '100%', sm: 400, md: 450 },
-                width: '100%',
-                mx: 'auto',
-                my: 'auto',
-                position: 'relative',
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.05)',
-                  borderColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.25)' : 'rgba(0, 0, 0, 0.15)',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)',
-                },
+                fontWeight: 600,
+                mb: 3,
+                fontSize: { xs: '1.5rem', md: '1.75rem' },
+                color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
+                textAlign: 'center',
               }}
             >
-              <Box sx={{ p: { xs: 3, md: 4 }, textAlign: 'center' }}>
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontWeight: 600,
-                    mb: 2,
-                    fontSize: { xs: '1.25rem', md: '1.5rem' },
-                    color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
+              Solution Modules
+            </Typography>
+            <Box
+              sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: { xs: 3, md: 4 },
+                justifyContent: 'center',
+                alignItems: 'stretch',
+                maxWidth: '1400px',
+                width: '100%',
+              }}
+            >
+              {solution.modules.map((module, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  style={{
+                    flex: '0 0 auto',
+                    width: '400px',
+                    maxWidth: '400px',
+                    minWidth: '320px',
+                    display: 'flex',
                   }}
                 >
-                  Ready to Get Started?
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    mb: { xs: 3, md: 4 },
-                    fontSize: { xs: '1rem', md: '1.125rem' },
-                    fontWeight: 500,
-                    lineHeight: 1.6,
-                    color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
-                  }}
-                >
-                  Experience the power of our solutions with a personalized trial.
-                </Typography>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button
-                    variant="contained"
-                    size="large"
-                    endIcon={<ArrowForward />}
-                    onClick={scrollToFooter}
+                  <Card
                     sx={{
-                      backgroundColor: '#007BFF',
-                      color: '#FFFFFF',
-                      px: { xs: 3, md: 4 },
-                      py: 1.5,
-                      fontSize: { xs: '1rem', md: '1.125rem' },
-                      fontWeight: 600,
                       borderRadius: 3,
+                      backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : '#F9F9F9',
+                      border: theme.palette.mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(0, 0, 0, 0.1)',
+                      transition: 'all 0.3s ease',
+                      width: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'stretch',
                       '&:hover': {
-                        backgroundColor: '#005BFF',
+                        backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.05)',
+                        borderColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.25)' : 'rgba(0, 0, 0, 0.15)',
                         boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)',
                       },
                     }}
-                    fullWidth
                   >
-                    Request a Trial
-                  </Button>
+                    <CardContent sx={{ p: { xs: 2, md: 3 }, flex: 1 }}>
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          fontWeight: 600,
+                          mb: 2,
+                          fontSize: { xs: '1.25rem', md: '1.375rem' },
+                          color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
+                          textAlign: 'center',
+                          wordBreak: 'break-word',
+                          overflowWrap: 'break-word',
+                        }}
+                      >
+                        {module.title}
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          mb: 2,
+                          fontSize: { xs: '1rem', md: '1.125rem' },
+                          fontWeight: 500,
+                          lineHeight: 1.6,
+                          color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
+                          textAlign: 'center',
+                          wordBreak: 'break-word',
+                          overflowWrap: 'break-word',
+                          whiteSpace: 'normal',
+                          display: 'block',
+                        }}
+                      >
+                        {module.description}
+                      </Typography>
+                      <List dense>
+                        {module.features.map((feature, featureIndex) => (
+                          <ListItem
+                            key={featureIndex}
+                            sx={{
+                              px: 0,
+                              py: 0.5,
+                            }}
+                          >
+                            <ListItemIcon sx={{ minWidth: 28 }}>
+                              <CheckCircle sx={{ color: solution.color, fontSize: 16 }} />
+                            </ListItemIcon>
+                            <ListItemText
+                              primary={feature}
+                              primaryTypographyProps={{
+                                variant: 'body1',
+                                fontSize: { xs: '1rem', md: '1.125rem' },
+                                fontWeight: 500,
+                                color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
+                                wordBreak: 'break-word',
+                                overflowWrap: 'break-word',
+                                whiteSpace: 'normal',
+                              }}
+                            />
+                          </ListItem>
+                        ))}
+                      </List>
+                    </CardContent>
+                  </Card>
                 </motion.div>
-              </Box>
+              ))}
             </Box>
-          </motion.div>
-        </Grid>
-      </Grid>
+          </Box>
+        )}
+      </Box>
+
+      {/* Call to Action - Centered */}
+      <Box sx={{ 
+        display: 'flex', 
+        justifyContent: 'center',
+        px: { xs: 2, md: 0 } 
+      }}>
+        <motion.div whileHover={{ scale: 1.02, y: -4 }} transition={{ duration: 0.3 }}>
+          <Box
+            sx={{
+              mb: 4,
+              backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : '#F9F9F9',
+              backdropFilter: 'blur(10px)',
+              border: theme.palette.mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(0, 0, 0, 0.1)',
+              borderRadius: 3,
+              width: { xs: '100%', sm: 400, md: 450 },
+              maxWidth: '100%',
+              position: 'relative',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.05)',
+                borderColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.25)' : 'rgba(0, 0, 0, 0.15)',
+                boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)',
+              },
+            }}
+          >
+            <Box sx={{ p: { xs: 3, md: 4 }, textAlign: 'center' }}>
+              <Typography
+                variant="h5"
+                sx={{
+                  fontWeight: 600,
+                  mb: 2,
+                  fontSize: { xs: '1.25rem', md: '1.5rem' },
+                  color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
+                }}
+              >
+                Ready to Get Started?
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  mb: { xs: 3, md: 4 },
+                  fontSize: { xs: '1rem', md: '1.125rem' },
+                  fontWeight: 500,
+                  lineHeight: 1.6,
+                  color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
+                }}
+              >
+                Experience the power of our solutions with a personalized trial.
+              </Typography>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button
+                  variant="contained"
+                  size="large"
+                  endIcon={<ArrowForward />}
+                  onClick={scrollToFooter}
+                  sx={{
+                    backgroundColor: '#007BFF',
+                    color: '#FFFFFF',
+                    px: { xs: 3, md: 4 },
+                    py: 1.5,
+                    fontSize: { xs: '1rem', md: '1.125rem' },
+                    fontWeight: 600,
+                    borderRadius: 3,
+                    '&:hover': {
+                      backgroundColor: '#005BFF',
+                      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)',
+                    },
+                  }}
+                  fullWidth
+                >
+                  Request a Trial
+                </Button>
+              </motion.div>
+            </Box>
+          </Box>
+        </motion.div>
+      </Box>
     </motion.div>
   );
 });
@@ -444,7 +434,6 @@ const Solutions = () => {
       features: [
         'Comprehensive Store Management',
         'Performance Tracking',
-        'Operational Excellence',
         'Accountability & Transparency',
         'Coaching & Support',
       ],
@@ -458,11 +447,6 @@ const Solutions = () => {
           title: 'Performance Tracking',
           description: 'Real-time monitoring of key sales metrics and KPIs to keep growth on track.',
           features: ['Sales metrics', 'KPI tracking', 'Growth analysis'],
-        },
-        {
-          title: 'Operational Excellence',
-          description: 'Enhancing sales processes and driving consistency across all locations.',
-          features: ['Process standardization', 'Consistency tools', 'Sales optimization'],
         },
         {
           title: 'Accountability & Transparency',
@@ -487,7 +471,6 @@ const Solutions = () => {
       features: [
         'Optimize Sales Processes',
         'Improve Conversion Rates',
-        'Enhance Team Skills',
         'Increase Revenue Growth',
         'Access On-Demand Expertise',
       ],
@@ -501,11 +484,6 @@ const Solutions = () => {
           title: 'Improve Conversion Rates',
           description: 'Use data-driven techniques to turn leads into loyal customers.',
           features: ['Data-driven strategies', 'Lead conversion tools', 'Customer retention'],
-        },
-        {
-          title: 'Enhance Team Skills',
-          description: 'Provide coaching and training to build confident, high-performing sales teams.',
-          features: ['Sales training', 'Skill development', 'Performance coaching'],
         },
         {
           title: 'Increase Revenue Growth',
@@ -532,7 +510,6 @@ const Solutions = () => {
         'Customer-Centric Approach',
         'Advanced Negotiation',
         'Data-Driven Sales',
-        'Ongoing Coaching',
       ],
       modules: [
         {
@@ -554,37 +531,7 @@ const Solutions = () => {
           title: 'Data-Driven Sales',
           description: 'Leveraging insights and analytics to refine strategies and increase conversion rates.',
           features: ['Sales analytics', 'Insight-driven strategies', 'Conversion optimization'],
-        },
-        {
-          title: 'Ongoing Coaching',
-          description: 'Providing continuous guidance to ensure lasting performance improvement.',
-          features: ['Continuous coaching', 'Performance tracking', 'Team development'],
-        },
-        {
-          title: 'Team Performance Acceleration',
-          description: 'Coach store teams on KPIs, daily goal setting, team motivation frameworks, and feedback mechanisms.',
-          features: ['KPI coaching', 'Goal setting', 'Team motivation'],
-        },
-        {
-          title: 'Retail Data Intelligence',
-          description: 'Build capacity to collect, visualize, and act on store-level and SKU-level data.',
-          features: ['Data collection', 'Visualization tools', 'Actionable insights'],
-        },
-        {
-          title: 'Clienteling & Customer Loyalty',
-          description: 'Train teams to build long-term customer relationships using personalized service.',
-          features: ['Relationship building', 'Loyalty programs', 'CRM tools'],
-        },
-        {
-          title: 'Visual Merchandising & Display Impact',
-          description: 'Train teams in principles of visual merchandising and window displays.',
-          features: ['Visual merchandising', 'Window displays', 'Seasonal rotations'],
-        },
-        {
-          title: 'Retail Process Engineering',
-          description: 'Streamline day-to-day retail operations through workflow optimization.',
-          features: ['Workflow optimization', 'Standard operating procedures', 'Lean retail principles'],
-        },
+        }
       ],
     },
     {
@@ -596,22 +543,11 @@ const Solutions = () => {
       icon: <School />,
       color: '#00F0FF',
       features: [
-        'Advanced Sales Techniques',
         'Exceptional Customer Experience',
         'Product Knowledge Mastery',
-        'Operational Efficiency',
         'Continuous Learning',
       ],
       modules: [
-        {
-          title: 'Advanced Sales Techniques',
-          description: 'Transform your team into trusted advisors who understand customer needs and provide tailored solutions.',
-          features: [
-            'Consultative Selling',
-            'Objection Handling & Closing Strategies',
-            'Upselling & Cross-selling',
-          ],
-        },
         {
           title: 'Exceptional Customer Experience (CX) Training',
           description: 'Build rapport and ensure clear, empathetic interactions to foster customer loyalty.',
@@ -627,15 +563,6 @@ const Solutions = () => {
           features: [
             'In-depth Device & Technology Training',
             'Plan & Service Offerings',
-          ],
-        },
-        {
-          title: 'Operational Efficiency & Store Management',
-          description: 'Train on efficient stock tracking, POS proficiency, and troubleshooting fundamentals.',
-          features: [
-            'Inventory Management Best Practices',
-            'POS System Proficiency',
-            'Repair & Troubleshooting Fundamentals',
           ],
         },
         {
@@ -731,8 +658,8 @@ const Solutions = () => {
                   textTransform: 'none',
                   fontWeight: 600,
                   fontSize: { xs: '1rem', md: '1.125rem' },
-                  minHeight: { xs: 40, md: 45 },
-                  px: { xs: 1, md: 2 },
+                  minHeight: { xs: 48, md: 56 },
+                  px: { xs: 1.5, md: 2.5 },
                   opacity: 1,
                   pointerEvents: 'auto',
                   transition: 'all 0.3s ease',
@@ -748,8 +675,8 @@ const Solutions = () => {
                     opacity: 0.5,
                     pointerEvents: 'none',
                   },
-                }}
-              }
+                },
+              }}
             >
               {solutions.map((solution, index) => (
                 <Tab
@@ -757,39 +684,47 @@ const Solutions = () => {
                   disabled={false}
                   onClick={() => console.log(`Tab ${index} clicked`)}
                   label={
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 1, md: 1.5 } }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 0.75, md: 1 } }}>
                       <Avatar
                         sx={{
                           backgroundColor: selectedTab === index ? solution.color : 'transparent',
                           color: selectedTab === index ? '#FFFFFF' : solution.color,
-                          width: { xs: 32, md: 40 },
-                          height: { xs: 32, md: 40 },
+                          width: { xs: 30, md: 36 },
+                          height: { xs: 30, md: 36 },
                           border: `2px solid ${solution.color}`,
                           transition: 'all 0.3s ease',
                         }}
                       >
-                        <Box sx={{ fontSize: { xs: '1.25rem', md: '1.5rem' } }}>
+                        <Box sx={{ fontSize: { xs: '1.05rem', md: '1.2rem' } }}>
                           {solution.icon}
                         </Box>
                       </Avatar>
-                      <Box sx={{ textAlign: 'left' }}>
+                      <Box sx={{ textAlign: 'left', minWidth: 0, flex: 1 }}>
                         <Typography
                           variant="body1"
                           sx={{
                             fontWeight: 600,
-                            fontSize: { xs: '1rem', md: '1.125rem' },
+                            fontSize: { xs: '0.9rem', md: '1rem' },
                             color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#1A1A1A',
+                            lineHeight: 1.2,
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            whiteSpace: 'nowrap',
                           }}
                         >
                           {solution.title.split(' ').slice(0, 2).join(' ')}
                         </Typography>
                         <Typography
-                          variant="body1"
+                          variant="body2"
                           sx={{
-                            fontSize: { xs: '1rem', md: '1.125rem' },
+                            fontSize: { xs: '0.8rem', md: '0.875rem' },
                             fontWeight: 500,
                             color: theme.palette.mode === 'dark' ? '#E0E0E0' : '#4A4A4A',
                             display: { xs: 'none', sm: 'block' },
+                            lineHeight: 1.2,
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            whiteSpace: 'nowrap',
                           }}
                         >
                           {solution.subtitle}

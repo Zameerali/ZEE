@@ -212,7 +212,7 @@ const About = () => {
                       letterSpacing: '1px',
                     }}
                   >
-                    OUR MISSION
+                    OUR VISION
                   </Typography>
                   <Typography
                     variant="body1"
@@ -224,7 +224,7 @@ const About = () => {
                       textAlign: 'left',
                     }}
                   >
-                    To redefine business success by enabling companies to unlock their full potential through innovative, virtual performance and sales solutions.
+                    To redefine business success by enabling companies to unlock their full potential through innovative, virtual performance and sales solutions. This positively transforms performance and drives sustainable growth.
                   </Typography>
                 </Box>
 
@@ -269,7 +269,7 @@ const About = () => {
                       letterSpacing: '1px',
                     }}
                   >
-                    OUR VISION
+                    OUR MISSION
                   </Typography>
                   <Typography
                     variant="body1"
@@ -537,7 +537,7 @@ const About = () => {
                       {[
                         'Leading virtual retail solutions provider',
                         'Award-winning technology platform',
-                        '24/7 dedicated support team',
+                        'Dedicated support team',
                         'Proven track record of success',
                       ].map((feature, index) => (
                         <motion.div
