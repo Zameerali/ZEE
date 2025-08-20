@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, useCallback } from 'react';
 import {
   Box,
   Container,
@@ -14,51 +14,58 @@ import training from '../assets/training.webp';
 import MeasurebaleResults from '../assets/Measurable_Results.webp';
 import LongTermPartnership from '../assets/Long_term_Partnership (2).webp';
 import OurVision from '../assets/Vision.webp';
-import WhatWeDo from '../assets/What_We_Do.webp';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-const About = () => {
+// Memoize whyChooseUs array for performance
+const whyChooseUs = [
+  {
+    title: 'Industry Expertise',
+    description: 'Our team comprises seasoned professionals with deep knowledge of the wireless telecom retail sector.',
+    color: '#15357A',
+    image: IndustryExpertise,
+    imageAlt: 'Industry Expertise',
+  },
+  {
+    title: 'Tailored Solutions',
+    description: 'We dont believe in one-size-fits-all. Our programs are customized to your specific business needs and goals.',
+    color: '#007BFF',
+    image: TailoredSolutions,
+    imageAlt: 'Tailored Solutions',
+  },
+  {
+    title: 'Practical & Engaging Training',
+    description: 'Our methods are interactive, hands-on, and designed for immediate application in a retail setting.',
+    color: '#1A1A1A',
+    image: training,
+    imageAlt: 'Practical Training',
+  },
+  {
+    title: 'Measurable Results',
+    description: 'We focus on delivering tangible improvements in sales, customer satisfaction, and operational efficiency.',
+    color: '#2E7D32',
+    image: MeasurebaleResults,
+    imageAlt: 'Measurable Results',
+  },
+  {
+    title: 'Long-Term Partnership',
+    description: 'We are committed to your ongoing success, offering continued support and strategic advice.',
+    color: '#D81B60',
+    image: LongTermPartnership,
+    imageAlt: 'Long-Term Partnership',
+  },
+];
+
+// Memoized About component for performance
+const About = memo(() => {
   const theme = useTheme();
   const navigate = useNavigate();
 
-  const whyChooseUs = [
-    {
-      title: 'Industry Expertise',
-      description: 'Our team comprises seasoned professionals with deep knowledge of the wireless telecom retail sector.',
-      color: '#15357A',
-      image: IndustryExpertise,
-      imageAlt: 'Industry Expertise',
-    },
-    {
-      title: 'Tailored Solutions',
-      description: 'We dont believe in one-size-fits-all. Our programs are customized to your specific business needs and goals.',
-      color: '#007BFF',
-      image: TailoredSolutions,
-      imageAlt: 'Tailored Solutions',
-    },
-    {
-      title: 'Practical & Engaging Training',
-      description: 'Our methods are interactive, hands-on, and designed for immediate application in a retail setting.',
-      color: '#1A1A1A',
-      image: training,
-      imageAlt: 'Practical Training',
-    },
-    {
-      title: 'Measurable Results',
-      description: 'We focus on delivering tangible improvements in sales, customer satisfaction, and operational efficiency.',
-      color: '#2E7D32',
-      image: MeasurebaleResults,
-      imageAlt: 'Measurable Results',
-    },
-    {
-      title: 'Long-Term Partnership',
-      description: 'We are committed to your ongoing success, offering continued support and strategic advice.',
-      color: '#D81B60',
-      image: LongTermPartnership,
-      imageAlt: 'Long-Term Partnership',
-    },
-  ];
+  // UseCallback for scroll handler
+  const handleScrollToFooter = useCallback(() => {
+    const footer = document.getElementById('footer-contact');
+    if (footer) footer.scrollIntoView({ behavior: 'smooth' });
+  }, []);
 
   return (
     <motion.div
@@ -135,7 +142,6 @@ const About = () => {
             viewport={{ once: true }}
             whileHover={{ scale: 1.02, y: -5 }}
           >
-            {/* Main Container */}
             <Box
               sx={{
                 maxWidth: { xs: '100%', sm: 800, md: 900, lg: 1000 },
@@ -164,7 +170,6 @@ const About = () => {
                     height: { xs: 280, sm: 320, md: 360, lg: 400 },
                     position: 'relative',
                     background: 'linear-gradient(135deg, #007BFF 0%, #005BFF 100%)',
-
                   }}
                 >
                   <img
@@ -182,7 +187,6 @@ const About = () => {
                   />
                 </Box>
               </Box>
-              
               {/* Mission & Vision Text Container */}
               <Box
                 sx={{
@@ -194,12 +198,7 @@ const About = () => {
                 }}
               >
                 {/* Our Mission */}
-                <Box
-                  sx={{
-                    textAlign: 'left',
-                    pr: { xs: 0, md: 4 },
-                  }}
-                >
+                <Box sx={{ textAlign: 'left', pr: { xs: 0, md: 4 } }}>
                   <Typography
                     variant="h3"
                     sx={{
@@ -227,7 +226,6 @@ const About = () => {
                     To redefine business success by enabling companies to unlock their full potential through innovative, virtual performance and sales solutions. This positively transforms performance and drives sustainable growth.
                   </Typography>
                 </Box>
-
                 {/* Divider Line */}
                 <Box
                   sx={{
@@ -249,14 +247,8 @@ const About = () => {
                     }}
                   />
                 </Box>
-
                 {/* Our Vision */}
-                <Box
-                  sx={{
-                    textAlign: 'left',
-                    pl: { xs: 0, md: 4 },
-                  }}
-                >
+                <Box sx={{ textAlign: 'left', pl: { xs: 0, md: 4 } }}>
                   <Typography
                     variant="h3"
                     sx={{
@@ -319,20 +311,6 @@ const About = () => {
               >
                 Why Choose ZEE-KRAZE?
               </Typography>
-              {/* <Typography
-                variant="body1"
-                sx={{
-                  mb: 3,
-                  fontSize: { xs: '1rem', md: '1.125rem' },
-                  lineHeight: 1.6,
-                  fontWeight: 500,
-                  maxWidth: 700,
-                  mx: 'auto',
-                  color: '#E0E0E0',
-                }}
-              >
-                We deliver comprehensive solutions designed for your success.
-              </Typography> */}
               <Box
                 sx={{
                   display: 'flex',
@@ -353,13 +331,13 @@ const About = () => {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.05, y: -5 }}
-                    style={{ flex: '0 0 auto', maxWidth: { xs: 280, sm: 320, md: 400 }, minWidth: 0 }}
+                    style={{ flex: '0 0 auto', maxWidth: 400, minWidth: 0 }}
                   >
                     <Box
                       sx={{
                         textAlign: 'center',
                         p: 0,
-                        maxWidth: { xs: 280, sm: 320, md: 400 },
+                        maxWidth: 400,
                         mx: 'auto',
                         borderRadius: 3,
                         transition: 'all 0.3s ease',
@@ -383,7 +361,7 @@ const About = () => {
                       <Box
                         sx={{
                           width: '100%',
-                          paddingTop: '56.25%', // 16:9 aspect ratio
+                          paddingTop: '56.25%',
                           position: 'relative',
                           display: 'flex',
                           justifyContent: 'center',
@@ -591,10 +569,7 @@ const About = () => {
                   variant="contained"
                   size="large"
                   endIcon={<ArrowForward />}
-                  onClick={() => {
-                    const footer = document.getElementById('footer-contact');
-                    if (footer) footer.scrollIntoView({ behavior: 'smooth' });
-                  }}
+                  onClick={handleScrollToFooter}
                   sx={{
                     backgroundColor: '#007BFF',
                     color: '#FFFFFF',
@@ -618,6 +593,6 @@ const About = () => {
       </Box>
     </motion.div>
   );
-};
+});
 
 export default About;

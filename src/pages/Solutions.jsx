@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, memo } from 'react';
 import {
   Box,
   Container,
@@ -27,17 +27,208 @@ import {
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 
-const scrollToFooter = () => {
-  const footer = document.getElementById('footer-contact');
-  if (footer) {
-    console.log('Scrolling to footer-contact');
-    footer.scrollIntoView({ behavior: 'smooth' });
-  } else {
-    console.log('Footer-contact section not found');
-  }
-};
+// Move solutions array outside component for referential stability
+const solutions = [
+  // ...existing solutions array...
+  {
+    id: 'smart-retail',
+    title: 'Smart Retail Management',
+    subtitle: 'Optimize Retail Operations',
+    description:
+      'We provide end-to-end oversight to ensure smooth store performance, improved customer experience, and consistent growth. Whether managing one store or an entire chain, our smart retail management approach helps your business perform at its best every day.',
+    icon: <Store />,
+    color: '#7F00FF',
+    features: [
+      'Sales & KPI Monitoring',
+      'Process Optimization',
+      'Staff Performance Management',
+      'Customer Engagement',
+      'Scalable Solutions',
+    ],
+    modules: [
+      {
+        title: 'Sales & KPI Monitoring',
+        description: 'Track performance across locations with real-time insights.',
+        features: ['Real-time sales tracking', 'KPI dashboards', 'Location-based analytics'],
+      },
+      {
+        title: 'Process Optimization',
+        description: 'Standardize operations to increase efficiency and reduce errors.',
+        features: ['Workflow automation', 'Error reduction systems', 'Standardized procedures'],
+      },
+      {
+        title: 'Staff Performance Management',
+        description: 'Enhance accountability and provide coaching for better results.',
+        features: ['Performance reviews', 'Coaching tools', 'Accountability metrics'],
+      },
+      {
+        title: 'Customer Engagement',
+        description: 'Strengthen customer interactions to drive loyalty and repeat business.',
+        features: ['Customer interaction tools', 'Loyalty programs', 'Engagement strategies'],
+      },
+      {
+        title: 'Scalable Solutions',
+        description: 'Designed to adapt seamlessly across single or multiple retail locations.',
+        features: ['Multi-location support', 'Scalable workflows', 'Flexible systems'],
+      },
+    ],
+  },
+  {
+    id: 'telecom-management',
+    title: 'Retail Telecom Management',
+    subtitle: 'Virtual Oversight Solutions',
+    description:
+      'Our comprehensive telecom management solutions streamline virtual operations, reducing the need for on-site supervision while maintaining peak performance across all locations.',
+    icon: <PhoneAndroid />,
+    color: '#00F0FF',
+    features: [
+      'Comprehensive Store Management',
+      'Performance Tracking',
+      'Accountability & Transparency',
+      'Coaching & Support',
+    ],
+    modules: [
+      {
+        title: 'Comprehensive Store Management',
+        description: 'Streamlined virtual solutions that reduce the need for on-site supervision.',
+        features: ['Virtual oversight tools', 'Remote management systems', 'Centralized control'],
+      },
+      {
+        title: 'Performance Tracking',
+        description: 'Real-time monitoring of key sales metrics and KPIs to keep growth on track.',
+        features: ['Sales metrics', 'KPI tracking', 'Growth analysis'],
+      },
+      {
+        title: 'Accountability & Transparency',
+        description: 'Strengthening staff accountability through clear performance insights.',
+        features: ['Performance insights', 'Accountability metrics', 'Transparent reporting'],
+      },
+      {
+        title: 'Coaching & Support',
+        description: 'Remote training and guidance to empower teams and improve customer engagement.',
+        features: ['Remote coaching', 'Team training modules', 'Customer engagement tools'],
+      },
+    ],
+  },
+  {
+    id: 'virtual-sales',
+    title: 'Virtual Sales Consultant',
+    subtitle: 'Expert Sales Guidance',
+    description:
+      'Our virtual sales consultancy provides the strategies, training, and insights your team needs to perform at its best, with professional support available whenever and wherever you need it.',
+    icon: <PersonPin />,
+    color: '#A9FF4F',
+    features: [
+      'Optimize Sales Processes',
+      'Improve Conversion Rates',
+      'Increase Revenue Growth',
+      'Access On-Demand Expertise',
+    ],
+    modules: [
+      {
+        title: 'Optimize Sales Processes',
+        description: 'Streamline workflows for higher efficiency and faster deal cycles.',
+        features: ['Workflow streamlining', 'Efficiency tools', 'Deal cycle optimization'],
+      },
+      {
+        title: 'Improve Conversion Rates',
+        description: 'Use data-driven techniques to turn leads into loyal customers.',
+        features: ['Data-driven strategies', 'Lead conversion tools', 'Customer retention'],
+      },
+      {
+        title: 'Increase Revenue Growth',
+        description: 'Implement proven strategies to boost sales outcomes sustainably.',
+        features: ['Revenue strategies', 'Sustainable growth plans', 'Sales forecasting'],
+      },
+      {
+        title: 'Access On-Demand Expertise',
+        description: 'Get professional support whenever and wherever you need it.',
+        features: ['On-demand consultation', 'Expert support', 'Remote guidance'],
+      },
+    ],
+  },
+  {
+    id: 'excellence-program',
+    title: 'Sales Excellence Program',
+    subtitle: 'Customized Training Programs',
+    description:
+      'Built to deliver measurable business outcomes, our program is designed to help you scale your salesforce, strengthen leadership capabilities, and enable your team to consistently exceed performance goals.',
+    icon: <School />,
+    color: '#7F00FF',
+    features: [
+      'Strategic Selling',
+      'Customer-Centric Approach',
+      'Advanced Negotiation',
+      'Data-Driven Sales',
+    ],
+    modules: [
+      {
+        title: 'Strategic Selling',
+        description: 'Aligning sales strategies with organizational growth objectives.',
+        features: ['Strategic alignment', 'Growth-focused selling', 'Objective planning'],
+      },
+      {
+        title: 'Customer-Centric Approach',
+        description: 'Strengthening relationships and fostering long-term client loyalty.',
+        features: ['Relationship building', 'Loyalty programs', 'Client engagement'],
+      },
+      {
+        title: 'Advanced Negotiation',
+        description: 'Developing the skills required to secure and maximize high-value opportunities.',
+        features: ['Negotiation training', 'High-value deal strategies', 'Skill development'],
+      },
+      {
+        title: 'Data-Driven Sales',
+        description: 'Leveraging insights and analytics to refine strategies and increase conversion rates.',
+        features: ['Sales analytics', 'Insight-driven strategies', 'Conversion optimization'],
+      }
+    ],
+  },
+  {
+    id: 'retail-excellence',
+    title: 'Retail Excellence Training',
+    subtitle: 'Comprehensive Staff Training',
+    description:
+      'Our expert-led training goes beyond basic product knowledge. We equip your staff with the skills they need to excel in every aspect of cellphone retail.',
+    icon: <School />,
+    color: '#00F0FF',
+    features: [
+      'Exceptional Customer Experience',
+      'Product Knowledge Mastery',
+      'Continuous Learning',
+    ],
+    modules: [
+      {
+        title: 'Exceptional Customer Experience (CX) Training',
+        description: 'Build rapport and ensure clear, empathetic interactions to foster customer loyalty.',
+        features: [
+          'Active Listening & Communication Etiquette',
+          'Conflict Resolution & De-escalation',
+          'Personalized Service Delivery',
+        ],
+      },
+      {
+        title: 'Product Knowledge Mastery',
+        description: 'Ensure your team is well-versed in the latest devices, technologies, and service offerings.',
+        features: [
+          'In-depth Device & Technology Training',
+          'Plan & Service Offerings',
+        ],
+      },
+      {
+        title: 'New Hire Onboarding & Continuous Learning',
+        description: 'Quickly bring new employees up to speed and keep your team updated with industry changes.',
+        features: [
+          'Structured Onboarding Programs',
+          'Ongoing Refresher Courses',
+        ],
+      },
+    ],
+  },
+];
 
-const SolutionContent = React.memo(({ solution }) => {
+// Memoized SolutionContent for performance
+const SolutionContent = memo(({ solution }) => {
   const theme = useTheme();
   return (
     <motion.div
@@ -46,13 +237,10 @@ const SolutionContent = React.memo(({ solution }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
+      {/* ...existing code for SolutionContent... */}
       <Box sx={{ mb: { xs: 6, md: 8 } }}>
         {/* Main Solution Card - Centered */}
-        <Box sx={{ 
-          display: 'flex', 
-          justifyContent: 'center',
-          mb: { xs: 4, md: 6 }
-        }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', mb: { xs: 4, md: 6 } }}>
           <motion.div whileHover={{ scale: 1.01, y: -2 }} transition={{ duration: 0.3 }}>
             <Card
               sx={{
@@ -162,7 +350,6 @@ const SolutionContent = React.memo(({ solution }) => {
             </Card>
           </motion.div>
         </Box>
-
         {/* Solution Modules - Centered */}
         {solution.modules && (
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -287,13 +474,8 @@ const SolutionContent = React.memo(({ solution }) => {
           </Box>
         )}
       </Box>
-
       {/* Call to Action - Centered */}
-      <Box sx={{ 
-        display: 'flex', 
-        justifyContent: 'center',
-        px: { xs: 2, md: 0 } 
-      }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', px: { xs: 2, md: 0 } }}>
         <motion.div whileHover={{ scale: 1.02, y: -4 }} transition={{ duration: 0.3 }}>
           <Box
             sx={{
@@ -342,7 +524,10 @@ const SolutionContent = React.memo(({ solution }) => {
                   variant="contained"
                   size="large"
                   endIcon={<ArrowForward />}
-                  onClick={scrollToFooter}
+                  onClick={() => {
+                    const footer = document.getElementById('footer-contact');
+                    if (footer) footer.scrollIntoView({ behavior: 'smooth' });
+                  }}
                   sx={{
                     backgroundColor: '#007BFF',
                     color: '#FFFFFF',
@@ -373,209 +558,10 @@ const Solutions = () => {
   const theme = useTheme();
   const [selectedTab, setSelectedTab] = useState(0);
 
-  const handleTabChange = (event, newValue) => {
-    console.log('Tab clicked:', newValue);
+  // UseCallback for stable handler
+  const handleTabChange = useCallback((event, newValue) => {
     setSelectedTab(newValue);
-    console.log('Selected tab updated:', newValue);
-  };
-
-  const solutions = [
-    {
-      id: 'smart-retail',
-      title: 'Smart Retail Management',
-      subtitle: 'Optimize Retail Operations',
-      description:
-        'We provide end-to-end oversight to ensure smooth store performance, improved customer experience, and consistent growth. Whether managing one store or an entire chain, our smart retail management approach helps your business perform at its best every day.',
-      icon: <Store />,
-      color: '#7F00FF',
-      features: [
-        'Sales & KPI Monitoring',
-        'Process Optimization',
-        'Staff Performance Management',
-        'Customer Engagement',
-        'Scalable Solutions',
-      ],
-      modules: [
-        {
-          title: 'Sales & KPI Monitoring',
-          description: 'Track performance across locations with real-time insights.',
-          features: ['Real-time sales tracking', 'KPI dashboards', 'Location-based analytics'],
-        },
-        {
-          title: 'Process Optimization',
-          description: 'Standardize operations to increase efficiency and reduce errors.',
-          features: ['Workflow automation', 'Error reduction systems', 'Standardized procedures'],
-        },
-        {
-          title: 'Staff Performance Management',
-          description: 'Enhance accountability and provide coaching for better results.',
-          features: ['Performance reviews', 'Coaching tools', 'Accountability metrics'],
-        },
-        {
-          title: 'Customer Engagement',
-          description: 'Strengthen customer interactions to drive loyalty and repeat business.',
-          features: ['Customer interaction tools', 'Loyalty programs', 'Engagement strategies'],
-        },
-        {
-          title: 'Scalable Solutions',
-          description: 'Designed to adapt seamlessly across single or multiple retail locations.',
-          features: ['Multi-location support', 'Scalable workflows', 'Flexible systems'],
-        },
-      ],
-    },
-    {
-      id: 'telecom-management',
-      title: 'Retail Telecom Management',
-      subtitle: 'Virtual Oversight Solutions',
-      description:
-        'Our comprehensive telecom management solutions streamline virtual operations, reducing the need for on-site supervision while maintaining peak performance across all locations.',
-      icon: <PhoneAndroid />,
-      color: '#00F0FF',
-      features: [
-        'Comprehensive Store Management',
-        'Performance Tracking',
-        'Accountability & Transparency',
-        'Coaching & Support',
-      ],
-      modules: [
-        {
-          title: 'Comprehensive Store Management',
-          description: 'Streamlined virtual solutions that reduce the need for on-site supervision.',
-          features: ['Virtual oversight tools', 'Remote management systems', 'Centralized control'],
-        },
-        {
-          title: 'Performance Tracking',
-          description: 'Real-time monitoring of key sales metrics and KPIs to keep growth on track.',
-          features: ['Sales metrics', 'KPI tracking', 'Growth analysis'],
-        },
-        {
-          title: 'Accountability & Transparency',
-          description: 'Strengthening staff accountability through clear performance insights.',
-          features: ['Performance insights', 'Accountability metrics', 'Transparent reporting'],
-        },
-        {
-          title: 'Coaching & Support',
-          description: 'Remote training and guidance to empower teams and improve customer engagement.',
-          features: ['Remote coaching', 'Team training modules', 'Customer engagement tools'],
-        },
-      ],
-    },
-    {
-      id: 'virtual-sales',
-      title: 'Virtual Sales Consultant',
-      subtitle: 'Expert Sales Guidance',
-      description:
-        'Our virtual sales consultancy provides the strategies, training, and insights your team needs to perform at its best, with professional support available whenever and wherever you need it.',
-      icon: <PersonPin />,
-      color: '#A9FF4F',
-      features: [
-        'Optimize Sales Processes',
-        'Improve Conversion Rates',
-        'Increase Revenue Growth',
-        'Access On-Demand Expertise',
-      ],
-      modules: [
-        {
-          title: 'Optimize Sales Processes',
-          description: 'Streamline workflows for higher efficiency and faster deal cycles.',
-          features: ['Workflow streamlining', 'Efficiency tools', 'Deal cycle optimization'],
-        },
-        {
-          title: 'Improve Conversion Rates',
-          description: 'Use data-driven techniques to turn leads into loyal customers.',
-          features: ['Data-driven strategies', 'Lead conversion tools', 'Customer retention'],
-        },
-        {
-          title: 'Increase Revenue Growth',
-          description: 'Implement proven strategies to boost sales outcomes sustainably.',
-          features: ['Revenue strategies', 'Sustainable growth plans', 'Sales forecasting'],
-        },
-        {
-          title: 'Access On-Demand Expertise',
-          description: 'Get professional support whenever and wherever you need it.',
-          features: ['On-demand consultation', 'Expert support', 'Remote guidance'],
-        },
-      ],
-    },
-    {
-      id: 'excellence-program',
-      title: 'Sales Excellence Program',
-      subtitle: 'Customized Training Programs',
-      description:
-        'Built to deliver measurable business outcomes, our program is designed to help you scale your salesforce, strengthen leadership capabilities, and enable your team to consistently exceed performance goals.',
-      icon: <School />,
-      color: '#7F00FF',
-      features: [
-        'Strategic Selling',
-        'Customer-Centric Approach',
-        'Advanced Negotiation',
-        'Data-Driven Sales',
-      ],
-      modules: [
-        {
-          title: 'Strategic Selling',
-          description: 'Aligning sales strategies with organizational growth objectives.',
-          features: ['Strategic alignment', 'Growth-focused selling', 'Objective planning'],
-        },
-        {
-          title: 'Customer-Centric Approach',
-          description: 'Strengthening relationships and fostering long-term client loyalty.',
-          features: ['Relationship building', 'Loyalty programs', 'Client engagement'],
-        },
-        {
-          title: 'Advanced Negotiation',
-          description: 'Developing the skills required to secure and maximize high-value opportunities.',
-          features: ['Negotiation training', 'High-value deal strategies', 'Skill development'],
-        },
-        {
-          title: 'Data-Driven Sales',
-          description: 'Leveraging insights and analytics to refine strategies and increase conversion rates.',
-          features: ['Sales analytics', 'Insight-driven strategies', 'Conversion optimization'],
-        }
-      ],
-    },
-    {
-      id: 'retail-excellence',
-      title: 'Retail Excellence Training',
-      subtitle: 'Comprehensive Staff Training',
-      description:
-        'Our expert-led training goes beyond basic product knowledge. We equip your staff with the skills they need to excel in every aspect of cellphone retail.',
-      icon: <School />,
-      color: '#00F0FF',
-      features: [
-        'Exceptional Customer Experience',
-        'Product Knowledge Mastery',
-        'Continuous Learning',
-      ],
-      modules: [
-        {
-          title: 'Exceptional Customer Experience (CX) Training',
-          description: 'Build rapport and ensure clear, empathetic interactions to foster customer loyalty.',
-          features: [
-            'Active Listening & Communication Etiquette',
-            'Conflict Resolution & De-escalation',
-            'Personalized Service Delivery',
-          ],
-        },
-        {
-          title: 'Product Knowledge Mastery',
-          description: 'Ensure your team is well-versed in the latest devices, technologies, and service offerings.',
-          features: [
-            'In-depth Device & Technology Training',
-            'Plan & Service Offerings',
-          ],
-        },
-        {
-          title: 'New Hire Onboarding & Continuous Learning',
-          description: 'Quickly bring new employees up to speed and keep your team updated with industry changes.',
-          features: [
-            'Structured Onboarding Programs',
-            'Ongoing Refresher Courses',
-          ],
-        },
-      ],
-    },
-  ];
+  }, []);
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>

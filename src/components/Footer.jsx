@@ -76,7 +76,7 @@ const Footer = () => {
   const offices = [
     { flag: twFlag, text: 'Taipei', mapQuery: 'Taipei,Taiwan', color: '#fe0000', alt: 'Taiwan Flag' },
     { flag: caFlag, text: 'Toronto', mapQuery: 'Toronto,Canada', color: '#ff0000', alt: 'Canada Flag' },
-    { flag: usFlag, text: 'Texas', mapQuery: 'Texas,USA', color: '#B22234', alt: 'USA Flag' },
+    { flag: usFlag, text: 'Tucson', mapQuery: 'Tucson,USA', color: '#B22234', alt: 'USA Flag' },
   ];
 
   const hoverStyles = {
