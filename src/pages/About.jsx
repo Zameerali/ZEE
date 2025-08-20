@@ -8,13 +8,13 @@ import {
   useTheme,
 } from '@mui/material';
 import { ArrowForward } from '@mui/icons-material';
-import IndustryExpertise from '../assets/Industry_Expertise.jpg';
+import IndustryExpertise from '../assets/Industry_Expertise.webp';
 import TailoredSolutions from '../assets/Tailored_Solutions.webp';
-import training from '../assets/training.jpg';
+import training from '../assets/training.webp';
 import MeasurebaleResults from '../assets/Measurable_Results.webp';
 import LongTermPartnership from '../assets/Long_term_Partnership (2).webp';
-import OurVision from '../assets/Vision.png';
-import WhatWeDo from '../assets/What_We_Do.jpg';
+import OurVision from '../assets/Vision.webp';
+import WhatWeDo from '../assets/What_We_Do.webp';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 

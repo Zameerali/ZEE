@@ -8,11 +8,11 @@ import {
   useTheme,
 } from '@mui/material';
 import { ArrowForward } from '@mui/icons-material';
-import IntenseCompetition from '../assets/Competition.jpg';
-import CustomerExperience from '../assets/Experience.jpg';
-import OperationalBottlenecks from '../assets/Operational_Bottlenecks.jpg';
+import IntenseCompetition from '../assets/Competition.webp';
+import CustomerExperience from '../assets/Experience.webp';
+import OperationalBottlenecks from '../assets/Operational_Bottlenecks.webp';
 import SalesPressure from '../assets/Sales_Pressure.webp';
-import Staff_Performance from '../assets/Staff_Performance.jpg';
+import Staff_Performance from '../assets/Staff_Performance.webp';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
